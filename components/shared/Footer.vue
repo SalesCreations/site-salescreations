@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p class="text-center">Lorem Ipsum</p>
+    <SocialLinks />
   </footer>
 </template>
 
@@ -11,3 +11,9 @@ export default Vue.extend({
   name: 'Footer',
 })
 </script>
+
+<style scoped>
+footer {
+  padding: 30px 0;
+}
+</style>
