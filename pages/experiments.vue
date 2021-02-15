@@ -2,8 +2,18 @@
   <div id="experiments-page">
     <Header title="Experiments" img="image-header-experiments.png" />
     <main>
-      <section class="skills-section">
-        <h2 class="text-5xl font-black">Skills</h2>
+      <section class="description-section">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Diam donec adipiscing tristique risus nec. Nibh mauris cursus mattis molestie a iaculis at erat. Turpis egestas
+          sed tempus urna et pharetra pharetra massa massa.
+        </p>
+      </section>
+      <section class="github-section">
+        <h2 class="text-5xl font-black">Last Repos Github</h2>
+      </section>
+      <section class="dribbble-section">
+        <h2 class="text-5xl font-black">Last Porjects Dribbble</h2>
       </section>
     </main>
   </div>

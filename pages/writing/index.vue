@@ -2,8 +2,7 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <section class="skills-section">
-        <h2 class="text-5xl font-black">Skills</h2>
+      <section class="articles-section">
       </section>
     </main>
   </div>
