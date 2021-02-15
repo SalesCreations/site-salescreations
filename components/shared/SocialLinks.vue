@@ -93,11 +93,6 @@
         </svg>
       </a>
     </nav>
-    <p class="text-center font-light">
-      built with <a class="font-bold" href="">Nuxt.js</a> served with
-      <a class="font-bold" href="">Netlify</a> and updated with
-      <a class="font-bold" href="">Contentful</a>
-    </p>
   </div>
 </template>
 
