@@ -1,0 +1,40 @@
+/* ====== 
+  EFFECT LINK 
+====== */
+
+a.link::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+a.link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a.link::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #FFD600;
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+a.link {
+  position: relative;
+}
+
+/* ====== 
+  COLOR SELECTION 
+====== */
+
+::-moz-selection { /* Code for Firefox */
+  background: #FFD600;
+}
+
+::selection {
+  background: #FFD600;
+}

@@ -7,13 +7,11 @@
         </NuxtLink>
       </div>
       <div class="hidden sm:block ml-auto">
-        <div class="flex space-x-4">
-          <NuxtLink to="/work" class="px-3 py-2 rounded-md text-sm text-base" :class="{ active: true }"> Work </NuxtLink>
-          <NuxtLink to="/about" class="px-3 py-2 rounded-md text-sm text-base" :class="{ active: true }"> About </NuxtLink>
-          <NuxtLink to="/experiments" class="px-3 py-2 rounded-md text-sm text-base" :class="{ active: true }">
-            Experiments
-          </NuxtLink>
-          <NuxtLink to="/writing" class="px-3 py-2 rounded-md text-sm text-base" :class="{ active: true }"> Writing </NuxtLink>
+        <div class="flex space-x-10">
+          <NuxtLink to="/work" class="link rounded-md text-sm text-base"> Work </NuxtLink>
+          <NuxtLink to="/about" class="link rounded-md text-sm text-base"> About </NuxtLink>
+          <NuxtLink to="/experiments" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
+          <NuxtLink to="/writing" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
         </div>
       </div>
     </div>
@@ -27,3 +25,10 @@ export default Vue.extend({
   name: 'Navbar',
 })
 </script>
+
+<style scoped>
+a.nuxt-link-active {
+  background: #ffd600;
+  border-radius: 0;
+}
+</style>

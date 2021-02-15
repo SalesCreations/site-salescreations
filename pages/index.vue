@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="col-span-3 flex flex-wrap content-center">
-        <img src="@/assets/images/image-header-me.png" alt="I'm" />
+        <img class="image-me" src="@/assets/images/image-header-me.png" alt="I'm" />
       </div>
     </header>
     <main>
@@ -31,3 +31,16 @@ export default Vue.extend({
   name: 'HomePage',
 })
 </script>
+
+<style scoped>
+.image-me {
+  animation: 1s appear;
+  margin: auto;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+</style>
