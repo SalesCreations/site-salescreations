@@ -4,14 +4,13 @@
       <div class="col-span-7 flex flex-wrap content-center">
         <h1 class="text-5xl font-black">Hello, I’m Rafael Sales</h1>
         <p class="text-base">
-          I'm a Product Designer and Front-End Developer, I create
-          SalesCreations at 2016 on focus helped companies on projects of Design
-          but in de last years I changed my from focus design only to Design +
-          Technology in helping the companies in co-create solutions
+          I'm a Product Designer and Front-End Developer, I create SalesCreations at 2016 on focus helped companies on projects of
+          Design but in de last years I changed my from focus design only to Design + Technology in helping the companies in
+          co-create solutions
         </p>
       </div>
       <div class="col-span-3 flex flex-wrap content-center">
-        <img src="@/assets/images/image-header-me.png" />
+        <img src="@/assets/images/image-header-me.png" alt="I'm" />
       </div>
     </header>
     <main>
