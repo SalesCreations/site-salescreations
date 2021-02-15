@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="relative">
     <SocialLinks />
     <p class="text-center font-light">
       built with
@@ -9,6 +9,12 @@
       and updated with
       <a class="font-bold link-footer" href="http://contentful.com/" target="_blank"> Contentful </a>
     </p>
+    <img
+      v-if="image"
+      class="absolute image-footer"
+      src="@/assets/images/illustration/illustration-footer.svg"
+      alt="people mobile"
+    />
   </footer>
 </template>
 
@@ -17,6 +23,13 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Footer',
+
+  props: {
+    image: {
+      type: Boolean,
+      required: true,
+    },
+  },
 })
 </script>
 
@@ -25,6 +38,10 @@ footer {
   padding: 30px 0;
 }
 footer a.link-footer {
-  background: #FFD600;
+  background: #ffd600;
+}
+footer img.image-footer {
+  bottom: 1rem;
+  right: -5rem;
 }
 </style>
