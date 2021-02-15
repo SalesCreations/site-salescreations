@@ -1,70 +1,34 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">site-salescreations</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div id="home-page">
+    <header class="grid gap-4 grid-cols-10 py-10">
+      <div class="col-span-7 flex flex-wrap content-center">
+        <h1 class="text-5xl font-black">Hello, I’m Rafael Sales</h1>
+        <p class="text-base">
+          I'm a Product Designer and Front-End Developer, I create
+          SalesCreations at 2016 on focus helped companies on projects of Design
+          but in de last years I changed my from focus design only to Design +
+          Technology in helping the companies in co-create solutions
+        </p>
       </div>
-    </div>
+      <div class="col-span-3 flex flex-wrap content-center">
+        <img src="@/assets/images/image-header-me.png" />
+      </div>
+    </header>
+    <main>
+      <section class="project-section">
+        <h2 class="text-5xl font-black">Projects</h2>
+      </section>
+      <section class="project-section">
+        <h2 class="text-5xl font-black">Writing</h2>
+      </section>
+    </main>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  name: 'HomePage',
+})
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
