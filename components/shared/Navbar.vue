@@ -4,36 +4,40 @@
       class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap"
     >
       <div class="mr-4 md:mr-8">
-        <a href="#" rel="home">
+        <NuxtLink to="/" rel="home">
           <Logo />
-        </a>
+        </NuxtLink>
       </div>
       <div class="hidden sm:block ml-auto">
         <div class="flex space-x-4">
-          <a
-            href="https://google.com"
+          <NuxtLink
+            to="/work"
             class="px-3 py-2 rounded-md text-sm text-base"
+            :class="{ active: true }"
           >
             Work
-          </a>
-          <a
-            href="https://google.com"
+          </NuxtLink>
+          <NuxtLink
+            to="/about"
             class="px-3 py-2 rounded-md text-sm text-base"
+            :class="{ active: true }"
           >
             About
-          </a>
-          <a
-            href="https://google.com"
+          </NuxtLink>
+          <NuxtLink
+            to="/experiments"
             class="px-3 py-2 rounded-md text-sm text-base"
+            :class="{ active: true }"
           >
             Experiments
-          </a>
-          <a
-            href="https://google.com"
+          </NuxtLink>
+          <NuxtLink
+            to="/writing"
             class="px-3 py-2 rounded-md text-sm text-base"
+            :class="{ active: true }"
           >
             Writing
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>
