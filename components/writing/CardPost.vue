@@ -1,6 +1,6 @@
 <template>
   <div id="card-post" class="py-5">
-    <NuxtLink to="/">
+    <NuxtLink to="/" class="link-post">
       <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-400">
         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
       </h3>
@@ -8,7 +8,7 @@
         Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum
         minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
       </p>
-      <div class="post-info flex space-x-4 text-sm">
+      <div class="post-info flex space-x-4 text-sm font-bold">
         <strong>14/08/2021</strong>
         <strong>18 comentários</strong>
       </div>
@@ -24,9 +24,12 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-a.nuxt-link-active {
-  background: #ffd600;
-  border-radius: 0;
+<style>
+#card-post {
+  transition: 0.5s;
+}
+#card-post:hover {
+  transform: scale(1.02);
+  transition: 0.5s;
 }
 </style>

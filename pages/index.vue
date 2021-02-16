@@ -23,7 +23,7 @@
           <CardPost v-for="(item, key) in 3" :key="key" />
         </div>
       </section>
-      <section class="finish-section py-56">
+      <section class="finish-section py-48">
         <ElementSalesCreations />
       </section>
     </main>
