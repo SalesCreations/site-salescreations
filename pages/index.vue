@@ -14,8 +14,11 @@
       </div>
     </header>
     <main>
-      <section class="project-section">
+      <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
+        <div class="last-projects">
+          <CardProject v-for="(item, key) in 3" :key="key" />
+        </div>
       </section>
       <section class="writing-section">
         <h2 class="text-5xl font-black py-5">Writing</h2>

@@ -4,6 +4,9 @@
     <main>
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
+        <div class="last-projects">
+          <CardProject v-for="(item, key) in 7" :key="key" />
+        </div>
       </section>
     </main>
   </div>
