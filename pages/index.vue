@@ -20,6 +20,9 @@
       <section class="project-section">
         <h2 class="text-5xl font-black">Writing</h2>
       </section>
+      <section class="finish-section py-56">
+        <ElementSalesCreations />
+      </section>
     </main>
   </div>
 </template>
