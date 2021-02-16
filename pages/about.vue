@@ -41,5 +41,18 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
+  head() {
+    return {
+      title: 'About Sales//Creations',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description',
+        },
+      ],
+    }
+  },
 })
 </script>
