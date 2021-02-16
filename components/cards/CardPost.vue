@@ -25,11 +25,13 @@ export default Vue.extend({
 </script>
 
 <style>
-#card-post {
+#card-post h3,
+#card-post p {
   transition: 0.5s;
 }
-#card-post:hover {
-  transform: scale(1.02);
+#card-post:hover h3,
+#card-post:hover p {
+  text-decoration: underline;
   transition: 0.5s;
 }
 </style>

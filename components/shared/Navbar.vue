@@ -27,8 +27,19 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-a.nuxt-link-active {
+a.nuxt-link-active::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 70%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 70% 0 0 0;
   background: #ffd600;
-  border-radius: 0;
+  z-index: -1;
+}
+a.nuxt-link-active {
+  position: relative;
 }
 </style>

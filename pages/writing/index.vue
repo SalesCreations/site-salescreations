@@ -2,7 +2,11 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-work.png" />
     <main>
-      <section class="articles-section">
+      <section class="writing-section">
+        <h2 class="text-5xl font-black py-5">Writing</h2>
+        <div class="last-posts divide-y divide-gray-300">
+          <CardPost v-for="(item, key) in 7" :key="key" />
+        </div>
       </section>
     </main>
   </div>
