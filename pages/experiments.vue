@@ -10,10 +10,10 @@
         </p>
       </section>
       <section class="github-section">
-        <h2 class="text-5xl font-black">Last Repos Github</h2>
+        <h2 class="text-5xl font-black py-5">Last Repos Github</h2>
       </section>
       <section class="dribbble-section">
-        <h2 class="text-5xl font-black">Last Porjects Dribbble</h2>
+        <h2 class="text-5xl font-black py-5">Last Porjects Dribbble</h2>
       </section>
     </main>
   </div>

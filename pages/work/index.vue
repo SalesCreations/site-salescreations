@@ -3,7 +3,7 @@
     <Header title="Work" img="image-header-work.png" />
     <main>
       <section class="projects-section">
-        <h2 class="text-5xl font-black">Projects</h2>
+        <h2 class="text-5xl font-black py-5">Projects</h2>
       </section>
     </main>
   </div>

@@ -22,13 +22,17 @@
           risus commodo viverra maecenas accumsan lacus vel.
         </p>
       </section>
+      <section class="finish-section pt-20 pb-10">
+        <ElementSalesCreations />
+      </section>
       <section class="skills-section">
-        <h2 class="text-5xl font-black">Skills</h2>
+        <h2 class="text-5xl font-black py-5">Skills</h2>
       </section>
       <section class="timeline-section">
-        <h2 class="text-5xl font-black">Timeline</h2>
+        <h2 class="text-5xl font-black py-5">Timeline</h2>
       </section>
       <section class="resume-section">
+        <BannerCta />
       </section>
       <section class="ig-section">
       </section>
