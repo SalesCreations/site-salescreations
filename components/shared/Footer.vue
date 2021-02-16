@@ -11,7 +11,7 @@
     </p>
     <img
       v-if="image"
-      class="absolute image-footer"
+      class="hidden lg:block absolute image-footer"
       src="@/assets/images/illustration/illustration-footer.svg"
       alt="people mobile"
     />

@@ -1,7 +1,7 @@
 <template>
   <div id="home-page">
     <header class="grid gap-4 grid-cols-10 py-10">
-      <div class="col-span-7 flex flex-wrap content-center">
+      <div class="col-span-10 sm:col-span-7 flex flex-wrap content-center">
         <h1 class="text-5xl font-black">Hello, I’m Rafael Sales</h1>
         <p class="text-base">
           I'm a Product Designer and Front-End Developer, I create SalesCreations at 2016 on focus helped companies on projects of
@@ -9,7 +9,7 @@
           co-create solutions
         </p>
       </div>
-      <div class="col-span-3 flex flex-wrap content-center">
+      <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <img class="image-me" src="@/assets/images/image-header-me.png" alt="I'm" />
       </div>
     </header>

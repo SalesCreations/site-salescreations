@@ -1,5 +1,5 @@
 <template>
-  <div id="default-layout" class="container mx-auto px-48">
+  <div id="default-layout" class="container mx-auto lg:px-48">
     <Navbar />
 
     <Nuxt />
