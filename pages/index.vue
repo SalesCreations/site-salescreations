@@ -15,10 +15,13 @@
     </header>
     <main>
       <section class="project-section">
-        <h2 class="text-5xl font-black">Projects</h2>
+        <h2 class="text-5xl font-black py-5">Projects</h2>
       </section>
-      <section class="project-section">
-        <h2 class="text-5xl font-black">Writing</h2>
+      <section class="writing-section">
+        <h2 class="text-5xl font-black py-5">Writing</h2>
+        <div class="last-posts divide-y divide-gray-300">
+          <CardPost v-for="(item, key) in 3" :key="key" />
+        </div>
       </section>
       <section class="finish-section py-56">
         <ElementSalesCreations />
