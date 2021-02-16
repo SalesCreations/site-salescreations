@@ -10,7 +10,10 @@
         </p>
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
-        <img class="image-me" src="@/assets/images/image-header-me.png" alt="I'm" />
+        <div class="image-action relative">
+          <img class="image-me" src="@/assets/images/image-header-me.png" alt="I'm" />
+          <img class="speech-bubble" src="@/assets/images/speech-bubble-demo.png" alt="Speech Bubble" />
+        </div>
       </div>
     </header>
     <main>
@@ -47,6 +50,27 @@ export default Vue.extend({
 .image-me {
   animation: 1s appear;
   margin: auto;
+}
+
+.image-action .speech-bubble {
+  position: absolute;
+  top: 22%;
+  right: -59%;
+  opacity: 0;
+  transform: rotate(50deg) scale(0);
+  transform-origin: bottom left;
+  transition: all 0.25s ease;
+}
+
+.image-action:hover .speech-bubble {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  transform-origin: bottom left;
+  transition: all 0.25s ease;
+}
+
+.image-action:hover {
+  cursor: pointer;
 }
 
 @keyframes appear {
