@@ -10,7 +10,18 @@
         </p>
       </section>
       <section class="github-section">
-        <h2 class="text-5xl font-black py-5">Last Repos Github</h2>
+        <h2 class="text-5xl font-black py-5">Repos Pinned Github</h2>
+        <div class="grid gap-4 grid-cols-12">
+          <div class="col-span-4 flex flex-wrap content-center">
+            <CardRepo />
+          </div>
+          <div class="col-span-4 flex flex-wrap content-center">
+            <CardRepo />
+          </div>
+          <div class="col-span-4 flex flex-wrap content-center">
+            <CardRepo />
+          </div>
+        </div>
       </section>
       <section class="dribbble-section">
         <h2 class="text-5xl font-black py-5">Last Porjects Dribbble</h2>

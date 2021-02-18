@@ -10,7 +10,6 @@
 <style>
 .IconGithub {
   animation: 1s appear;
-  margin: auto;
 }
 
 @keyframes appear {
