@@ -1,12 +1,5 @@
 <template>
-  <svg
-    class="SalesCreationsLogo"
-    width="33"
-    height="33"
-    viewBox="0 0 33 33"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg class="SalesCreationsLogo" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9.26636 32.6228C6.23602 32.6228 3.77139 30.1582 3.77139 27.1278V9.26633C3.77139 6.23599 6.23602 3.77136 9.26636 3.77136H27.1279C30.1582 3.77136 32.6228 6.23599 32.6228 9.26633V27.1278C32.6228 30.1582 30.1582 32.6228 27.1279 32.6228H9.26636Z"
       fill="white"
