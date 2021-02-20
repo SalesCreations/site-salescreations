@@ -7,7 +7,7 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 .IconGithub {
   animation: 1s appear;
 }
