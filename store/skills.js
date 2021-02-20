@@ -7,9 +7,6 @@ export const mutations = {
   SET_SKILLS(state, skills) {
     state.skills = skills
   },
-  SET_SKILL(state, skill) {
-    state.skill = skill
-  },
 }
 export const actions = {
   fetchSkills({ commit }) {
