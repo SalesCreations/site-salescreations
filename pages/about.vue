@@ -34,22 +34,33 @@
       <section class="resume-section">
         <BannerCta />
       </section>
-      <section class="ig-section">
-      </section>
+      <section class="ig-section"></section>
     </main>
   </div>
 </template>
 
-<script lang="ts">
+<script>
+import { mapState } from 'vuex'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
+
+  async fetch({ store, error }) {
+    try {
+      await store.dispatch('skills/fetchSkills')
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time, please try again',
+      })
+    }
+  },
+
   head() {
     return {
       title: 'About Sales//Creations',
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
@@ -58,5 +69,9 @@ export default Vue.extend({
       ],
     }
   },
+
+  computed: mapState({
+    skills: (state) => state.skills.skills.items,
+  }),
 })
 </script>
