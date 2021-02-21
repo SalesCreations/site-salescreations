@@ -35,6 +35,7 @@
       </section>
       <section class="timeline-section py-5">
         <h2 class="text-5xl font-black py-5">Timeline</h2>
+        <Timeline />
       </section>
       <section class="resume-section">
         <BannerCta />
