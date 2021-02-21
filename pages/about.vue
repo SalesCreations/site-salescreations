@@ -27,8 +27,13 @@
       </section>
       <section class="skills-section">
         <h2 class="text-5xl font-black py-5">Skills</h2>
+        <div class="list-skill grid gap-5 grid-cols-10">
+          <div v-for="(skill, key) in skills" :key="`${key}_${skill.sys.id}`" class="col-span-5 flex flex-wrap content-center">
+            <CardSkill :skill="skill" />
+          </div>
+        </div>
       </section>
-      <section class="timeline-section">
+      <section class="timeline-section py-5">
         <h2 class="text-5xl font-black py-5">Timeline</h2>
       </section>
       <section class="resume-section">
