@@ -37,7 +37,7 @@
         <h2 class="text-5xl font-black py-5">Timeline</h2>
         <Timeline />
       </section>
-      <section class="resume-section">
+      <section class="resume-section my-10">
         <BannerCta />
       </section>
       <section class="ig-section"></section>

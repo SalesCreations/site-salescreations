@@ -38,6 +38,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://github.com/nuxt-community/markdownit-module
+    '@nuxtjs/markdownit'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

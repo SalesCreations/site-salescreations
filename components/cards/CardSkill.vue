@@ -23,11 +23,8 @@ export default Vue.extend({
 </script>
 
 <style>
-#card-post {
-  transition: 0.5s;
-}
-#card-post:hover {
-  transform: scale(1.02);
+#card-skill:hover a svg path {
+  fill: #ffd600;
   transition: 0.5s;
 }
 </style>
