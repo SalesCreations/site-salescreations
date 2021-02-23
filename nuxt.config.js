@@ -40,6 +40,8 @@ export default {
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/markdownit-module
     '@nuxtjs/markdownit'
+    // https://github.com/nuxt-community/dayjs-module
+    '@nuxtjs/dayjs'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
