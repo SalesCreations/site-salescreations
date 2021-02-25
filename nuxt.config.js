@@ -41,7 +41,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/markdownit-module
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
     // https://github.com/nuxt-community/dayjs-module
     '@nuxtjs/dayjs'
   ],
