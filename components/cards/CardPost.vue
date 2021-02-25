@@ -1,5 +1,5 @@
 <template>
-  <div id="card-post" class="py-5">
+  <div class="card-post py-5">
     <NuxtLink to="/" class="link-post">
       <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-400">
         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
@@ -25,12 +25,12 @@ export default Vue.extend({
 </script>
 
 <style>
-#card-post h3,
-#card-post p {
+.card-post h3,
+.card-post p {
   transition: 0.5s;
 }
-#card-post:hover h3,
-#card-post:hover p {
+.card-post:hover h3,
+.card-post:hover p {
   text-decoration: underline;
   transition: 0.5s;
 }

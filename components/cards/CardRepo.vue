@@ -1,5 +1,5 @@
 <template>
-  <div id="card-repo" class="pt-5 pb-3 px-5 rounded border border-black">
+  <div class="card-repo pt-5 pb-3 px-5 rounded border border-black">
     <NuxtLink to="/" class="link-repo">
       <IconGithub width="37" height="35" class="mb-1" />
       <h3 class="text-lg font-black mb-2">programacao-head-first</h3>
@@ -22,10 +22,10 @@ export default Vue.extend({
 </script>
 
 <style>
-#card-repo {
+.card-repo {
   transition: 0.5s;
 }
-#card-repo:hover {
+.card-repo:hover {
   transform: scale(1.02);
   transition: 0.5s;
 }
