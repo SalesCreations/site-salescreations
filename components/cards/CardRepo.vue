@@ -24,7 +24,7 @@ export default Vue.extend({
   name: 'CardProject',
   filters: {
     truncate(string: string, maxLength: number, end = '...') {
-      // if (!string) return ''
+      if (!string) return ''
       string = string.toString()
       return `${string.substring(0, maxLength)}${string.length > maxLength ? end : ''}`
     },

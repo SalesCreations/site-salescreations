@@ -77,7 +77,7 @@ export default Vue.extend({
   },
 
   computed: mapState({
-    skills: (state) => state.skills.skills.items,
+    skills: (state) => state.skills.skills.skillsCollection.items,
   }),
 })
 </script>

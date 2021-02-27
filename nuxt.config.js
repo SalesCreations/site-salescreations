@@ -17,7 +17,7 @@ export default {
   css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/contentful.js'],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,6 +59,14 @@ export default {
         options: {
           headers: {
             authorization: `Bearer ${process.env.GH_TOKEN}`,
+          },
+        },
+      },
+      secondClient: {
+        endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`,
+        options: {
+          headers: {
+            authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}`,
           },
         },
       },

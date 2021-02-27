@@ -1,4 +1,5 @@
-import SkillService from '@/services/SkillService.js'
+// import SkillService from '@/services/SkillService.js'
+import { gql } from 'nuxt-graphql-request'
 
 export const state = () => ({
   skills: [],
@@ -9,9 +10,27 @@ export const mutations = {
   },
 }
 export const actions = {
-  fetchSkills({ commit }) {
-    return SkillService.getSkills().then((response) => {
-      commit('SET_SKILLS', response.data)
-    })
+  async fetchSkills({ commit }) {
+    // return SkillService.getSkills().then((response) => {
+    //   commit('SET_SKILLS', response.data)
+    // })
+
+    const query = gql`
+      query {
+        skillsCollection {
+          items {
+            title
+            description
+            link
+            sys {
+              id
+            }
+          }
+        }
+      }
+    `
+
+    const skills = await this.$graphql.secondClient.request(query)
+    commit('SET_SKILLS', skills)
   },
 }
