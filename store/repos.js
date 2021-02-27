@@ -43,7 +43,8 @@ export const actions = {
       }
     `
 
-    const repos = await this.$graphql.default.request(query)
+    this.$graphql.githubClient.setHeaders({ authorization: `Bearer ${process.env.GH_TOKEN}` })
+    const repos = await this.$graphql.githubClient.request(query)
     commit('SET_REPOS', repos)
   },
 }

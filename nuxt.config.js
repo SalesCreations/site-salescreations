@@ -54,21 +54,11 @@ export default {
   // Nuxt Graphql Request module
   graphql: {
     clients: {
-      default: {
+      githubClient: {
         endpoint: 'https://api.github.com/graphql',
-        options: {
-          headers: {
-            authorization: `Bearer ${process.env.GH_TOKEN}`,
-          },
-        },
       },
-      secondClient: {
+      contentfulClient: {
         endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`,
-        options: {
-          headers: {
-            authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}`,
-          },
-        },
       },
     },
   },

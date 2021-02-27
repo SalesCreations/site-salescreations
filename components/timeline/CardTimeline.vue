@@ -13,17 +13,16 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'CardTimeline',
 
-  props: {
-    event: {
-      type: Object,
-      required: false,
-      default: {},
-    },
-  },
+  // props: {
+  //   event: {
+  //     type: Object,
+  //     required: false,
+  //   },
+  // },
 })
 </script>
 
-<style module>
+<style>
 .card-timeline {
   padding: 3em 2em 2em;
   position: relative;

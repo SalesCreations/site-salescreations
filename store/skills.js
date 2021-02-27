@@ -30,7 +30,8 @@ export const actions = {
       }
     `
 
-    const skills = await this.$graphql.secondClient.request(query)
+    this.$graphql.contentfulClient.setHeaders({ authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}` })
+    const skills = await this.$graphql.contentfulClient.request(query)
     commit('SET_SKILLS', skills)
   },
 }
