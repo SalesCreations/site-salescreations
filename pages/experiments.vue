@@ -30,16 +30,28 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
+import { mapState } from 'vuex'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ExperimentsPage',
+
+  async fetch({ store, error }) {
+    try {
+      await store.dispatch('repos/fetchRepos')
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time, please try again',
+      })
+    }
+  },
+
   head() {
     return {
       title: 'Experiments from Sales//Creations',
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
@@ -48,5 +60,9 @@ export default Vue.extend({
       ],
     }
   },
+
+  computed: mapState({
+    repos: (state) => state.repos.repos.items,
+  }),
 })
 </script>

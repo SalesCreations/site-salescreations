@@ -16,13 +16,14 @@ export default Vue.extend({
   props: {
     event: {
       type: Object,
-      required: true,
+      required: false,
+      default: {},
     },
   },
 })
 </script>
 
-<style>
+<style module>
 .card-timeline {
   padding: 3em 2em 2em;
   position: relative;

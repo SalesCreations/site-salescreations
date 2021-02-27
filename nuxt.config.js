@@ -31,7 +31,7 @@ export default {
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // https://sitemap.nuxtjs.org/
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,7 +43,7 @@ export default {
     // https://github.com/nuxt-community/markdownit-module
     '@nuxtjs/markdownit',
     // https://github.com/nuxt-community/dayjs-module
-    '@nuxtjs/dayjs'
+    '@nuxtjs/dayjs',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -57,5 +57,13 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName: '[hash:base64:4]',
+        },
+      },
+    },
+  },
 }
