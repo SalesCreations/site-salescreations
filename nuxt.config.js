@@ -32,6 +32,8 @@ export default {
     '@nuxtjs/dotenv',
     // https://sitemap.nuxtjs.org/
     '@nuxtjs/sitemap',
+    // https://github.com/gomah/nuxt-graphql-request
+    'nuxt-graphql-request',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,6 +50,20 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  // Nuxt Graphql Request module
+  graphql: {
+    clients: {
+      default: {
+        endpoint: 'https://api.github.com/graphql',
+        options: {
+          headers: {
+            authorization: `Bearer ${process.env.GH_TOKEN}`,
+          },
+        },
+      },
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

@@ -12,14 +12,8 @@
       <section class="github-section">
         <h2 class="text-5xl font-black py-5">Repos Pinned Github</h2>
         <div class="grid gap-4 grid-cols-12">
-          <div class="col-span-4 flex flex-wrap content-center">
-            <CardRepo />
-          </div>
-          <div class="col-span-4 flex flex-wrap content-center">
-            <CardRepo />
-          </div>
-          <div class="col-span-4 flex flex-wrap content-center">
-            <CardRepo />
+          <div v-for="(repo, key) in repos" :key="`${key}_${repo.id}`" class="col-span-4 flex flex-wrap content-center">
+            <CardRepo :repo="repo" />
           </div>
         </div>
       </section>
@@ -36,7 +30,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ExperimentsPage',
-
   async fetch({ store, error }) {
     try {
       await store.dispatch('repos/fetchRepos')
@@ -47,7 +40,6 @@ export default Vue.extend({
       })
     }
   },
-
   head() {
     return {
       title: 'Experiments from Sales//Creations',
@@ -60,9 +52,8 @@ export default Vue.extend({
       ],
     }
   },
-
   computed: mapState({
-    repos: (state) => state.repos.repos.items,
+    repos: (state) => state.repos.repos.user.pinnedItems.nodes,
   }),
 })
 </script>

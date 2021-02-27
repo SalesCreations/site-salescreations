@@ -12,7 +12,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'CardSkill',
-
   props: {
     skill: {
       type: Object,
