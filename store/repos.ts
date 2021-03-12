@@ -1,15 +1,20 @@
 // import ReposService from '@/services/ReposService.js'
-import { gql } from 'nuxt-graphql-request'
+import { ActionTree, MutationTree } from 'vuex'
+import { gql } from 'graphql-request'
 
 export const state = () => ({
-  repos: [],
+  repos: [] as object[],
 })
-export const mutations = {
-  SET_REPOS(state, repos) {
+
+export type RootState = ReturnType<typeof state>
+
+export const mutations: MutationTree<RootState> = {
+  SET_REPOS(state, repos: object[]) {
     state.repos = repos
   },
 }
-export const actions = {
+
+export const actions: ActionTree<RootState, RootState> = {
   async fetchRepos({ commit }) {
     // return ReposService.getRepositories().then((response) => {
     //   commit('SET_REPOS', response.data)
@@ -42,7 +47,6 @@ export const actions = {
         }
       }
     `
-
     this.$graphql.githubClient.setHeaders({ authorization: `Bearer ${process.env.GH_TOKEN}` })
     const repos = await this.$graphql.githubClient.request(query)
     commit('SET_REPOS', repos)

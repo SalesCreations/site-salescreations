@@ -1,5 +1,5 @@
 <template>
-  <div class="card-repo relative pt-5 pb-3 px-5 rounded border border-black min-w-full">
+  <div class="card-repo no-flicker relative pt-5 pb-3 px-5 rounded border border-black min-w-full">
     <a :href="repo.url" target="_blank" class="link-repo">
       <IconGithub width="37" height="35" class="mb-1" />
       <h3 class="text-lg font-black mb-2">{{ repo.name }}</h3>
@@ -38,13 +38,11 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style soped>
 .card-repo {
-  transition: 0.5s;
   min-height: 243px;
 }
 .card-repo:hover {
-  transform: scale(1.02);
-  transition: 0.5s;
+  background-color: #fffb00;
 }
 </style>
