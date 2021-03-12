@@ -1,15 +1,20 @@
 // import SkillService from '@/services/SkillService.js'
-import { gql } from 'nuxt-graphql-request'
+import { ActionTree, MutationTree } from 'vuex'
+import { gql } from 'graphql-request'
 
 export const state = () => ({
-  skills: [],
+  skills: [] as object[],
 })
-export const mutations = {
-  SET_SKILLS(state, skills) {
+
+export type RootState = ReturnType<typeof state>
+
+export const mutations: MutationTree<RootState> = {
+  SET_SKILLS(state, skills: object[]) {
     state.skills = skills
   },
 }
-export const actions = {
+
+export const actions: ActionTree<RootState, RootState> = {
   async fetchSkills({ commit }) {
     // return SkillService.getSkills().then((response) => {
     //   commit('SET_SKILLS', response.data)
