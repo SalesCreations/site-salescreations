@@ -5,6 +5,7 @@
       <h3 class="text-lg font-black mb-2">{{ repo.name }}</h3>
       <p class="text-sm mb-4">{{ repo.description | truncate(65) }}</p>
       <p class="text-xs text-gray-500">
+        <strong>tags:</strong>
         <span v-for="(topic, key) in repo.repositoryTopics.nodes" :key="`${key}_${topic.topic.name}`">
           {{ topic.topic.name }} <span v-if="key < repo.repositoryTopics.nodes.length - 1">, </span>
         </span>
@@ -43,6 +44,6 @@ export default Vue.extend({
   min-height: 243px;
 }
 .card-repo:hover {
-  background-color: #fffb00;
+  background-color: #fff88f;
 }
 </style>
