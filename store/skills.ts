@@ -1,4 +1,3 @@
-// import SkillService from '@/services/SkillService.js'
 import { ActionTree, MutationTree } from 'vuex'
 import { gql } from 'graphql-request'
 
@@ -16,9 +15,6 @@ export const mutations: MutationTree<RootState> = {
 
 export const actions: ActionTree<RootState, RootState> = {
   async fetchSkills({ commit }) {
-    // return SkillService.getSkills().then((response) => {
-    //   commit('SET_SKILLS', response.data)
-    // })
     const query = gql`
       query {
         skillsCollection {
@@ -33,7 +29,7 @@ export const actions: ActionTree<RootState, RootState> = {
         }
       }
     `
-    this.$graphql.contentfulClient.setHeaders({ authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}` })
+    this.$graphql.contentfulClient.setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
     const skills = await this.$graphql.contentfulClient.request(query)
     commit('SET_SKILLS', skills)
   },
