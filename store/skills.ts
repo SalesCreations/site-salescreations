@@ -29,8 +29,9 @@ export const actions: ActionTree<RootState, RootState> = {
         }
       }
     `
-    this.$graphql.contentfulClient.setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
-    const skills = await this.$graphql.contentfulClient.request(query)
+    const skills = await this.$graphql.contentfulClient
+      .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
+      .request(query)
     commit('SET_SKILLS', skills)
   },
 }
