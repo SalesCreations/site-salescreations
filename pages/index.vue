@@ -11,7 +11,7 @@
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <div class="image-action relative">
-          <img class="image-me" src="@/assets/images/image-header-me.png" height="284" width="229" alt="I'm" />
+          <img class="image-me" src="@/assets/images/image-header-me.png" height="297" width="258" alt="I'm" />
           <img class="speech-bubble" src="@/assets/images/speech-bubble-demo.png" alt="Speech Bubble" />
         </div>
       </div>
@@ -50,8 +50,8 @@ export default Vue.extend({
 .image-me {
   animation: 1s appear;
   margin: auto;
-  height: 284px;
-  width: 229px;
+  height: 297px;
+  width: 258px;
 }
 
 .image-action .speech-bubble {
