@@ -2,8 +2,8 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <NuxtLink to="/" rel="home">
-          <Logo />
+        <NuxtLink to="/" rel="home" aria-label="link home">
+          <Logo alt="Brand Sales//Creations" />
         </NuxtLink>
       </div>
       <div class="hidden sm:block ml-auto">
