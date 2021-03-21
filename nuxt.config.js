@@ -35,7 +35,7 @@ export default {
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // https://sitemap.nuxtjs.org/
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     // https://github.com/gomah/nuxt-graphql-request
     'nuxt-graphql-request',
   ],
