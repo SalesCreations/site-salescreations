@@ -50,6 +50,8 @@ export default Vue.extend({
 .image-me {
   animation: 1s appear;
   margin: auto;
+  height: 284px;
+  width: 229px;
 }
 
 .image-action .speech-bubble {
