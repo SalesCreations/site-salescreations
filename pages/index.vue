@@ -11,7 +11,7 @@
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <div class="image-action relative">
-          <img class="image-me" src="@/assets/images/image-header-me.png" alt="I'm" />
+          <img class="image-me" src="@/assets/images/image-header-me.png" height="284" width="229" alt="I'm" />
           <img class="speech-bubble" src="@/assets/images/speech-bubble-demo.png" alt="Speech Bubble" />
         </div>
       </div>
