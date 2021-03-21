@@ -1,6 +1,6 @@
 <template>
   <div class="card-skill py-2">
-    <a :href="skill.link" target="_blank">
+    <a :href="skill.link" target="_blank" rel="noreferrer">
       <h3 class="text-3xl font-black flex items-center">{{ skill.title }} <IconLaunch class="ml-3 mt-1" /></h3>
       <p class="text-base text-gray-700">{{ skill.description }}</p>
     </a>

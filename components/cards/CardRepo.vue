@@ -1,6 +1,6 @@
 <template>
   <div class="card-repo no-flicker relative pt-5 pb-3 px-5 rounded border border-black min-w-full">
-    <a :href="repo.url" target="_blank" class="link-repo">
+    <a :href="repo.url" target="_blank" rel="noreferrer" class="link-repo">
       <IconGithub width="37" height="35" class="mb-1" />
       <h3 class="text-lg font-black mb-2">{{ repo.name }}</h3>
       <p class="text-sm mb-4">{{ repo.description | truncate(65) }}</p>

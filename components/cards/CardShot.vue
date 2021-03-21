@@ -1,6 +1,6 @@
 <template>
   <div class="card-shot relative">
-    <a :href="shot.html_url" target="_blank">
+    <a :href="shot.html_url" target="_blank" rel="noreferrer">
       <div
         class="flex justify-center flex-wrap content-center px-10 info-shot absolute h-full w-full bg-pink-500 cursor-pointer opacity-0 hover:opacity-100 transition duration-500 ease-in-out"
       >

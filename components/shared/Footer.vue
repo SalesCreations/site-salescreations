@@ -3,11 +3,11 @@
     <SocialLinks />
     <p class="text-center font-light">
       built with
-      <a class="font-bold link-footer" href="https://nuxtjs.org/" target="_blank"> Nuxt.js </a>
+      <a class="font-bold link-footer" href="https://nuxtjs.org/" target="_blank" rel="noreferrer"> Nuxt.js </a>
       served with
-      <a class="font-bold link-footer" href="https://www.netlify.com/" target="_blank"> Netlify </a>
+      <a class="font-bold link-footer" href="https://www.netlify.com/" target="_blank" rel="noreferrer"> Netlify </a>
       and updated with
-      <a class="font-bold link-footer" href="http://contentful.com/" target="_blank"> Contentful </a>
+      <a class="font-bold link-footer" href="http://contentful.com/" target="_blank" rel="noreferrer"> Contentful </a>
     </p>
     <img
       v-if="image"
