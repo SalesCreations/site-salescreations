@@ -22,14 +22,14 @@
         <!-- <div class="last-projects">
           <CardProject v-for="(item, key) in 3" :key="key" />
         </div> -->
-        <ButtonMore class="float-right" label="Learn More" to="/work" />
+        <ButtonMore class="float-right" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <div class="last-posts divide-y divide-gray-300">
           <CardPost v-for="(item, key) in 3" :key="key" />
         </div>
-        <ButtonMore class="float-right" label="Learn More" to="/writing" />
+        <ButtonMore class="float-right" label="See More Articles" to="/writing" />
       </section>
       <section class="finish-section py-48">
         <ElementSalesCreations />
