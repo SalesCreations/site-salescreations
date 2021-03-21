@@ -19,6 +19,11 @@
       </section>
       <section class="dribbble-section">
         <h2 class="text-5xl font-black py-5">Last Porjects Dribbble</h2>
+        <div class="grid gap-4 grid-cols-12">
+          <div v-for="(shot, key) in shots" :key="`shot-${shot.id}`" class="col-span-4 flex flex-wrap content-center">
+            <CardShot v-if="key < 3" :shot="shot" />
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -33,6 +38,7 @@ export default Vue.extend({
   async fetch({ store, error }) {
     try {
       await store.dispatch('repos/fetchRepos')
+      await store.dispatch('shots/fetchShots')
     } catch (e) {
       error({
         statusCode: 503,
@@ -54,6 +60,7 @@ export default Vue.extend({
   },
   computed: mapState({
     repos: (state) => state.repos.repos.user.pinnedItems.nodes,
+    shots: (state) => state.shots.shots,
   }),
 })
 </script>
