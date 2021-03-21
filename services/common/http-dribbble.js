@@ -6,6 +6,6 @@ export const apiClient = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${process.env.DRIBBBLE_TOKEN}`,
+    Authorization: `Bearer ${process.env.dribbbleToken}`,
   },
 })

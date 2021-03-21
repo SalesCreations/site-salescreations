@@ -55,6 +55,13 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
+  env: {
+    ctfSpaceID: process.env.CTF_SPACE_ID,
+    ctfCdaAccessToken: process.env.CTF_CDA_ACCESS_TOKEN,
+    ghToken: process.env.GH_TOKEN,
+    dribbbleToken: process.env.DRIBBBLE_TOKEN,
+  },
+
   // Nuxt Graphql Request module
   graphql: {
     clients: {

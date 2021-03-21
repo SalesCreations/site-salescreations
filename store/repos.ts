@@ -1,4 +1,3 @@
-// import ReposService from '@/services/ReposService.js'
 import { ActionTree, MutationTree } from 'vuex'
 import { gql } from 'graphql-request'
 
@@ -16,9 +15,6 @@ export const mutations: MutationTree<RootState> = {
 
 export const actions: ActionTree<RootState, RootState> = {
   async fetchRepos({ commit }) {
-    // return ReposService.getRepositories().then((response) => {
-    //   commit('SET_REPOS', response.data)
-    // })
     const query = gql`
       {
         user(login: "rsales") {
@@ -47,7 +43,7 @@ export const actions: ActionTree<RootState, RootState> = {
         }
       }
     `
-    this.$graphql.githubClient.setHeaders({ authorization: `Bearer ${process.env.GH_TOKEN}` })
+    this.$graphql.githubClient.setHeaders({ authorization: `Bearer ${process.env.ghToken}` })
     const repos = await this.$graphql.githubClient.request(query)
     commit('SET_REPOS', repos)
   },
