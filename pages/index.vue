@@ -19,9 +19,9 @@
     <main>
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
-        <!-- <div class="last-projects">
+        <div class="last-projects">
           <CardProject v-for="(item, key) in 3" :key="key" />
-        </div> -->
+        </div>
         <ButtonMore class="float-right" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section">

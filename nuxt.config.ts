@@ -101,6 +101,7 @@ export default {
   },
 
   generate: {
+    fallback: true,
     routes: () => {
       return PostService.getPosts().then((response) => {
         return response.map((post: any) => {
