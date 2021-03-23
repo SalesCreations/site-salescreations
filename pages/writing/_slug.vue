@@ -1,15 +1,11 @@
 <template>
   <div id="show-writing">
-    <!-- <Header title="Writing" img="image-header-work.png" /> -->
+    <img :src="post.imagePost.url" :alt="post.imagePost.title" />
     <main>
-      <!-- <section class="writing-section">
-        <h2 class="text-5xl font-black py-5">Writing</h2>
-        <ul class="last-posts divide-y divide-gray-300">
-          <li v-for="(post, key) in posts" :key="key">
-            <CardPost :post="post" />
-          </li>
-        </ul>
-      </section> -->
+      <section class="show-writing-section">
+        <h1 class="text-5xl font-black py-5 text-center">{{ post.title }}</h1>
+        <article v-html="$md.render(post.contents)" />
+      </section>
     </main>
   </div>
 </template>

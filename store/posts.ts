@@ -49,8 +49,13 @@ export const actions: ActionTree<RootState, RootState> = {
             title
             slug
             resume
+            contents
             datetime
             portugueses
+            imagePost {
+              title
+              url
+            }
           }
         }
       }

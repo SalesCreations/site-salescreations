@@ -50,6 +50,8 @@ export default {
     '@nuxtjs/markdownit',
     // https://github.com/nuxt-community/dayjs-module
     '@nuxtjs/dayjs',
+    // Using markdownit-loader and markdown-it
+    '@nuxtjs/markdownit',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -72,6 +74,10 @@ export default {
         endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`,
       },
     },
+  },
+
+  markdownit: {
+    runtime: true,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
