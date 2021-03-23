@@ -2,7 +2,7 @@
   <div id="home-page">
     <header class="grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 sm:col-span-7 flex flex-wrap content-center">
-        <h1 class="text-5xl font-black">Hello, I’m Rafael Sales</h1>
+        <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">Hello, I’m Rafael Sales</h1>
         <p class="text-base">
           I'm a Product Designer and Front-End Developer, I create SalesCreations at 2016 on focus helped companies on projects of
           Design but in de last years I changed my from focus design only to Design + Technology in helping the companies in
@@ -11,7 +11,7 @@
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <div class="image-action relative">
-          <img class="image-me" src="@/assets/images/image-header-me.png" height="297" width="258" alt="I'm" />
+          <img class="img-me" src="@/assets/images/image-header-me.png" height="297" width="258" alt="I'm" />
           <img class="speech-bubble" src="@/assets/images/speech-bubble-demo.png" alt="Speech Bubble" />
         </div>
       </div>
@@ -63,11 +63,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.image-me {
+.img-me {
   animation: 1s appear;
   margin: auto;
-  height: 297px;
-  width: 258px;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 .image-action .speech-bubble {

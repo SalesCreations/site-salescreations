@@ -30,8 +30,7 @@ export default Vue.extend({
 img {
   animation: 1s appear;
   margin: auto;
-  height: 268.58px;
-  width: 895.88px;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 @keyframes appear {

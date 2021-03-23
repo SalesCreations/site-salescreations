@@ -1,4 +1,4 @@
-import { gql, request, GraphQLClient } from 'graphql-request'
+import PostService from './services/PostService'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -101,27 +101,11 @@ export default {
   },
 
   generate: {
-    async routes() {
-      const query = gql`
-        query {
-          blogPostCollection {
-            items {
-              slug
-            }
-          }
-        }
-      `
-      const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`
-      const client = new GraphQLClient(endpoint, {
-        headers: { authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}` },
-      })
-
-      const posts: object[] = await client.request(query).then((data) => {
-        return data.blogPostCollection.items
-      })
-
-      return posts.map((post: any) => {
-        return `/event/${post.slug}`
+    routes: () => {
+      return PostService.getPosts().then((response) => {
+        return response.map((post: any) => {
+          return `/writing/${post.slug}`
+        })
       })
     },
   },
