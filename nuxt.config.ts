@@ -98,7 +98,7 @@ export default {
     },
   },
 
-  genrate: {
+  generate: {
     fallback: true,
   },
 }
