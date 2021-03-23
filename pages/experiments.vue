@@ -59,7 +59,7 @@ export default Vue.extend({
     }
   },
   computed: mapState({
-    repos: (state) => state.repos.repos.user.pinnedItems.nodes,
+    repos: (state) => state.repos.repos,
     shots: (state) => state.shots.shots,
   }),
 })

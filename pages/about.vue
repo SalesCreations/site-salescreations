@@ -49,8 +49,6 @@
 import { mapState } from 'vuex'
 import Vue from 'vue'
 
-// import { SkillItem } from '@/services/common/types'
-
 export default Vue.extend({
   name: 'AboutPage',
 
@@ -79,7 +77,7 @@ export default Vue.extend({
   },
 
   computed: mapState({
-    skills: (state: any) => state.skills.skills.skillsCollection.items,
+    skills: (state: any) => state.skills.skills,
   }),
 })
 </script>

@@ -8,7 +8,7 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  SET_SKILLS(state, skills: object[]) {
+  SET_SKILLS(state, skills) {
     state.skills = skills
   },
 }
@@ -32,6 +32,6 @@ export const actions: ActionTree<RootState, RootState> = {
     const skills = await this.$graphql.contentfulClient
       .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
       .request(query)
-    commit('SET_SKILLS', skills)
+    commit('SET_SKILLS', skills.skillsCollection.items)
   },
 }

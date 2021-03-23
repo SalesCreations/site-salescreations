@@ -44,6 +44,6 @@ export const actions: ActionTree<RootState, RootState> = {
       }
     `
     const repos = await this.$graphql.githubClient.setHeaders({ authorization: `Bearer ${process.env.ghToken}` }).request(query)
-    commit('SET_REPOS', repos)
+    commit('SET_REPOS', repos.user.pinnedItems.nodes)
   },
 }
