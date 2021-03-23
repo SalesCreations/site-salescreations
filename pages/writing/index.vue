@@ -44,7 +44,7 @@ export default Vue.extend({
     }
   },
   computed: mapState({
-    posts: (state: any) => state.posts.posts.blogPostCollection.items,
+    posts: (state: any) => state.posts.posts,
   }),
 })
 </script>
