@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
-        <div class="image-action relative">
+        <div class="image-action relative mx-auto">
           <img class="img-me" src="@/assets/images/image-header-me.png" height="297" width="258" alt="I'm" />
           <img class="speech-bubble" src="@/assets/images/speech-bubble-demo.png" alt="Speech Bubble" />
         </div>
