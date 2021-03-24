@@ -16,13 +16,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
+import { BlogPostCollectionItem } from '@/plugins/types'
 
 export default Vue.extend({
   name: 'CardPost',
   props: {
     post: {
-      type: Object,
+      type: Object as PropType<BlogPostCollectionItem>,
       required: true,
     },
   },

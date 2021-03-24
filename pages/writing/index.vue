@@ -21,7 +21,7 @@ export default Vue.extend({
   name: 'WritingPage',
   async fetch({ store, error }) {
     try {
-      await store.dispatch('posts/fetchPosts')
+      await store.dispatch('posts/fetchPosts', 10)
     } catch (e) {
       error({
         statusCode: 503,

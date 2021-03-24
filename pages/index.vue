@@ -24,7 +24,7 @@
         </div>
         <ButtonMore class="float-right" label="See More Projects" to="/work" />
       </section>
-      <section class="writing-section">
+      <section class="writing-section mt-16">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="key">
@@ -48,7 +48,7 @@ export default Vue.extend({
   name: 'HomePage',
   async fetch({ store, error }) {
     try {
-      await store.dispatch('posts/fetchPosts')
+      await store.dispatch('posts/fetchPosts', 3)
     } catch (e) {
       error({
         statusCode: 503,

@@ -12,7 +12,11 @@
       <section class="github-section">
         <h2 class="text-5xl font-black py-5">Repos Pinned Github</h2>
         <div class="grid gap-4 grid-cols-12">
-          <div v-for="(repo, key) in repos" :key="`${key}_${repo.id}`" class="col-span-4 flex flex-wrap content-center">
+          <div
+            v-for="(repo, key) in repos"
+            :key="`${key}_${repo.id}`"
+            class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
+          >
             <CardRepo :repo="repo" />
           </div>
         </div>
@@ -20,7 +24,11 @@
       <section class="dribbble-section">
         <h2 class="text-5xl font-black py-5">Last Porjects Dribbble</h2>
         <div class="grid gap-4 grid-cols-12">
-          <div v-for="(shot, key) in shots" :key="`shot-${shot.id}`" class="col-span-4 flex flex-wrap content-center">
+          <div
+            v-for="(shot, key) in shots"
+            :key="`shot-${shot.id}`"
+            class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
+          >
             <CardShot v-if="key < 3" :shot="shot" />
           </div>
         </div>

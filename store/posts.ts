@@ -1,9 +1,10 @@
 import { ActionTree, MutationTree } from 'vuex'
 import { gql } from 'graphql-request'
+import { BlogPostCollectionItem, BlogPost } from '@/plugins/types'
 
 export const state = () => ({
-  posts: [] as object[],
-  post: {} as object,
+  posts: [] as BlogPostCollectionItem[],
+  post: {} as BlogPost,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -18,10 +19,10 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async fetchPosts({ commit }) {
+  async fetchPosts({ commit }, limit) {
     const query = gql`
       query {
-        blogPostCollection {
+        blogPostCollection(limit: ${limit}) {
           total
           skip
           limit
