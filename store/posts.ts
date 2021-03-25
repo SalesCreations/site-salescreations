@@ -10,10 +10,10 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  SET_POSTS(state, posts) {
+  SET_POSTS(state, posts: BlogPostCollectionItem[]) {
     state.posts = posts
   },
-  SET_POST(state, post) {
+  SET_POST(state, post: BlogPost) {
     state.post = post
   },
 }

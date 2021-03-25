@@ -6,6 +6,7 @@
           <Logo alt="Brand Sales//Creations" />
         </NuxtLink>
       </div>
+      <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">
         <div class="flex space-x-10">
           <NuxtLink to="/work" class="link rounded-md text-sm text-base"> Work </NuxtLink>
@@ -14,11 +15,13 @@
           <NuxtLink to="/writing" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
         </div>
       </div>
+      <!-- NAVIGATION MOBILE -->
       <div class="ml-auto sm:hidden">
         <button
           type="button"
           class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
           aria-expanded="false"
+          @click="dropdowNav = !dropdowNav"
         >
           <span class="sr-only">Open menu</span>
           <svg
@@ -34,6 +37,14 @@
         </button>
       </div>
     </div>
+    <div :class="`dropdow-nav bg-white shadow-lg w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
+      <div class="flex flex-col">
+        <NuxtLink to="/work" class="link rounded-md text-sm text-base pl-3 my-2"> Work </NuxtLink>
+        <NuxtLink to="/about" class="link rounded-md text-sm text-base pl-3 my-2"> About </NuxtLink>
+        <NuxtLink to="/experiments" class="link rounded-md text-sm text-base pl-3 my-2"> Experiments </NuxtLink>
+        <NuxtLink to="/writing" class="link rounded-md text-sm text-base pl-3 my-2"> Writing </NuxtLink>
+      </div>
+    </div>
   </nav>
 </template>
 
@@ -42,6 +53,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Navbar',
+  data: () => ({
+    dropdowNav: false,
+  }),
 })
 </script>
 
@@ -60,5 +74,15 @@ a.nuxt-link-active::after {
 }
 a.nuxt-link-active {
   position: relative;
+}
+.dropdow-nav {
+  opacity: 0;
+  transition: 0.3s;
+  display: none;
+}
+.dropdow-nav.active {
+  opacity: 1;
+  transition: 0.3s;
+  display: block;
 }
 </style>
