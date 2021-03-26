@@ -37,12 +37,12 @@
         </button>
       </div>
     </div>
-    <div :class="`dropdow-nav bg-white shadow-lg w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
+    <div :class="`dropdow-nav bg-white w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
       <div class="flex flex-col">
-        <NuxtLink to="/work" class="link rounded-md text-sm text-base pl-3 my-2"> Work </NuxtLink>
-        <NuxtLink to="/about" class="link rounded-md text-sm text-base pl-3 my-2"> About </NuxtLink>
-        <NuxtLink to="/experiments" class="link rounded-md text-sm text-base pl-3 my-2"> Experiments </NuxtLink>
-        <NuxtLink to="/writing" class="link rounded-md text-sm text-base pl-3 my-2"> Writing </NuxtLink>
+        <NuxtLink to="/work" class="link rounded-md text-sm text-base my-2"> Work </NuxtLink>
+        <NuxtLink to="/about" class="link rounded-md text-sm text-base my-2"> About </NuxtLink>
+        <NuxtLink to="/experiments" class="link rounded-md text-sm text-base my-2"> Experiments </NuxtLink>
+        <NuxtLink to="/writing" class="link rounded-md text-sm text-base my-2"> Writing </NuxtLink>
       </div>
     </div>
   </nav>
