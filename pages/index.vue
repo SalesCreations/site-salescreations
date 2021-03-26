@@ -22,16 +22,16 @@
         <div class="last-projects">
           <CardProject v-for="(item, key) in 3" :key="key" />
         </div>
-        <ButtonMore class="float-right" label="See More Projects" to="/work" />
+        <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
       </section>
-      <section class="writing-section mt-16">
+      <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="key">
             <CardPost :post="post" />
           </li>
         </ul>
-        <ButtonMore class="float-right" label="See More Articles" to="/writing" />
+        <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
       </section>
       <section class="finish-section py-48">
         <ElementSalesCreations />
