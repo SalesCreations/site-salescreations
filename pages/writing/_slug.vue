@@ -1,9 +1,14 @@
 <template>
   <div id="show-writing">
-    <img :src="post.imagePost.url" :alt="post.imagePost.title" />
+    <header class="header grid gap-4 grid-cols-10 py-10">
+      <div class="col-span-10 flex flex-wrap content-center">
+        <h1 class="text-5xl font-black mb-8">{{ post.title }}</h1>
+        <div class="image-post" :style="`background-image: url('${post.imagePost.url}')`" />
+        <p class="mt-10"><strong>published:</strong> {{ $dayjs(post.datetime).format('YYYY/MM/DD') }}</p>
+      </div>
+    </header>
     <main>
       <section class="show-writing-section">
-        <h1 class="text-5xl font-black py-5 text-center">{{ post.title }}</h1>
         <article v-html="$md.render(post.contents)" />
       </section>
     </main>
@@ -44,3 +49,22 @@ export default Vue.extend({
   }),
 })
 </script>
+
+<style scoped>
+.image-post {
+  width: 895.875px;
+  height: 268.031px;
+  background-color: gainsboro;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: 1s appear;
+  margin: auto;
+  aspect-ratio: attr(width) / attr(height);
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+</style>
