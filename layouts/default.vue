@@ -4,6 +4,7 @@
 
     <Nuxt />
 
+    <ButtonScrollUp />
     <Footer :image="$route.name === 'index'" />
   </div>
 </template>
