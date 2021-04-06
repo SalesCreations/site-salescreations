@@ -1,6 +1,6 @@
 <template>
   <div id="Writing-page">
-    <Header title="Writing" img="image-header-work.png" />
+    <Header title="Writing" img="image-header-writing.png" />
     <main>
       <section class="writing-section">
         <ul class="last-posts divide-y divide-gray-300">
