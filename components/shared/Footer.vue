@@ -13,6 +13,7 @@
       v-if="image"
       class="hidden lg:block absolute image-footer"
       src="@/assets/images/illustration/illustration-footer.svg"
+      loading="lazy"
       alt="people mobile"
     />
   </footer>

@@ -2,7 +2,7 @@
   <header class="header grid gap-4 grid-cols-10 py-10">
     <div class="col-span-10 flex flex-wrap content-center">
       <h1 class="text-5xl font-black mb-8">{{ title }}</h1>
-      <img :src="require(`@/assets/images/${img}`)" width="895.875" height="268.031" :alt="`${title} Image`" />
+      <img :src="require(`@/assets/images/${img}`)" loading="lazy" width="895.875" height="268.031" :alt="`${title} Image`" />
     </div>
   </header>
 </template>
