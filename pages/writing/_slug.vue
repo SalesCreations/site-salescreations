@@ -2,7 +2,7 @@
   <div id="show-writing">
     <header class="header grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 flex flex-wrap content-center">
-        <h1 class="text-5xl font-black mb-8">{{ post.title }}</h1>
+        <h1 class="text-4xl md:text-5xl font-black mb-8">{{ post.title }}</h1>
         <div class="image-post" :style="`background-image: url('${post.imagePost.url}')`" />
         <p class="mt-10"><strong>published:</strong> {{ $dayjs(post.datetime).format('YYYY/MM/DD') }}</p>
       </div>
@@ -10,6 +10,10 @@
     <main>
       <section class="show-writing-section">
         <article id="writing-content" v-html="$md.render(post.contents)" />
+      </section>
+
+      <section class="comments-section">
+        <Disqus />
       </section>
     </main>
   </div>
@@ -76,7 +80,7 @@ export default Vue.extend({
   @apply mb-5;
 }
 #writing-content pre {
-  @apply mb-5;
+  @apply my-8;
 }
 #writing-content pre code {
   @apply rounded;
@@ -88,10 +92,15 @@ export default Vue.extend({
 #writing-content ul {
   @apply list-disc;
   @apply list-inside;
-  @apply pl-10;
+  @apply pl-4;
   @apply my-10;
 }
 #writing-content ul li {
   @apply mb-3;
+}
+@media (min-width: 768px) {
+  #writing-content ul {
+    @apply pl-10;
+  }
 }
 </style>

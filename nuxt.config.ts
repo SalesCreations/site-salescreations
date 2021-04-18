@@ -14,14 +14,14 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/hopscotch.css'],
+  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dracula.css'],
 
   server: {
     port: 5000,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/disqus'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -60,6 +60,7 @@ export default {
     ctfCdaAccessToken: process.env.CTF_CDA_ACCESS_TOKEN,
     ghToken: process.env.GH_TOKEN,
     dribbbleToken: process.env.DRIBBBLE_TOKEN,
+    disqusShortname: process.env.DISQUS_SHORTNAME,
   },
 
   // Nuxt Graphql Request module

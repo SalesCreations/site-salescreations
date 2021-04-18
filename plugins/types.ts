@@ -10,7 +10,6 @@ export interface BlogPostCollectionItem {
     url: string
   }
 }
-
 export interface BlogPost {
   title: string
   slug: string

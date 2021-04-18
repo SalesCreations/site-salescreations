@@ -22,7 +22,7 @@ export const actions: ActionTree<RootState, RootState> = {
   async fetchPosts({ commit }, limit) {
     const query = gql`
       query {
-        blogPostCollection(limit: ${limit}) {
+        blogPostCollection(limit: ${limit}, order: datetime_DESC) {
           total
           skip
           limit
