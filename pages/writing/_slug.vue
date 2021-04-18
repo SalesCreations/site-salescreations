@@ -12,7 +12,8 @@
         <article id="writing-content" v-html="$md.render(post.contents)" />
       </section>
 
-      <section class="comments-section">
+      <section class="comments-section mt-10">
+        <h1 class="text-2xl md:text-3xl font-black mb-4">Comments:</h1>
         <Disqus />
       </section>
     </main>
