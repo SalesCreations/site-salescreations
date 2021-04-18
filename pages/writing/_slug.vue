@@ -9,7 +9,7 @@
     </header>
     <main>
       <section class="show-writing-section">
-        <article v-html="$md.render(post.contents)" />
+        <article id="writing-content" v-html="$md.render(post.contents)" />
       </section>
     </main>
   </div>
@@ -50,7 +50,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style>
 .image-post {
   width: 895.875px;
   height: 268.031px;
@@ -66,5 +66,32 @@ export default Vue.extend({
   0% {
     opacity: 0;
   }
+}
+#writing-content p,
+#writing-content ul {
+  @apply font-serif;
+  @apply text-lg;
+  @apply text-gray-800;
+  @apply tracking-wide;
+  @apply mb-5;
+}
+#writing-content pre {
+  @apply mb-5;
+}
+#writing-content pre code {
+  @apply rounded;
+}
+#writing-content a {
+  @apply text-blue-600;
+  @apply underline;
+}
+#writing-content ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply pl-10;
+  @apply my-10;
+}
+#writing-content ul li {
+  @apply mb-3;
 }
 </style>

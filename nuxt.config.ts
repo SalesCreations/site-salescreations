@@ -1,5 +1,3 @@
-import PostService from './services/PostService'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -16,7 +14,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css'],
+  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/hopscotch.css'],
 
   server: {
     port: 5000,
@@ -52,8 +50,6 @@ export default {
     '@nuxtjs/markdownit',
     // https://github.com/nuxt-community/dayjs-module
     '@nuxtjs/dayjs',
-    // Using markdownit-loader and markdown-it
-    '@nuxtjs/markdownit',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -80,6 +76,7 @@ export default {
 
   markdownit: {
     runtime: true,
+    use: ['markdown-it-highlightjs'],
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -99,14 +96,4 @@ export default {
       },
     },
   },
-
-  // generate: {
-  //   routes: () => {
-  //     return PostService.getPosts().then((response) => {
-  //       return response.map((post: any) => {
-  //         return `/writing/${post.slug}`
-  //       })
-  //     })
-  //   },
-  // },
 }

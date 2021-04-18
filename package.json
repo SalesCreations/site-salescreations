@@ -19,6 +19,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.8.3",
+    "markdown-it-highlightjs": "^3.4.0",
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
