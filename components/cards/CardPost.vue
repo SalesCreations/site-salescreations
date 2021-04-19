@@ -8,8 +8,8 @@
         {{ post.resume }}
       </p>
       <div class="post-info flex space-x-4 text-sm font-bold">
-        <strong>{{ $dayjs(post.datetime).format('YYYY/MM/DD') }}</strong>
-        <strong>18 comentários</strong>
+        <strong>{{ $dayjs(post.datetime).format('MMM DD, YYYY') }}</strong>
+        <strong>2min read</strong>
       </div>
     </NuxtLink>
   </div>
