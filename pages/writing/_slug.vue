@@ -84,7 +84,7 @@ export default Vue.extend({
 
 <style>
 .image-post {
-  width: 895.875px;
+  width: 100%;
   height: 268.031px;
   background-color: gainsboro;
   background-position: center;
@@ -92,7 +92,6 @@ export default Vue.extend({
   background-size: cover;
   animation: 1s appear;
   margin: auto;
-  aspect-ratio: attr(width) / attr(height);
 }
 @keyframes appear {
   0% {
