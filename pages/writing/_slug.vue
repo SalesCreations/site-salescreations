@@ -56,13 +56,17 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: 'Writing ideas by Sales//Creations',
+      title: this.post.title,
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
+          hid: this.post.slug,
+          name: this.post.title,
+          content: this.post.resume,
+          'og:url': 'https://',
+          'og:type': 'article',
+          'og:title': this.post.title,
+          'og:description': this.post.resume,
+          'og:image': this.post.imagePost.url,
         },
       ],
     }
