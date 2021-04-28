@@ -158,10 +158,10 @@ export default Vue.extend({
   }
 }
 /* Hack production not login disqus, hidden sponsored */
-#disqus_thread iframe:nth-child(1),
+/* #disqus_thread iframe:nth-child(1),
 #disqus_thread iframe:nth-child(3) {
   display: none !important;
-}
+} */
 @media print {
   .comments-section {
     display: none;
