@@ -158,8 +158,13 @@ export default Vue.extend({
   }
 }
 /* Hack production not login disqus, hidden sponsored */
-#disqus_thread iframe:nth-child(1) {
-  display: none !important;
+#disqus_thread {
+  overflow-y: hidden;
+}
+#disqus_thread iframe:first-child {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  margin-top: -586px;
 }
 @media print {
   .comments-section {
