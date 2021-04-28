@@ -45,4 +45,9 @@ footer img.image-footer {
   bottom: 1rem;
   right: -5rem;
 }
+@media print {
+  footer {
+    display: none;
+  }
+}
 </style>

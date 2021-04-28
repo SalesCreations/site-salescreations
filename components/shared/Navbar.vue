@@ -85,4 +85,9 @@ a.nuxt-link-active {
   transition: 0.3s;
   display: block;
 }
+@media print {
+  nav {
+    display: none;
+  }
+}
 </style>

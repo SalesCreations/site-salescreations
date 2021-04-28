@@ -92,6 +92,7 @@ export default Vue.extend({
   background-size: cover;
   animation: 1s appear;
   margin: auto;
+  -webkit-print-color-adjust: exact;
 }
 @keyframes appear {
   0% {
@@ -108,9 +109,11 @@ export default Vue.extend({
 }
 #writing-content pre {
   @apply my-8;
+  -webkit-print-color-adjust: exact;
 }
 #writing-content pre code {
   @apply rounded;
+  -webkit-print-color-adjust: exact;
 }
 #writing-content a {
   @apply text-blue-600;
