@@ -50,6 +50,8 @@ export default {
     '@nuxtjs/markdownit',
     // https://github.com/nuxt-community/dayjs-module
     '@nuxtjs/dayjs',
+    // https://github.com/nicolasbeauvais/vue-social-sharing#readme
+    'vue-social-sharing/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
