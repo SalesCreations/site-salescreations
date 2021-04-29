@@ -11,6 +11,7 @@
             <CardPost :post="post" />
           </li>
         </ul>
+        <ButtonLoadPage v-if="posts > 100" />
       </section>
     </main>
   </div>
@@ -24,7 +25,7 @@ export default Vue.extend({
   name: 'WritingPage',
   async fetch({ store, error }) {
     try {
-      await store.dispatch('posts/fetchPosts', 10)
+      await store.dispatch('posts/fetchPosts', null)
     } catch (e) {
       error({
         statusCode: 503,

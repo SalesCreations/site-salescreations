@@ -3,6 +3,8 @@ import { gql } from 'graphql-request'
 import { BlogPostCollectionItem, BlogPost } from '@/plugins/types'
 
 export const state = () => ({
+  page: 1,
+  chunksPerPage: 2,
   posts: [] as BlogPostCollectionItem[],
   post: {} as BlogPost,
 })
