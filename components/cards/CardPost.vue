@@ -9,7 +9,7 @@
       </p>
       <div class="post-info flex space-x-4 text-sm font-bold">
         <strong>{{ $dayjs(post.datetime).format('MMM DD, YYYY') }}</strong>
-        <strong>2min read</strong>
+        <strong>{{ time.text }}</strong>
       </div>
     </NuxtLink>
   </div>
@@ -18,6 +18,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { BlogPostCollectionItem } from '@/plugins/types'
+const readingTime = require('reading-time')
 
 export default Vue.extend({
   name: 'CardPost',
@@ -26,6 +27,12 @@ export default Vue.extend({
       type: Object as PropType<BlogPostCollectionItem>,
       required: true,
     },
+  },
+  data: () => ({
+    time: 0,
+  }),
+  created() {
+    this.time = readingTime(this.post.contents)
   },
 })
 </script>

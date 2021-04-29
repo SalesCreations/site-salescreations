@@ -7,7 +7,7 @@
           <img class="rounded-full h-7 w-7" src="@/assets/images/avatar-rafael.jpg" alt="avatar author" width="22" height="22" />
           <span class="ml-1 bold">Rafael Sales</span>
           <span class="ml-3 bold text-gray-500 font-light flex-grow"
-            >{{ $dayjs(post.datetime).format('MMM DD, YYYY') }} • 2min read
+            >{{ $dayjs(post.datetime).format('MMM DD, YYYY') }} • {{ time.text }}
           </span>
           <svg
             class="cursor-pointer action-post"
@@ -47,7 +47,7 @@
 
       <section class="comments-section mt-10">
         <h1 class="text-2xl md:text-3xl font-black mb-4">Comments:</h1>
-        <Disqus @change="alerts" />
+        <Disqus />
       </section>
     </main>
   </div>
@@ -56,9 +56,13 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+const readingTime = require('reading-time')
 
 export default Vue.extend({
   name: 'ShowWriting',
+  data: () => ({
+    time: 0,
+  }),
   async fetch({ store, error, params }) {
     try {
       await store.dispatch('posts/fetchPost', params.slug)
@@ -89,6 +93,9 @@ export default Vue.extend({
   computed: mapState({
     post: (state: any) => state.posts.post,
   }),
+  created() {
+    this.time = readingTime(this.post.contents)
+  },
   methods: {
     printPage() {
       window.print()
@@ -167,6 +174,7 @@ export default Vue.extend({
 #disqus_thread iframe:first-child {
   opacity: 0 !important;
   margin-top: -586px;
+  pointer-events: none;
 }
 @media print {
   .comments-section {
