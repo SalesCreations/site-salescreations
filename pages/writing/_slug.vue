@@ -47,7 +47,7 @@
 
       <section class="comments-section mt-10">
         <h1 class="text-2xl md:text-3xl font-black mb-4">Comments:</h1>
-        <Disqus />
+        <Disqus @change="alerts" />
       </section>
     </main>
   </div>
@@ -92,6 +92,9 @@ export default Vue.extend({
   methods: {
     printPage() {
       window.print()
+    },
+    alerts() {
+      alert('Hello')
     },
   },
 })
@@ -163,7 +166,6 @@ export default Vue.extend({
 }
 #disqus_thread iframe:first-child {
   opacity: 0 !important;
-  transform: scale(0) !important;
   margin-top: -586px;
 }
 @media print {
