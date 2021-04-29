@@ -2,7 +2,10 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <section class="writing-section">
+      <section class="search-section">
+        <InputSearch text="Qual artigo você gostaria de ver..." />
+      </section>
+      <section class="writing-section mt-6">
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="key">
             <CardPost :post="post" />
