@@ -1,6 +1,6 @@
 <template>
   <div id="card-project" class="py-8 px-10 bg-white my-5 rounded border-2 border-black">
-    <NuxtLink to="/" class="link-post flex">
+    <NuxtLink to="/" class="link-post flex flex-col sm:flex-row">
       <div class="descriptions">
         <p class="tag-project text-sm font-thin">Project - 2019</p>
         <h3 class="title-project text-3xl font-black">Lorem ipsum dolor sit amet</h3>
@@ -9,7 +9,7 @@
           aliqua.
         </p>
       </div>
-      <img src="@/assets/images/work-demo.png" alt="image-porject" width="192" height="113" />
+      <img class="hidden sm:block" src="@/assets/images/work-demo.png" alt="image-porject" width="192" height="113" />
     </NuxtLink>
   </div>
 </template>
