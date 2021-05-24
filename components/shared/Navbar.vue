@@ -2,8 +2,21 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <NuxtLink to="/" rel="home" aria-label="link home">
-          <Logo alt="Brand Sales//Creations" />
+        <NuxtLink
+          to="/"
+          rel="home"
+          aria-label="link home"
+          @mouseover.native="brandHover = true"
+          @mouseleave.native="brandHover = false"
+        >
+          <Logo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
+          <img
+            :class="`${brandHover ? 'block' : 'hidden'}`"
+            src="@/assets/images/gif-hover.gif"
+            width="36"
+            height="36"
+            alt="Brand Sales//Creations gif"
+          />
         </NuxtLink>
       </div>
       <!-- NAVIGATION DESKTOP -->
@@ -60,6 +73,7 @@ export default Vue.extend({
   name: 'Navbar',
   data: () => ({
     dropdowNav: false,
+    brandHover: false,
   }),
 })
 </script>
