@@ -3,23 +3,19 @@
     <Header title="About" img="image-header-about.png" />
     <main>
       <section class="description-section">
+        <h6 class="font-bold text-xl">Hello!</h6>
+        <br />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Diam donec adipiscing tristique risus nec. Nibh mauris cursus mattis molestie a iaculis at erat. Turpis egestas
-          sed tempus urna et pharetra pharetra massa massa. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat.
-          Consectetur a erat nam at lectus urna duis convallis. Placerat duis ultricies lacus sed. Eget gravida cum sociis natoque
-          penatibus et magnis dis. Semper auctor neque vitae tempus quam. Eget est lorem ipsum dolor sit amet. Diam quis enim
-          lobortis scelerisque fermentum. Condimentum id venenatis a condimentum vitae. Ut tortor pretium viverra suspendisse
-          potenti nullam ac. Interdum posuere lorem ipsum dolor sit amet consectetur.
+          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a 27-year-old product designer and
+          front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
+          design that are my two passions.
         </p>
         <br />
         <p>
-          In nulla posuere sollicitudin aliquam ultrices sagittis. Odio morbi quis commodo odio aenean sed adipiscing. Congue
-          quisque egestas diam in arcu cursus euismod. Orci porta non pulvinar neque. Tempor commodo ullamcorper a lacus. Donec
-          enim diam vulputate ut pharetra sit amet. Tristique senectus et netus et malesuada fames ac turpis. Nisl suscipit
-          adipiscing bibendum est ultricies. Semper risus in hendrerit gravida rutrum quisque. Et netus et malesuada fames ac.
-          Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Lectus magna fringilla urna porttitor rhoncus. Nunc vel
-          risus commodo viverra maecenas accumsan lacus vel.
+          I started my career in the graphic sector, when I was in the last year of high school and fell in love with the
+          possibilities within the design area, right after that I entered the university in the graphic design course, today
+          completing 12 years that I started in the world of design and within the 12 years I have been 9 years working directly
+          in the technology area.
         </p>
       </section>
       <section class="finish-section pt-20 pb-10">
