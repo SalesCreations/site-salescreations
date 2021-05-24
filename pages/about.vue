@@ -6,16 +6,16 @@
         <h6 class="font-bold text-xl">Hello!</h6>
         <br />
         <p>
-          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a 27-year-old product designer and
-          front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
+          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a {{ age }}-year-old product designer
+          and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
           design that are my two passions.
         </p>
         <br />
         <p>
           I started my career in the graphic sector, when I was in the last year of high school and fell in love with the
           possibilities within the design area, right after that I entered the university in the graphic design course, today
-          completing 12 years that I started in the world of design and within the 12 years I have been 9 years working directly
-          in the technology area.
+          completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
+          been {{ techStart }} years working directly in the technology area.
         </p>
       </section>
       <section class="finish-section pt-20 pb-10">
@@ -51,6 +51,17 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
+
+  asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
+    return {
+      age:
+        parseInt($dayjs().format('mm')) < 8
+          ? parseInt($dayjs().format('YYYY')) - 1993 - 1
+          : parseInt($dayjs().format('YYYY')) - 1993,
+      designStart: parseInt($dayjs().format('YYYY')) - 2009,
+      techStart: parseInt($dayjs().format('YYYY')) - 2012,
+    }
+  },
 
   async fetch({ store, error }) {
     try {

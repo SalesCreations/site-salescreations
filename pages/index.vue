@@ -4,9 +4,9 @@
       <div class="col-span-10 sm:col-span-7 flex flex-wrap content-center">
         <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">Hello, I’m Rafael Sales</h1>
         <p class="text-base">
-          I am a product designer and front-end developer, initially I created SalesCreations in 2016 with a focus on helping
-          companies in design projects, but in recent years I changed my positioning only from design to work with design and
-          technology assisting in co-creation with companies in search for solutions.
+          I am a <strong>Product Designer and Front-End Developer</strong>, initially I created Sales Creations in 2016 with a
+          focus on helping companies in design projects, but in recent years I changed my positioning only from design to work
+          with design and technology assisting in co-creation with companies in search for solutions.
         </p>
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">

@@ -6,7 +6,8 @@
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Diam donec adipiscing tristique risus nec. Nibh mauris cursus mattis molestie a iaculis at erat. Turpis egestas
-          sed tempus urna et pharetra pharetra massa massa.
+          sed tempus urna et pharetra pharetra massa massa. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat.
+          Consectetur a erat nam at lectus urna duis convallis.
         </p>
       </section>
       <section class="github-section">
