@@ -22,3 +22,9 @@ export interface BlogPost {
     url: string
   }
 }
+
+export interface timelineCollectionItem {
+  title: string
+  description: string
+  datetime: string
+}

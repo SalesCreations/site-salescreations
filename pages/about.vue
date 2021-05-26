@@ -51,7 +51,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
-
   asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
     return {
       age:
@@ -59,13 +58,13 @@ export default Vue.extend({
           ? parseInt($dayjs().format('YYYY')) - 1993 - 1
           : parseInt($dayjs().format('YYYY')) - 1993,
       designStart: parseInt($dayjs().format('YYYY')) - 2009,
-      techStart: parseInt($dayjs().format('YYYY')) - 2012,
+      techStart: parseInt($dayjs().format('YYYY')) - 2013,
     }
   },
-
   async fetch({ store, error }) {
     try {
       await store.dispatch('skills/fetchSkills')
+      await store.dispatch('dates/fetchDates', null)
     } catch (e) {
       error({
         statusCode: 503,
@@ -73,7 +72,6 @@ export default Vue.extend({
       })
     }
   },
-
   head() {
     return {
       title: 'About Sales//Creations',
@@ -86,9 +84,9 @@ export default Vue.extend({
       ],
     }
   },
-
   computed: mapState({
     skills: (state: any) => state.skills.skills,
+    dates: (state: any) => state.dates.dates,
   }),
 })
 </script>
