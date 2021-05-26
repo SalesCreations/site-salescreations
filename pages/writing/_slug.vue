@@ -220,7 +220,7 @@ export default Vue.extend({
 .action-post:hover {
   transform: scale(1.09);
 }
-/* Hack production not login disqus, hidden sponsored */
+/* Start - Hack production not login disqus, hidden sponsored */
 #disqus_thread {
   overflow-y: hidden;
 }
@@ -229,6 +229,7 @@ export default Vue.extend({
   margin-top: -586px;
   pointer-events: none;
 }
+/* End - Hack production not login disqus, hidden sponsored */
 @media (min-width: 768px) {
   #writing-content ul {
     @apply pl-10;
@@ -260,7 +261,8 @@ export default Vue.extend({
   }
 }
 @media print {
-  .comments-section {
+  .comments-section,
+  .action-post {
     display: none;
   }
 }

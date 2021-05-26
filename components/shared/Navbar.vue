@@ -11,7 +11,7 @@
         >
           <Logo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
           <img
-            :class="`${brandHover ? 'block' : 'hidden'}`"
+            :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
             src="@/assets/images/gif-hover.gif"
             width="36"
             height="36"
@@ -103,6 +103,15 @@ a.nuxt-link-active {
   opacity: 1;
   transition: 0.3s;
   display: block;
+}
+.brand-gif {
+  animation: 0.6s appear;
+  margin: auto;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
 }
 @media print {
   nav {

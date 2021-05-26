@@ -25,7 +25,7 @@
 
 <style>
 .SalesCreationsLogo {
-  animation: 1s appear;
+  animation: 0.6s appear;
   margin: auto;
 }
 

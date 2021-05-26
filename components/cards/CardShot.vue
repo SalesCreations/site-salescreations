@@ -7,13 +7,14 @@
         <div class="shot-info">
           <h1 class="text-center text-pink-600 text-lg font-black mb-2">{{ shot.title }}</h1>
           <p class="text-xs text-center text-white">
+            <strong>tags:</strong>
             <span v-for="(tag, key) in shot.tags" :key="`tag-${key}`">
               {{ tag }}<span v-if="key < shot.tags.length - 1">, </span>
             </span>
           </p>
         </div>
       </div>
-      <img :src="shot.images.normal" :alt="shot.title" />
+      <img :src="shot.images.two_x" :alt="shot.title" />
     </a>
   </div>
 </template>
