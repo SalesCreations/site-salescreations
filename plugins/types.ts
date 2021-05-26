@@ -27,4 +27,7 @@ export interface timelineCollectionItem {
   title: string
   description: string
   datetime: string
+  sys: {
+    id: string
+  }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="card-timeline" date-is="2009">
-    <h4 class="text-xl font-black">Lorem Ipsum, Lorem Lorem</h4>
+  <div class="card-timeline" :date-is="$dayjs(event.datetime).format('YYYY')">
+    <h4 class="text-xl font-black">{{ event.title }}</h4>
     <p class="text-gray-700">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+      {{ event.description }}
     </p>
   </div>
 </template>
@@ -13,12 +13,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'CardTimeline',
 
-  // props: {
-  //   event: {
-  //     type: Object,
-  //     required: false,
-  //   },
-  // },
+  props: {
+    event: {
+      type: Object,
+      required: true,
+    },
+  },
 })
 </script>
 

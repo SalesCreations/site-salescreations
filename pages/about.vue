@@ -64,7 +64,7 @@ export default Vue.extend({
   async fetch({ store, error }) {
     try {
       await store.dispatch('skills/fetchSkills')
-      await store.dispatch('dates/fetchDates', null)
+      await store.dispatch('events/fetchEvents', null)
     } catch (e) {
       error({
         statusCode: 503,
@@ -86,7 +86,6 @@ export default Vue.extend({
   },
   computed: mapState({
     skills: (state: any) => state.skills.skills,
-    dates: (state: any) => state.dates.dates,
   }),
 })
 </script>

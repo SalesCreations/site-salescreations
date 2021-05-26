@@ -3,19 +3,19 @@ import { gql } from 'graphql-request'
 import { timelineCollectionItem } from '@/plugins/types'
 
 export const state = () => ({
-  dates: [] as timelineCollectionItem[],
+  events: [] as timelineCollectionItem[],
 })
 
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  SET_DATES(state, dates: timelineCollectionItem[]) {
-    state.dates = dates
+  SET_EVENTS(state, events: timelineCollectionItem[]) {
+    state.events = events
   },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async fetchDates({ commit }, limit) {
+  async fetchEvents({ commit }, limit) {
     const query = gql`
       query {
         timelineCollection(limit: ${limit}, order: datetime_DESC) {
@@ -26,13 +26,16 @@ export const actions: ActionTree<RootState, RootState> = {
             title
             description
             datetime
+            sys {
+              id
+            }
           }
         }
       }
     `
-    const dates = await this.$graphql.contentfulClient
+    const events = await this.$graphql.contentfulClient
       .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
       .request(query)
-    commit('SET_DATES', dates.timelineCollection.items)
+    commit('SET_EVENTS', events.timelineCollection.items)
   },
 }
