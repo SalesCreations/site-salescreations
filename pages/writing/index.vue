@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
 import Vue from 'vue'
 import algoliasearch from 'algoliasearch/lite'
 
@@ -32,21 +31,10 @@ export default Vue.extend({
   data: () => ({
     searchClient: algoliasearch(`${process.env.algoliaAppId}`, `${process.env.algoliaApiKey}`),
   }),
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('posts/fetchPosts', null)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
   head() {
     return {
       title: 'Writing ideas by Sales//Creations',
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
@@ -61,9 +49,6 @@ export default Vue.extend({
       ],
     }
   },
-  computed: mapState({
-    posts: (state: any) => state.posts.posts,
-  }),
 })
 </script>
 
@@ -90,5 +75,12 @@ export default Vue.extend({
   @apply absolute;
   top: 13px;
   right: 13px;
+}
+li.ais-Hits-item {
+  @apply border-b;
+  @apply border-gray-300;
+}
+li.ais-Hits-item:last-child {
+  @apply border-b-0;
 }
 </style>
