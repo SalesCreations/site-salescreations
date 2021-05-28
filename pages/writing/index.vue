@@ -2,17 +2,22 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <section class="search-section">
-        <InputSearch text="Qual artigo você gostaria de ver..." />
-      </section>
-      <section class="writing-section mt-6">
-        <ul class="last-posts divide-y divide-gray-300">
-          <li v-for="(post, key) in posts" :key="key">
-            <CardPost :post="post" />
-          </li>
-        </ul>
-        <ButtonLoadPage v-if="posts > 100" />
-      </section>
+      <ais-instant-search :search-client="searchClient" index-name="blogPost">
+        <section class="search-section">
+          <ais-search-box />
+          <IconAlgolia class="mt-2 float-right" />
+        </section>
+        <!-- <ais-stats /> -->
+        <section class="writing-section mt-10">
+          <ais-hits>
+            <template slot="item" slot-scope="{ item }">
+              <CardPostAlgolia :post="item.fields" />
+            </template>
+          </ais-hits>
+          <ButtonLoadPage v-if="posts > 100" />
+        </section>
+        <!-- <ais-pagination /> -->
+      </ais-instant-search>
     </main>
   </div>
 </template>
@@ -20,9 +25,13 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import algoliasearch from 'algoliasearch/lite'
 
 export default Vue.extend({
   name: 'WritingPage',
+  data: () => ({
+    searchClient: algoliasearch('UY5JN69U9T', '0a686da96d933cc6e9747d2f572571b8'),
+  }),
   async fetch({ store, error }) {
     try {
       await store.dispatch('posts/fetchPosts', null)
@@ -44,6 +53,12 @@ export default Vue.extend({
           content: 'My custom description',
         },
       ],
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css',
+        },
+      ],
     }
   },
   computed: mapState({
@@ -51,3 +66,28 @@ export default Vue.extend({
   }),
 })
 </script>
+
+<style>
+.ais-SearchBox form {
+  @apply border-black;
+  @apply border-2;
+  @apply w-full;
+  @apply rounded-lg;
+  @apply flex;
+  @apply flex-row-reverse;
+}
+.ais-SearchBox input {
+  @apply w-full;
+  @apply h-full;
+  @apply py-3;
+  @apply pl-2;
+}
+.ais-SearchBox button.ais-SearchBox-submit {
+  @apply ml-4;
+}
+.ais-SearchBox button.ais-SearchBox-reset {
+  @apply absolute;
+  top: 13px;
+  right: 13px;
+}
+</style>

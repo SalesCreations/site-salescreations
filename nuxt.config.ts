@@ -21,7 +21,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/disqus'],
+  plugins: ['~/plugins/disqus', '~/plugins/instantsearch'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -98,5 +98,6 @@ export default {
         },
       },
     },
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   },
 }
