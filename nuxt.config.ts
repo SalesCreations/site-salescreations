@@ -63,6 +63,8 @@ export default {
     ghToken: process.env.GH_TOKEN,
     dribbbleToken: process.env.DRIBBBLE_TOKEN,
     disqusShortname: process.env.DISQUS_SHORTNAME,
+    algoliaAppId: process.env.ALGOLIA_APP_ID,
+    algoliaApiKey: process.env.ALGOLIA_API_KEY,
   },
 
   // Nuxt Graphql Request module

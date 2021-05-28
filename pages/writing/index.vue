@@ -30,7 +30,7 @@ import algoliasearch from 'algoliasearch/lite'
 export default Vue.extend({
   name: 'WritingPage',
   data: () => ({
-    searchClient: algoliasearch('UY5JN69U9T', '0a686da96d933cc6e9747d2f572571b8'),
+    searchClient: algoliasearch(`${process.env.algoliaAppId}`, `${process.env.algoliaApiKey}`),
   }),
   async fetch({ store, error }) {
     try {
@@ -71,6 +71,7 @@ export default Vue.extend({
 .ais-SearchBox form {
   @apply border-black;
   @apply border-2;
+  @apply pr-1;
   @apply w-full;
   @apply rounded-lg;
   @apply flex;
