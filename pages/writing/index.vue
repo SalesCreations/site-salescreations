@@ -4,7 +4,10 @@
     <main>
       <ais-instant-search :search-client="searchClient" index-name="blogPost">
         <section class="search-section">
-          <ais-search-box />
+          <ais-search-box
+            aria-placeholder="Which article would you like to see..."
+            placeholder="Which article would you like to see..."
+          />
           <IconAlgolia class="mt-2 float-right" />
         </section>
         <!-- <ais-stats /> -->
@@ -14,7 +17,6 @@
               <CardPostAlgolia :post="item.fields" />
             </template>
           </ais-hits>
-          <ButtonLoadPage v-if="posts > 100" />
         </section>
         <!-- <ais-pagination /> -->
       </ais-instant-search>
@@ -67,6 +69,9 @@ export default Vue.extend({
   @apply h-full;
   @apply py-3;
   @apply pl-2;
+}
+.ais-SearchBox input:focus {
+  outline: none;
 }
 .ais-SearchBox button.ais-SearchBox-submit {
   @apply ml-4;
