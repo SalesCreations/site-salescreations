@@ -74,11 +74,6 @@
       <section class="show-writing-section">
         <article id="writing-content" v-html="$md.render(post.contents)" />
       </section>
-
-      <section class="comments-section mt-10">
-        <h1 class="text-2xl md:text-3xl font-black mb-4">Comments:</h1>
-        <Disqus />
-      </section>
     </main>
   </div>
 </template>
@@ -147,9 +142,6 @@ export default Vue.extend({
   methods: {
     printPage() {
       window.print()
-    },
-    alerts() {
-      alert('Hello')
     },
   },
 })
@@ -220,16 +212,6 @@ export default Vue.extend({
 .action-post:hover {
   transform: scale(1.09);
 }
-/* Start - Hack production not login disqus, hidden sponsored */
-#disqus_thread {
-  overflow-y: hidden;
-}
-#disqus_thread iframe:first-child {
-  opacity: 0 !important;
-  margin-top: -586px;
-  pointer-events: none;
-}
-/* End - Hack production not login disqus, hidden sponsored */
 @media (min-width: 768px) {
   #writing-content ul {
     @apply pl-10;
