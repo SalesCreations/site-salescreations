@@ -4,7 +4,7 @@
       <div class="col-span-10 flex flex-col flex-wrap content-center">
         <h1 class="text-4xl md:text-5xl font-black mb-2">{{ project.title }}</h1>
         <img class="image-project" :src="project.cover.url" :alt="project.cover.title" width="895.875" height="318.719" />
-        <div class="infos-project mt-10 py-6 border-t border-b grid grid-flow-row grid-cols-5 grid-rows-1 gap-3">
+        <div class="infos-project mt-10 py-6 border-t border-b grid grid-flow-row grid-cols-2 sm:grid-cols-5 grid-rows-1 gap-3">
           <div class="company-info">
             <h6 class="font-serif font-bold text-base">Company</h6>
             <p class="font-serif text-sm text-gray-500">{{ project.company }}</p>
@@ -176,6 +176,9 @@ export default Vue.extend({
 @media (max-width: 560px) {
   .image-project {
     margin-top: 0;
+  }
+  #project-content img {
+    @apply px-0;
   }
 }
 </style>

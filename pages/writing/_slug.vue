@@ -176,6 +176,13 @@ export default Vue.extend({
   opacity: 1;
   transition: 0.3s;
 }
+#writing-content h2 {
+  @apply font-serif;
+  @apply font-bold;
+  @apply text-3xl;
+  @apply mt-10;
+  @apply mb-5;
+}
 #writing-content p,
 #writing-content ul {
   @apply font-serif;
@@ -183,6 +190,39 @@ export default Vue.extend({
   @apply text-gray-800;
   @apply tracking-wide;
   @apply mb-5;
+}
+#writing-content img {
+  @apply my-20;
+  @apply px-10;
+}
+#writing-content blockquote {
+  position: relative;
+  z-index: 600;
+  margin: 30px 0 0 0;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4 !important;
+  font-family: 'Roboto Slab', serif;
+  z-index: 0 !important;
+}
+#writing-content blockquote p {
+  @apply font-bold;
+  @apply text-2xl;
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+#writing-content blockquote p:first-child:before {
+  @apply text-gray-200;
+  content: '\201C';
+  font-size: 6em;
+  font-weight: 700;
+  opacity: 1;
+  position: absolute;
+  top: -0.35em;
+  left: -0.25em;
+  text-shadow: none;
+  z-index: -1;
 }
 #writing-content pre {
   @apply my-8;
