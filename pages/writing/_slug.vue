@@ -217,31 +217,6 @@ export default Vue.extend({
     @apply pl-10;
   }
 }
-@media (max-width: 380px) {
-  #disqus_thread iframe:first-child {
-    margin-top: -824px;
-  }
-}
-@media screen and (min-width: 390px) and (max-width: 420px) {
-  #disqus_thread iframe:first-child {
-    margin-top: -976px;
-  }
-}
-@media screen and (min-width: 430px) and (max-width: 500px) {
-  #disqus_thread iframe:first-child {
-    margin-top: -1094px;
-  }
-}
-@media screen and (min-width: 510px) and (max-width: 590px) {
-  #disqus_thread iframe:first-child {
-    margin-top: -488px;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 765px) {
-  #disqus_thread iframe:first-child {
-    margin-top: -516px;
-  }
-}
 @media print {
   .comments-section,
   .action-post {

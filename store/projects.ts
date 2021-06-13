@@ -1,10 +1,10 @@
 import { ActionTree, MutationTree } from 'vuex'
 import { gql } from 'graphql-request'
-import { ProjectsCollectionItem } from '@/plugins/types'
+import { ProjectsCollectionItem, Project } from '@/plugins/types'
 
 export const state = () => ({
   projects: [] as ProjectsCollectionItem[],
-  // project: {} as BlogPost,
+  project: {} as Project,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -13,9 +13,9 @@ export const mutations: MutationTree<RootState> = {
   SET_PROJECTS(state, projects: ProjectsCollectionItem[]) {
     state.projects = projects
   },
-  // SET_POST(state, project: BlogPost) {
-  //   state.project = project
-  // },
+  SET_PROJECT(state, project: Project) {
+    state.project = project
+  },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -46,28 +46,30 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('SET_PROJECTS', projects.projectsCollection.items)
   },
 
-  // async fetchPost({ commit }, slug) {
-  //   const query = gql`
-  //     query {
-  //       blogPostCollection(where: { OR: { slug: "${slug}" } }) {
-  //         items {
-  //           title
-  //           slug
-  //           resume
-  //           contents
-  //           datetime
-  //           portugueses
-  //           imagePost {
-  //             title
-  //             url
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `
-  //   const post = await this.$graphql.contentfulClient
-  //     .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
-  //     .request(query)
-  //   commit('SET_POST', post.blogPostCollection.items[0])
-  // },
+  async fetchProject({ commit }, slug) {
+    const query = gql`
+      query {
+        projectsCollection(where: { OR: { slug: "${slug}" } }) {
+          items {
+            title
+            slug
+            cover {
+              title
+              url
+            }
+            company
+            team
+            tools
+            roles
+            year
+            content
+          }
+        }
+      }
+    `
+    const project = await this.$graphql.contentfulClient
+      .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
+      .request(query)
+    commit('SET_PROJECT', project.projectsCollection.items[0])
+  },
 }
