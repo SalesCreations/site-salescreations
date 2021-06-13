@@ -34,8 +34,6 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    // https://sitemap.nuxtjs.org/
-    // '@nuxtjs/sitemap',
     // https://github.com/gomah/nuxt-graphql-request
     'nuxt-graphql-request',
   ],
@@ -52,6 +50,10 @@ export default {
     '@nuxtjs/dayjs',
     // https://github.com/nicolasbeauvais/vue-social-sharing#readme
     'vue-social-sharing/nuxt',
+    // https://github.com/nuxt-community/gtm-module
+    '@nuxtjs/gtm',
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -65,6 +67,12 @@ export default {
     disqusShortname: process.env.DISQUS_SHORTNAME,
     algoliaAppId: process.env.ALGOLIA_APP_ID,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
+  },
+
+  // Google Tag Manage module
+  gtm: {
+    id: process.env.GTM_ID,
+    debug: false,
   },
 
   // Nuxt Graphql Request module
