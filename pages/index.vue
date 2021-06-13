@@ -20,14 +20,14 @@
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
         <div class="last-projects">
-          <CardProject v-for="(item, key) in 3" :key="key" />
+          <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
         <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
-          <li v-for="(post, key) in posts" :key="key">
+          <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardPost :post="post" />
           </li>
         </ul>
@@ -49,6 +49,7 @@ export default Vue.extend({
   async fetch({ store, error }) {
     try {
       await store.dispatch('posts/fetchPosts', 3)
+      await store.dispatch('projects/fetchProjects', 3)
     } catch (e) {
       error({
         statusCode: 503,
@@ -58,6 +59,7 @@ export default Vue.extend({
   },
   computed: mapState({
     posts: (state: any) => state.posts.posts,
+    projects: (state: any) => state.projects.projects,
   }),
 })
 </script>

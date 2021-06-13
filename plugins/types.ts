@@ -31,3 +31,15 @@ export interface timelineCollectionItem {
     id: string
   }
 }
+
+export interface ProjectsCollectionItem {
+  title: string
+  slug: string
+  resume: string
+  type: string
+  year: number
+  thumbnail: {
+    title: string
+    url: string
+  }
+}

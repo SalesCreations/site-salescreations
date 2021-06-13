@@ -1,24 +1,30 @@
 <template>
   <div id="card-project" class="py-8 px-10 bg-white my-5 rounded border-2 border-black">
-    <NuxtLink to="/" class="link-post flex flex-col sm:flex-row">
+    <NuxtLink :to="`/work/${project.slug}`" class="link-post flex flex-col sm:flex-row">
       <div class="descriptions">
-        <p class="tag-project text-sm font-thin">Project - 2019</p>
-        <h3 class="title-project text-3xl font-black">Lorem ipsum dolor sit amet</h3>
+        <p class="tag-project text-sm font-thin">{{ project.type }} - {{ project.year }}</p>
+        <h3 class="title-project text-3xl font-black">{{ project.title }}</h3>
         <p class="intro-project text-base font-thin">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua.
+          {{ project.resume }}
         </p>
       </div>
-      <img class="hidden sm:block" src="@/assets/images/work-demo.png" alt="image-porject" width="192" height="113" />
+      <img class="hidden sm:block" :src="project.thumbnail.url" :alt="project.thumbnail.title" width="192" height="113" />
     </NuxtLink>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
+import { ProjectsCollectionItem } from '@/plugins/types'
 
 export default Vue.extend({
   name: 'CardProject',
+  props: {
+    project: {
+      type: Object as PropType<ProjectsCollectionItem>,
+      required: true,
+    },
+  },
 })
 </script>
 

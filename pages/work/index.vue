@@ -13,7 +13,7 @@
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
         <div class="last-projects">
-          <CardProject v-for="(item, key) in 7" :key="key" />
+          <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
       </section>
     </main>
@@ -21,10 +21,21 @@
 </template>
 
 <script lang="ts">
+import { mapState } from 'vuex'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'WorkPage',
+  async fetch({ store, error }) {
+    try {
+      await store.dispatch('projects/fetchProjects', null)
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time, please try again',
+      })
+    }
+  },
   head() {
     return {
       title: 'Work done at Sales//Creations',
@@ -38,5 +49,8 @@ export default Vue.extend({
       ],
     }
   },
+  computed: mapState({
+    projects: (state: any) => state.projects.projects,
+  }),
 })
 </script>
