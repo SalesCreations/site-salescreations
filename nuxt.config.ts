@@ -53,7 +53,7 @@ export default {
     // https://github.com/nuxt-community/gtm-module
     '@nuxtjs/gtm',
     // https://sitemap.nuxtjs.org/
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -67,6 +67,7 @@ export default {
     disqusShortname: process.env.DISQUS_SHORTNAME,
     algoliaAppId: process.env.ALGOLIA_APP_ID,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
+    gtmId: process.env.GTM_ID,
   },
 
   // Google Tag Manage module
