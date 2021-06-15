@@ -55,11 +55,9 @@
                   tabindex="-1"
                   :network="network.network"
                   :url="sharing.url"
-                  :title="sharing.title"
-                  :description="sharing.description"
-                  :quote="sharing.quote"
-                  :hashtags="sharing.hashtags"
-                  :twitter-user="sharing.twitterUser"
+                  :title="post.title"
+                  :description="post.resume"
+                  :twitter-user="sharing.twitter"
                 >
                   <span>{{ network.name }}</span>
                 </ShareNetwork>
@@ -89,13 +87,8 @@ export default Vue.extend({
     time: 0,
     socialShare: false,
     sharing: {
-      url: 'https://news.vuejs.org/issues/180',
-      title: 'Say hi to Vite! A brand new, extremely fast development setup for Vue.',
-      description:
-        'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
-      quote: "The hot reload is so fast it's near instant. - Evan You",
-      hashtags: 'vuejs,vite,javascript',
-      twitterUser: 'youyuxi',
+      url: '#',
+      twitter: 'SalesUnited',
     },
     networks: [
       { network: 'facebook', name: 'Facebook' },
@@ -174,6 +167,9 @@ export default Vue.extend({
   }),
   created() {
     this.time = readingTime(this.post.contents)
+  },
+  mounted() {
+    this.sharing.url = window.location.href
   },
   methods: {
     printPage() {
