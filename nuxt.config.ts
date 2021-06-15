@@ -109,7 +109,7 @@ export default {
   sitemap: {
     hostname: 'https://salescreations.com.br',
     gzip: true,
-
+    cacheTime: 1000 * 60 * 60 * 2,
     routes: async () => {
       const posts: any = await PostService.getPosts().then((response) => {
         return response
