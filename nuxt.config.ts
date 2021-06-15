@@ -138,4 +138,15 @@ export default {
     },
     transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   },
+
+  generate: {
+    fallback: true,
+    routes: () => {
+      return PostService.getPosts().then((response) => {
+        return response.map((post: any) => {
+          return `/writing/${post.slug}`
+        })
+      })
+    },
+  },
 }

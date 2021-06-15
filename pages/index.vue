@@ -57,6 +57,62 @@ export default Vue.extend({
       })
     }
   },
+  head() {
+    return {
+      title: 'Sales//Creations - Creative Emotion',
+      description:
+        'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016 with a focus on helping companies in design projects, but in recent years I changed my positioning only from design to work with design and technology assisting in co-creation with companies in search for solutions.',
+      meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Sales//Creations - Creative Emotion',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016 with a focus on helping companies in design projects, but in recent years I changed my positioning only from design to work with design and technology assisting in co-creation with companies in search for solutions.',
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: 'Sales//Creations - Creative Emotion',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Sales//Creations - Creative Emotion',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016 with a focus on helping companies in design projects, but in recent years I changed my positioning only from design to work with design and technology assisting in co-creation with companies in search for solutions.',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Sales//Creations - Creative Emotion',
+        },
+      ],
+    }
+  },
   computed: mapState({
     posts: (state: any) => state.posts.posts,
     projects: (state: any) => state.projects.projects,
