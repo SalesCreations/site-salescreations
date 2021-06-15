@@ -1,3 +1,6 @@
+import PostService from './services/PostService'
+import ProjectService from './services/ProjectService'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -16,6 +19,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dracula.css'],
 
+  // Config default server.
   server: {
     port: 5000,
   },
@@ -53,7 +57,7 @@ export default {
     // https://github.com/nuxt-community/gtm-module
     '@nuxtjs/gtm',
     // https://sitemap.nuxtjs.org/
-    // '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -88,6 +92,7 @@ export default {
     },
   },
 
+  // Markdownit module
   markdownit: {
     runtime: true,
     use: ['markdown-it-highlightjs'],
@@ -97,6 +102,28 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+
+  // Nust Sitemap module: https://sitemap.nuxtjs.org/guide/configuration
+  sitemap: {
+    hostname: 'https://salescreations.com.br',
+    gzip: true,
+
+    routes: async () => {
+      const posts: any = await PostService.getPosts().then((response) => {
+        return response
+      })
+      const postMap = posts.map((post: any) => {
+        return `/writing/${post.slug}`
+      })
+      const projects: any = await ProjectService.getProjects().then((response) => {
+        return response
+      })
+      const projectMap = projects.map((project: any) => {
+        return `/work/${project.slug}`
+      })
+      return [...postMap, ...projectMap]
     },
   },
 
