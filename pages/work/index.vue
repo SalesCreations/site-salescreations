@@ -39,12 +39,35 @@ export default Vue.extend({
   head() {
     return {
       title: 'Work done at Sales//Creations',
+      description:
+        'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Work done at Sales//Creations',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: 'Work done at Sales//Creations',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Work done at Sales//Creations',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
         },
       ],
     }

@@ -101,11 +101,35 @@ export default Vue.extend({
   head() {
     return {
       title: 'Experiments from Sales//Creations',
+      description:
+        'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
       meta: [
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Experiments from Sales//Creations',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: 'Experiments from Sales//Creations',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Experiments from Sales//Creations',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
         },
       ],
     }

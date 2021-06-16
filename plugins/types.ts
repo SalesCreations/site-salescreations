@@ -57,4 +57,5 @@ export interface Project {
   roles: string[]
   year: number
   content: any
+  resume: string
 }

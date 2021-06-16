@@ -75,11 +75,35 @@ export default Vue.extend({
   head() {
     return {
       title: 'About Sales//Creations',
+      description:
+        'I´m Rafael Sales but you can call me ´Sales´, a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions',
       meta: [
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'About Sales//Creations',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'I´m Rafael Sales but you can call me ´Sales´, a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions',
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: 'About Sales//Creations',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'About Sales//Creations',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'I´m Rafael Sales but you can call me ´Sales´, a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions',
         },
       ],
     }

@@ -63,6 +63,7 @@ export const actions: ActionTree<RootState, RootState> = {
             roles
             year
             content
+            resume
           }
         }
       }

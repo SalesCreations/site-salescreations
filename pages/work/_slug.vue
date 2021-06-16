@@ -64,23 +64,59 @@ export default Vue.extend({
       })
     }
   },
-  // head() {
-  //   return {
-  //     title: this.post.title,
-  //     meta: [
-  //       {
-  //         hid: this.post.slug,
-  //         name: this.post.title,
-  //         content: this.post.resume,
-  //         'og:url': 'https://',
-  //         'og:type': 'article',
-  //         'og:title': this.post.title,
-  //         'og:description': this.post.resume,
-  //         'og:image': this.post.imagePost.url,
-  //       },
-  //     ],
-  //   }
-  // },
+  head() {
+    return {
+      title: this.project.title,
+      description: this.project.resume,
+      meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.project.title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.project.resume,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.project.cover.url,
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.project.title,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.project.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.project.resume,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.project.cover.url,
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.project.cover.url,
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.project.title,
+        },
+      ],
+    }
+  },
   computed: mapState({
     project: (state: any) => state.projects.project,
   }),

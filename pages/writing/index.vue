@@ -36,11 +36,32 @@ export default Vue.extend({
   head() {
     return {
       title: 'Writing ideas by Sales//Creations',
+      description: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
       meta: [
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Writing ideas by Sales//Creations',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: 'Writing ideas by Sales//Creations',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Writing ideas by Sales//Creations',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
         },
       ],
       link: [
