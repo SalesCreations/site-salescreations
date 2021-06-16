@@ -116,6 +116,11 @@ export default Vue.extend({
             'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
         },
         {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
           content: 'Experiments from Sales//Creations',
@@ -130,6 +135,21 @@ export default Vue.extend({
           property: 'og:description',
           content:
             'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Sales//Creations - Creative Emotion',
         },
       ],
     }

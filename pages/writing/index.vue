@@ -49,6 +49,11 @@ export default Vue.extend({
           content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
         },
         {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
           content: 'Writing ideas by Sales//Creations',

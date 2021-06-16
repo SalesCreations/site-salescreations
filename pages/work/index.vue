@@ -54,6 +54,11 @@ export default Vue.extend({
             'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
         },
         {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
           content: 'Work done at Sales//Creations',
@@ -68,6 +73,21 @@ export default Vue.extend({
           property: 'og:description',
           content:
             'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Sales//Creations - Creative Emotion',
         },
       ],
     }

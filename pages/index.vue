@@ -73,6 +73,11 @@ export default Vue.extend({
           content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
         },
         {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
           content: 'Sales//Creations - Creative Emotion',
@@ -86,6 +91,21 @@ export default Vue.extend({
           hid: 'og:description',
           property: 'og:description',
           content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: require('@/assets/images/thumbnail-site.png'),
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Sales//Creations - Creative Emotion',
         },
       ],
     }

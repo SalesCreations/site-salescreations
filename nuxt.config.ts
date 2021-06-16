@@ -22,26 +22,6 @@ export default {
         name: 'description',
         content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
       },
-      {
-        hid: 'twitter:image',
-        name: 'twitter:image',
-        content: require('@/assets/images/thumbnail-site.png'),
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: require('@/assets/images/thumbnail-site.png'),
-      },
-      {
-        hid: 'og:image:secure_url',
-        property: 'og:image:secure_url',
-        content: require('@/assets/images/thumbnail-site.png'),
-      },
-      {
-        hid: 'og:image:alt',
-        property: 'og:image:alt',
-        content: 'Sales//Creations - Creative Emotion',
-      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
