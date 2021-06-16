@@ -22,6 +22,16 @@ export default {
         name: 'description',
         content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
       },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Sales//Creations',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
