@@ -18,9 +18,14 @@ export default {
         content: 'Sales//Creations - Creative Emotion',
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+        hid: 'theme-color',
+        name: 'theme-color',
+        content: '#000000',
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
       },
       {
         hid: 'og:type',
@@ -121,7 +126,10 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'Sales Creations',
       lang: 'en',
+      background_color: '#000000',
+      theme_color: '#000000',
     },
   },
 
