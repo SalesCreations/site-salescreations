@@ -128,7 +128,7 @@ export default {
     manifest: {
       name: 'Sales Creations',
       lang: 'en',
-      background_color: '#000000',
+      background_color: '#ffffff',
       theme_color: '#000000',
     },
   },
