@@ -57,6 +57,9 @@ export const actions: ActionTree<RootState, RootState> = {
               title
               url
             }
+            metaImage {
+              url
+            }
             company
             team
             tools

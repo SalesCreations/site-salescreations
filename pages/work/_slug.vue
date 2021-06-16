@@ -82,7 +82,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.project.cover.url,
+          content: this.project.metaImage.url,
         },
         {
           hid: 'twitter:image:alt',
@@ -102,12 +102,12 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.project.cover.url,
+          content: this.project.metaImage.url,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: this.project.cover.url,
+          content: this.project.metaImage.url,
         },
         {
           hid: 'og:image:alt',

@@ -51,6 +51,9 @@ export interface Project {
     title: string
     url: string
   }
+  metaImage: {
+    url: string
+  }
   company: string
   team: string[]
   tools: string[]
