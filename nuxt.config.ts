@@ -139,7 +139,7 @@ export default {
   // Nuxt Robots module: https://github.com/nuxt-community/robots-module#readme
   robots: {
     UserAgent: '*',
-    Allow: ['/work/', '/about/', '/experiments/', '/writing/'],
+    Allow: ['/', '/work/', '/about/', '/experiments/', '/writing/'],
     Disallow: '/*.gif',
     Sitemap: ['https://salescreations.com.br/sitemap.xml', 'https://www.salescreations.com.br/sitemap.xml'],
   },
