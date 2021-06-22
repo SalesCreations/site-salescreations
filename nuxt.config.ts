@@ -83,6 +83,8 @@ export default {
     '@nuxtjs/gtm',
     // https://sitemap.nuxtjs.org/
     '@nuxtjs/sitemap',
+    // https://github.com/nuxt-community/robots-module
+    '@nuxtjs/robots',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -127,13 +129,22 @@ export default {
   pwa: {
     manifest: {
       name: 'Sales Creations',
+      short_name: 'Sales Creations',
       lang: 'en',
       background_color: '#ffffff',
       theme_color: '#000000',
     },
   },
 
-  // Nust Sitemap module: https://sitemap.nuxtjs.org/guide/configuration
+  // Nuxt Robots module: https://github.com/nuxt-community/robots-module#readme
+  robots: {
+    Disallow: '/',
+    UserAgent: '*',
+    Allow: ['/work/', '/about/', '/experiments/', '/writing/'],
+    Sitemap: ['https://salescreations.com.br/sitemap.xml', 'https://www.salescreations.com.br/sitemap.xml'],
+  },
+
+  // Nuxt Sitemap module: https://sitemap.nuxtjs.org/guide/configuration
   sitemap: {
     hostname: 'https://salescreations.com.br',
     gzip: true,
