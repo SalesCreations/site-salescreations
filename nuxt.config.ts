@@ -85,6 +85,8 @@ export default {
     '@nuxtjs/sitemap',
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
+    // https://sentry.nuxtjs.org/
+    '@nuxtjs/sentry',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -164,6 +166,11 @@ export default {
       })
       return [...postMap, ...projectMap]
     },
+  },
+
+  // Nuxt Sentry module: https://sentry.nuxtjs.org/sentry/options
+  sentry: {
+    dsn: process.env.DNS_SENTRY,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

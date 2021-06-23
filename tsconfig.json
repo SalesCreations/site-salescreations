@@ -29,6 +29,7 @@
       "@nuxt/content",
       "@types/node",
       "@nuxtjs/dayjs",
+      "@nuxtjs/sentry",
       "nuxt-graphql-request/types"
     ]
   },
