@@ -114,9 +114,6 @@ export default Vue.extend({
     posts: (state: any) => state.posts.posts,
     projects: (state: any) => state.projects.projects,
   }),
-  mounted() {
-    this.$sentry.captureException(new Error('example'))
-  },
 })
 </script>
 
