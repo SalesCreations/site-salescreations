@@ -8,7 +8,13 @@
           {{ project.resume }}
         </p>
       </div>
-      <img class="hidden sm:block" :src="project.thumbnail.url" :alt="project.thumbnail.title" width="192" height="113" />
+      <img
+        class="hidden sm:block h-full my-auto"
+        :src="project.thumbnail.url"
+        :alt="project.thumbnail.title"
+        width="192"
+        height="113"
+      />
     </NuxtLink>
   </div>
 </template>

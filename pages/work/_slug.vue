@@ -152,8 +152,9 @@ export default Vue.extend({
   @apply mb-5;
 }
 #project-content img {
-  @apply my-20;
+  @apply my-32;
   @apply px-10;
+  transform: scale(1.3);
 }
 #project-content blockquote {
   position: relative;
