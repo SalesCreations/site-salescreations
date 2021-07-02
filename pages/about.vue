@@ -54,7 +54,7 @@ export default Vue.extend({
   asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
     return {
       age:
-        parseInt($dayjs().format('mm')) < 8
+        parseInt($dayjs().format('MM')) < 8
           ? parseInt($dayjs().format('YYYY')) - 1993 - 1
           : parseInt($dayjs().format('YYYY')) - 1993,
       designStart: parseInt($dayjs().format('YYYY')) - 2009,

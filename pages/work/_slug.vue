@@ -44,6 +44,9 @@
       <section class="show-project-section">
         <article id="project-content" v-html="$md.render(project.content)" />
       </section>
+      <section class="contact-section my-10">
+        <BannerContact />
+      </section>
     </main>
   </div>
 </template>
@@ -154,7 +157,7 @@ export default Vue.extend({
 #project-content img {
   @apply my-32;
   @apply px-10;
-  transform: scale(1.3);
+  transform: scale(1.17);
 }
 #project-content blockquote {
   position: relative;
