@@ -61,12 +61,19 @@
                       />
                     </svg>
 
-                    <ButtonMore
-                      :class="`ml-auto text-white ${moreShotHover ? 'block' : 'hidden'}`"
-                      label="See More Shots"
-                      to="#"
-                      icon-color="white"
-                    />
+                    <span :class="`ml-auto text-white link flex button-more ${moreShotHover ? 'block' : 'hidden'}`">
+                      See More Shots
+                      <svg
+                        class="ArrowRightAlt"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M16.01 11H4V13H16.01V16L20 12L16.01 8V11Z" fill="white" />
+                      </svg>
+                    </span>
                   </div>
                 </div>
               </a>
