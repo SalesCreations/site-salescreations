@@ -142,7 +142,7 @@ export default {
   robots: {
     UserAgent: '*',
     Allow: ['/', '/work/', '/about/', '/experiments/', '/writing/'],
-    Disallow: ['/*.gif', '/404.html', '/500.html'],
+    Disallow: ['/*.gif', '/*.pdf', '/404.html', '/500.html'],
     Sitemap: ['https://salescreations.com.br/sitemap.xml', 'https://www.salescreations.com.br/sitemap.xml'],
   },
 

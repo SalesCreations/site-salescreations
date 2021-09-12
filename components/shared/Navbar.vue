@@ -22,10 +22,10 @@
       <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">
         <div class="flex space-x-10">
-          <NuxtLink to="/work" class="link rounded-md text-sm text-base"> Work </NuxtLink>
-          <NuxtLink to="/about" class="link rounded-md text-sm text-base"> About </NuxtLink>
-          <NuxtLink to="/experiments" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
-          <NuxtLink to="/writing" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
+          <NuxtLink to="/work/" class="link rounded-md text-sm text-base"> Work </NuxtLink>
+          <NuxtLink to="/about/" class="link rounded-md text-sm text-base"> About </NuxtLink>
+          <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
+          <NuxtLink to="/writing/" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
         </div>
       </div>
       <!-- NAVIGATION MOBILE -->
@@ -53,12 +53,14 @@
     <div :class="`dropdow-nav bg-white w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
       <div class="flex flex-col">
         <NuxtLink to="/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Home </NuxtLink>
-        <NuxtLink to="/work" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Work </NuxtLink>
-        <NuxtLink to="/about" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> About </NuxtLink>
-        <NuxtLink to="/experiments" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/work/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Work </NuxtLink>
+        <NuxtLink to="/about/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+          About
+        </NuxtLink>
+        <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
           Experiments
         </NuxtLink>
-        <NuxtLink to="/writing" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/writing/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
           Writing
         </NuxtLink>
       </div>
