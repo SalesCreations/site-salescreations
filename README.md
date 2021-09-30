@@ -1,7 +1,12 @@
 ![cover-salescreations](https://res.cloudinary.com/www-salescreations-com-br/image/upload/v1631837402/cover.png)
+# Sales//Creations Website
+
+![NuxtJS](https://img.shields.io/badge/Nuxt-black?style=for-the-badge&logo=nuxt.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Type-graphql](https://img.shields.io/badge/-TypeGraphQL-%23C04392?style=for-the-badge)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bd977458-27e5-40a0-8724-20f957260039/deploy-status)](https://app.netlify.com/sites/salescreations/deploys)
-# salescreations.com.br
+
 ## Build Setup
 
 ```bash
