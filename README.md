@@ -2,6 +2,7 @@
 
 # salescreations.com.br
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bd977458-27e5-40a0-8724-20f957260039/deploy-status)](https://app.netlify.com/sites/salescreations/deploys)
 ## Build Setup
 
 ```bash
