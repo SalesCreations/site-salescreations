@@ -25,7 +25,7 @@
         </div>
       </section>
       <section class="dribbble-section">
-        <h2 class="text-5xl font-black py-10">Last Porjects Dribbble</h2>
+        <h2 class="text-5xl font-black py-10">Latest projects on Dribbble</h2>
         <div class="grid gap-4 grid-cols-12">
           <template v-for="(shot, key) in shots">
             <div

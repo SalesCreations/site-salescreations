@@ -1,4 +1,6 @@
-# site-salescreations
+![cover-salescreations](https://res.cloudinary.com/www-salescreations-com-br/image/upload/v1631837402/cover.png)
+
+# salescreations.com.br
 
 ## Build Setup
 
