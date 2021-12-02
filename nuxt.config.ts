@@ -46,7 +46,7 @@ export default {
 
   // Config default server.
   server: {
-    port: 5000,
+    port: 3000,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -87,6 +87,13 @@ export default {
     '@nuxtjs/robots',
     // https://sentry.nuxtjs.org/
     '@nuxtjs/sentry',
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: process.env.ACCESS_TOKEN_SB,
+        cacheProvider: 'memory',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -101,6 +108,7 @@ export default {
     algoliaAppId: process.env.ALGOLIA_APP_ID,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
     gtmId: process.env.GTM_ID,
+    accessTokenSb: process.env.ACCESS_TOKEN_SB,
   },
 
   // Google Tag Manage module
