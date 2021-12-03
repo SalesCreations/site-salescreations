@@ -2,37 +2,32 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <ais-instant-search :search-client="searchClient" index-name="blogPost">
-        <section class="search-section">
-          <ais-search-box
-            aria-placeholder="Which article would you like to see..."
-            placeholder="Which article would you like to see..."
-          />
-          <IconAlgolia class="mt-2 float-right" />
-        </section>
-        <!-- <ais-stats /> -->
-        <section class="writing-section mt-10">
-          <ais-hits>
-            <template slot="item" slot-scope="{ item }">
-              <CardPostAlgolia :post="item.fields" />
-            </template>
-          </ais-hits>
-        </section>
-        <!-- <ais-pagination /> -->
-      </ais-instant-search>
+      <!-- <section class="search-section">
+        <InputSearch text="Qual artigo você gostaria de ver..." />
+      </section> -->
+      <section class="writing-section mt-6">
+        <ul class="last-posts divide-y divide-gray-300">
+          <li v-for="post in posts" :key="post.id">
+            <CardPost :post="post" />
+          </li>
+        </ul>
+      </section>
     </main>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import algoliasearch from 'algoliasearch/lite'
 
 export default Vue.extend({
   name: 'WritingPage',
-  data: () => ({
-    searchClient: algoliasearch(`${process.env.algoliaAppId}`, `${process.env.algoliaApiKey}`),
-  }),
+  async asyncData(context) {
+    const { data } = await context.app.$storyapi.get(`cdn/stories/`, {
+      version: 'draft',
+      starts_with: `${context.route.path.substr(1)}`,
+    })
+    return { posts: data.stories.slice(1) }
+  },
   head() {
     return {
       title: 'Writing ideas by Sales//Creations',
