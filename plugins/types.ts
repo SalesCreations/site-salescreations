@@ -21,16 +21,26 @@ export interface BlogPostCollectionItem {
   published_at: string
 }
 export interface BlogPost {
-  title: string
-  slug: string
-  resume: string
-  contents: string
-  datetime: string
-  portugueses: boolean
-  imagePost: {
+  name: string
+  id: number
+  lang: string
+  uuid: string
+  content: {
+    _editable: any
+    component: string
+    _uid: string
+    image: string
+    intro: string
+    longText: string
+    portugueses: boolean
     title: string
-    url: string
   }
+  // eslint-disable-next-line camelcase
+  full_slug: string
+  // eslint-disable-next-line camelcase
+  created_at: string
+  // eslint-disable-next-line camelcase
+  published_at: string
 }
 
 export interface timelineCollectionItem {

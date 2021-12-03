@@ -159,21 +159,21 @@ export default {
     hostname: 'https://salescreations.com.br',
     gzip: true,
     cacheTime: 1000 * 60 * 60 * 2,
-    routes: async () => {
-      const posts: any = await PostService.getPosts().then((response) => {
-        return response
-      })
-      const postMap = posts.map((post: any) => {
-        return `/writing/${post.slug}`
-      })
-      const projects: any = await ProjectService.getProjects().then((response) => {
-        return response
-      })
-      const projectMap = projects.map((project: any) => {
-        return `/work/${project.slug}`
-      })
-      return [...postMap, ...projectMap]
-    },
+    // routes: async () => {
+    //   const posts: any = await PostService.getPosts().then((response) => {
+    //     return response
+    //   })
+    //   const postMap = posts.map((post: any) => {
+    //     return `/writing/${post.slug}`
+    //   })
+    //   const projects: any = await ProjectService.getProjects().then((response) => {
+    //     return response
+    //   })
+    //   const projectMap = projects.map((project: any) => {
+    //     return `/work/${project.slug}`
+    //   })
+    //   return [...postMap, ...projectMap]
+    // },
   },
 
   // Nuxt Sentry module: https://sentry.nuxtjs.org/sentry/options
@@ -195,12 +195,12 @@ export default {
 
   generate: {
     fallback: true,
-    routes: () => {
-      return PostService.getPosts().then((response) => {
-        return response.map((post: any) => {
-          return `/writing/${post.slug}`
-        })
-      })
-    },
+    // routes: () => {
+    //   return PostService.getPosts().then((response) => {
+    //     return response.map((post: any) => {
+    //       return `/writing/${post.slug}`
+    //     })
+    //   })
+    // },
   },
 }

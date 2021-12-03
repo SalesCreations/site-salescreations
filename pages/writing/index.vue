@@ -2,9 +2,9 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <!-- <section class="search-section">
+      <section class="search-section">
         <InputSearch text="Qual artigo você gostaria de ver..." />
-      </section> -->
+      </section>
       <section class="writing-section mt-6">
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="post in posts" :key="post.id">
@@ -17,16 +17,20 @@
 </template>
 
 <script lang="ts">
+import { mapState } from 'vuex'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'WritingPage',
-  async asyncData(context) {
-    const { data } = await context.app.$storyapi.get(`cdn/stories/`, {
-      version: 'draft',
-      starts_with: `${context.route.path.substr(1)}`,
-    })
-    return { posts: data.stories.slice(1) }
+  async fetch({ store, error, route }) {
+    try {
+      await store.dispatch('posts/fetchPosts', route.path)
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time, please try again',
+      })
+    }
   },
   head() {
     return {
@@ -87,6 +91,9 @@ export default Vue.extend({
       ],
     }
   },
+  computed: mapState({
+    posts: (state: any) => state.posts.posts,
+  }),
 })
 </script>
 

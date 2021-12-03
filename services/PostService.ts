@@ -1,25 +1,14 @@
-import { gql, GraphQLClient } from 'graphql-request'
+import { apiClient } from './common/http-storyblok'
 
 export default {
-  async getPosts() {
-    const query = gql`
-      query {
-        blogPostCollection {
-          items {
-            slug
-          }
-        }
-      }
-    `
-    const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`
-    const client = new GraphQLClient(endpoint, {
-      headers: { authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}` },
+  getPosts(path: any) {
+    return apiClient.get('', {
+      params: {
+        starts_with: path.substr(1),
+      },
     })
-
-    const posts: object[] = await client.request(query).then((data) => {
-      return data.blogPostCollection.items
-    })
-
-    return posts
+  },
+  getPost(path: any) {
+    return apiClient.get(`${path}`)
   },
 }
