@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="antialiased text-gray-600 min-h-full flex flex-col">
+  <div v-editable="blok">
     <component :is="blok.component" v-for="blok in blok.body" :key="blok._uid" :blok="blok" />
   </div>
 </template>

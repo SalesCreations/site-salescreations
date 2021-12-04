@@ -1,46 +1,69 @@
+/* eslint-disable camelcase */
 export interface BlogPostCollectionItem {
   name: string
+  created_at: string
+  published_at: string
   id: number
-  lang: string
   uuid: string
   content: {
-    _editable: any
-    component: string
     _uid: string
     image: string
     intro: string
-    longText: string
-    portugueses: boolean
     title: string
+    longText: string
+    component: string
+    portuguese: boolean
+    _editable: string
   }
-  // eslint-disable-next-line camelcase
+  slug: string
   full_slug: string
-  // eslint-disable-next-line camelcase
-  created_at: string
-  // eslint-disable-next-line camelcase
-  published_at: string
+  sort_by_date: any
+  position: number
+  tag_list: string[]
+  is_startpage: false
+  parent_id: number
+  meta_data: any
+  group_id: string
+  first_published_at: any
+  release_id: any
+  lang: string
+  path: any
+  alternates: string[]
+  default_full_slug: any
+  translated_slugs: any
 }
 export interface BlogPost {
   name: string
+  created_at: string
+  published_at: string
   id: number
-  lang: string
   uuid: string
   content: {
-    _editable: any
-    component: string
     _uid: string
     image: string
     intro: string
-    longText: string
-    portugueses: boolean
     title: string
+    longText: string
+    component: string
+    portuguese: boolean
+    _editable: string
   }
-  // eslint-disable-next-line camelcase
+  slug: string
   full_slug: string
-  // eslint-disable-next-line camelcase
-  created_at: string
-  // eslint-disable-next-line camelcase
-  published_at: string
+  sort_by_date: any
+  position: number
+  tag_list: string[]
+  is_startpage: false
+  parent_id: number
+  meta_data: any
+  group_id: string
+  first_published_at: any
+  release_id: any
+  lang: string
+  path: any
+  alternates: string[]
+  default_full_slug: any
+  translated_slugs: any
 }
 
 export interface timelineCollectionItem {
@@ -65,20 +88,69 @@ export interface ProjectsCollectionItem {
 }
 
 export interface Project {
-  title: string
-  slug: string
-  cover: {
+  name: string
+  created_at: string
+  published_at: string
+  id: number
+  uuid: string
+  content: {
     title: string
-    url: string
+    _uid: string
+    type: string
+    year: number
+    company: string
+    team: string[]
+    tools: string[]
+    roles: string[]
+    resume: string
+    content: string
+    component: string
+    cover: {
+      id: number
+      alt: string
+      name: string
+      focus: null
+      title: string
+      filename: string
+      copyright: string
+      fieldtype: string
+    }
+    metaImage: {
+      id: number
+      alt: string
+      name: string
+      focus: any
+      title: string
+      filename: string
+      copyright: string
+      fieldtype: string
+    }
+    thumbnail: {
+      id: number
+      alt: string
+      name: string
+      focus: any
+      title: string
+      filename: string
+      copyright: string
+      fieldtype: string
+    }
+    _editable: string
   }
-  metaImage: {
-    url: string
-  }
-  company: string
-  team: string[]
-  tools: string[]
-  roles: string[]
-  year: number
-  content: any
-  resume: string
+  slug: string
+  full_slug: string
+  sort_by_date: any
+  position: number
+  tag_list: string[]
+  is_startpage: false
+  parent_id: number
+  meta_data: any
+  group_id: string
+  first_published_at: any
+  release_id: any
+  lang: string
+  path: any
+  alternates: string[]
+  default_full_slug: any
+  translated_slugs: any
 }
