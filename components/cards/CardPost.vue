@@ -2,7 +2,7 @@
   <div class="card-post py-5">
     <NuxtLink :to="`/${post.full_slug}`" class="link-post">
       <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-600">
-        {{ post.portugueses ? '🇧🇷' : '🇺🇸' }}{{ post.content.title }}
+        {{ post.content.portuguese ? '🇧🇷' : '🇺🇸' }}{{ post.content.title }}
       </h3>
       <p class="post-intro text-base mb-5">
         {{ post.content.intro }}
@@ -18,7 +18,6 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { BlogPostCollectionItem } from '@/plugins/types'
-import { isEditMode } from '@/plugins/helper'
 const readingTime = require('reading-time')
 
 export default Vue.extend({
@@ -32,9 +31,6 @@ export default Vue.extend({
   data: () => ({
     time: 0,
   }),
-  mounted() {
-    isEditMode(this)
-  },
   created() {
     this.time = readingTime(this.post.content.longText)
   },
