@@ -1,5 +1,5 @@
 <template>
-  <div id="show-writing" v-editable="post.content">
+  <div id="show-writing" v-editable="post">
     <header class="header grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 flex flex-col flex-wrap content-center">
         <h1 class="text-4xl md:text-5xl font-black mb-2">{{ post.content.title }}</h1>
@@ -55,8 +55,8 @@
                   tabindex="-1"
                   :network="network.network"
                   :url="sharing.url"
-                  :title="post.title"
-                  :description="post.resume"
+                  :title="post.content.title"
+                  :description="post.content.info"
                   :twitter-user="sharing.twitter"
                 >
                   <span>{{ network.name }}</span>
@@ -78,8 +78,8 @@
 
 <script lang="ts">
 import { mapState } from 'vuex'
+import { isEditMode } from '@/plugins/helper.js'
 import Vue from 'vue'
-import { isEditMode } from '@/plugins/helper'
 const readingTime = require('reading-time')
 
 export default Vue.extend({

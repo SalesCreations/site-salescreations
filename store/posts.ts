@@ -16,6 +16,9 @@ export const mutations: MutationTree<RootState> = {
   SET_POST(state, post: BlogPost) {
     state.post = post
   },
+  UPDATE_POST(state, newPost: BlogPost) {
+    state.post = newPost
+  },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -28,5 +31,8 @@ export const actions: ActionTree<RootState, RootState> = {
     return await PostService.getPost(path).then((response) => {
       commit('SET_POST', response.data.story)
     })
+  },
+  async updatePost({ commit }, newPost: object) {
+    await commit('UPDATE_POST', newPost)
   },
 }

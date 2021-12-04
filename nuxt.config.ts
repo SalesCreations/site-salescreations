@@ -1,5 +1,5 @@
-import PostService from './services/PostService'
-import ProjectService from './services/ProjectService'
+// import PostService from './services/PostService'
+// import ProjectService from './services/ProjectService'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
