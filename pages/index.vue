@@ -48,8 +48,8 @@ export default Vue.extend({
   name: 'HomePage',
   async fetch({ store, error }) {
     try {
-      await store.dispatch('posts/fetchPosts', 3)
-      await store.dispatch('projects/fetchProjects', 3)
+      await store.dispatch('posts/fetchPosts', '/writing')
+      await store.dispatch('projects/fetchProjects', '/work')
     } catch (e) {
       error({
         statusCode: 503,
