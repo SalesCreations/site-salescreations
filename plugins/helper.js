@@ -1,4 +1,4 @@
-export function isEditMode(app) {
+export function isEditMode(app, nameContent, dispatchLocal) {
   app.$storybridge(
     () => {
       // eslint-disable-next-line no-undef
@@ -9,9 +9,9 @@ export function isEditMode(app) {
         // eslint-disable-next-line eqeqeq
         if (event.action == 'input') {
           // eslint-disable-next-line eqeqeq
-          if (event.story.id == app.post.id) {
+          if (event.story.id == app[nameContent].id) {
             // app.post.content = event.story.content
-            app.$store.dispatch('posts/updatePost', event.story)
+            app.$store.dispatch(dispatchLocal, event.story)
           }
         } else {
           app.$nuxt.$router.go({

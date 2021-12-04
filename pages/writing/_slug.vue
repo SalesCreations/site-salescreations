@@ -170,7 +170,7 @@ export default Vue.extend({
     this.time = readingTime(this.post.content.longText)
   },
   mounted() {
-    isEditMode(this)
+    isEditMode(this, 'post', 'posts/updatePost')
     this.sharing.url = window.location.href
   },
   methods: {
