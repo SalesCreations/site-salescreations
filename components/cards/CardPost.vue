@@ -8,7 +8,7 @@
         {{ post.content.intro }}
       </p>
       <div class="post-info flex space-x-4 text-sm font-bold">
-        <strong>{{ $dayjs(post.created_at).format('MMM DD, YYYY') }}</strong>
+        <strong>{{ $dayjs(post.first_published_at).format('MMM DD, YYYY') }}</strong>
         <strong>{{ time.text }}</strong>
       </div>
     </NuxtLink>
