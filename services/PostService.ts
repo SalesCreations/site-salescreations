@@ -10,7 +10,7 @@ export default {
     })
   },
   getPostsRoutes(payload: any) {
-    return apiClient.get(`/?token=${process.env.TokenStoryblok}`, {
+    return apiClient.get(`/?token=${process.env.tokenStoryblok}`, {
       params: {
         starts_with: payload.path.substr(1),
         version: payload.isDev ? 'draft' : 'published',

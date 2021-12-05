@@ -109,7 +109,7 @@ export default {
     algoliaAppId: process.env.ALGOLIA_APP_ID,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
     gtmId: process.env.GTM_ID,
-    TokenStoryblok: process.env.ACCESS_TOKEN_SB,
+    tokenStoryblok: process.env.ACCESS_TOKEN_SB,
   },
 
   // Google Tag Manage module
