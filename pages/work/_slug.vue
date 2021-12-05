@@ -11,27 +11,21 @@
           </div>
           <div class="team-info">
             <h6 class="font-serif font-bold text-base">Team</h6>
-            <!-- <ul class="font-serif text-sm text-gray-500">
-              <li v-for="(people, key) in project.team" :key="`people--${key}`">
-                {{ people }}
-              </li>
-            </ul> -->
+            <ul class="font-serif text-sm text-gray-500">
+              <component :is="blok.component" v-for="blok in project.content.team" :key="blok._uid" :blok="blok" />
+            </ul>
           </div>
           <div class="tools-info">
             <h6 class="font-serif font-bold text-base">Tools</h6>
-            <!-- <ul class="font-serif text-sm text-gray-500">
-              <li v-for="(tool, key) in project.tools" :key="`tool--${key}`">
-                {{ tool }}
-              </li>
-            </ul> -->
+            <ul class="font-serif text-sm text-gray-500">
+              <component :is="blok.component" v-for="blok in project.content.tool" :key="blok._uid" :blok="blok" />
+            </ul>
           </div>
           <div class="roles-info">
             <h6 class="font-serif font-bold text-base">Roles</h6>
-            <!-- <ul class="font-serif text-sm text-gray-500">
-              <li v-for="(role, key) in project.roles" :key="`role--${key}`">
-                {{ role }}
-              </li>
-            </ul> -->
+            <ul class="font-serif text-sm text-gray-500">
+              <component :is="blok.component" v-for="blok in project.content.role" :key="blok._uid" :blok="blok" />
+            </ul>
           </div>
           <div class="year-info">
             <h6 class="font-serif font-bold text-base">Year</h6>
