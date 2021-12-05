@@ -1,25 +1,27 @@
-import { gql, GraphQLClient } from 'graphql-request'
+import { apiClient } from './common/http-storyblok'
 
 export default {
-  async getPosts() {
-    const query = gql`
-      query {
-        blogPostCollection {
-          items {
-            slug
-          }
-        }
-      }
-    `
-    const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`
-    const client = new GraphQLClient(endpoint, {
-      headers: { authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}` },
+  getPosts(payload: any) {
+    return apiClient.get(`/?token=${process.env.tokenStoryblok}`, {
+      params: {
+        starts_with: payload.path.substr(1),
+        version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published',
+      },
     })
-
-    const posts: object[] = await client.request(query).then((data) => {
-      return data.blogPostCollection.items
+  },
+  getPostsRoutes(payload: any) {
+    return apiClient.get(`/?token=${process.env.ACCESS_TOKEN_SB}`, {
+      params: {
+        starts_with: payload.path.substr(1),
+        version: payload.isDev ? 'draft' : 'published',
+      },
     })
-
-    return posts
+  },
+  getPost(payload: any) {
+    return apiClient.get(`${payload.path}/?token=${process.env.tokenStoryblok}`, {
+      params: {
+        version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published',
+      },
+    })
   },
 }

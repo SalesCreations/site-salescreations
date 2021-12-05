@@ -2,16 +2,16 @@
   <div id="card-project" class="py-8 px-10 bg-white my-5 rounded border-2 border-black">
     <NuxtLink :to="`/work/${project.slug}`" class="link-post flex flex-col sm:flex-row">
       <div class="descriptions">
-        <p class="tag-project text-sm font-thin">{{ project.type }} - {{ project.year }}</p>
-        <h3 class="title-project text-3xl font-black">{{ project.title }}</h3>
+        <p class="tag-project text-sm font-thin">{{ project.content.type }} - {{ project.content.year }}</p>
+        <h3 class="title-project text-3xl font-black">{{ project.content.title }}</h3>
         <p class="intro-project text-base font-thin">
-          {{ project.resume }}
+          {{ project.content.resume }}
         </p>
       </div>
       <img
         class="hidden sm:block h-full my-auto"
-        :src="project.thumbnail.url"
-        :alt="project.thumbnail.title"
+        :src="project.content.thumbnail.filename"
+        :alt="project.content.thumbnail.title"
         width="192"
         height="113"
       />

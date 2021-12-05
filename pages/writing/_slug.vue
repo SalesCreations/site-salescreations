@@ -1,8 +1,8 @@
 <template>
-  <div id="show-writing">
+  <div id="show-writing" v-editable="post">
     <header class="header grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 flex flex-col flex-wrap content-center">
-        <h1 class="text-4xl md:text-5xl font-black mb-2">{{ post.title }}</h1>
+        <h1 class="text-4xl md:text-5xl font-black mb-2">{{ post.content.title }}</h1>
         <div class="area-post-info flex items-center mb-6">
           <img class="rounded-full h-7 w-7" src="@/assets/images/avatar-rafael.jpg" alt="avatar author" width="22" height="22" />
           <span class="ml-1 bold text-xs sm:text-base">Rafael Sales</span>
@@ -55,8 +55,8 @@
                   tabindex="-1"
                   :network="network.network"
                   :url="sharing.url"
-                  :title="post.title"
-                  :description="post.resume"
+                  :title="post.content.title"
+                  :description="post.content.info"
                   :twitter-user="sharing.twitter"
                 >
                   <span>{{ network.name }}</span>
@@ -65,12 +65,12 @@
             </div>
           </div>
         </div>
-        <div class="image-post" :style="`background-image: url('${post.imagePost.url}')`" />
+        <div class="image-post" :style="`background-image: url('${post.content.image}')`" />
       </div>
     </header>
     <main>
       <section class="show-writing-section">
-        <article id="writing-content" v-html="$md.render(post.contents)" />
+        <article id="writing-content" v-html="$md.render(post.content.longText)" />
       </section>
     </main>
   </div>
@@ -78,6 +78,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex'
+import { isEditMode } from '@/plugins/helper.js'
 import Vue from 'vue'
 const readingTime = require('reading-time')
 
@@ -99,9 +100,9 @@ export default Vue.extend({
       { network: 'email', name: 'Email' },
     ],
   }),
-  async fetch({ store, error, params }) {
+  async fetch({ store, error, route, isDev, query }) {
     try {
-      await store.dispatch('posts/fetchPost', params.slug)
+      await store.dispatch('posts/fetchPost', { path: route.path, isDev, query })
     } catch (e) {
       error({
         statusCode: 503,
@@ -111,53 +112,53 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: this.post.title,
-      description: this.post.resume,
+      title: this.post.content.title,
+      description: this.post.content.intro,
       meta: [
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.post.title,
+          content: this.post.content.title,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.post.resume,
+          content: this.post.content.intro,
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.post.imagePost.url,
+          content: this.post.content.image,
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: this.post.title,
+          content: this.post.content.title,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.post.title,
+          content: this.post.content.title,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.post.resume,
+          content: this.post.content.intro,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.post.imagePost.url,
+          content: this.post.content.image,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: this.post.imagePost.url,
+          content: this.post.content.image,
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.post.title,
+          content: this.post.content.title,
         },
       ],
     }
@@ -166,9 +167,10 @@ export default Vue.extend({
     post: (state: any) => state.posts.post,
   }),
   created() {
-    this.time = readingTime(this.post.contents)
+    this.time = readingTime(this.post.content.longText)
   },
   mounted() {
+    isEditMode(this, 'post', 'posts/updatePost')
     this.sharing.url = window.location.href
   },
   methods: {

@@ -26,9 +26,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'WorkPage',
-  async fetch({ store, error }) {
+  async fetch({ store, error, route, isDev, query }) {
     try {
-      await store.dispatch('projects/fetchProjects', null)
+      await store.dispatch('projects/fetchProjects', { path: route.path, isDev, query })
     } catch (e) {
       error({
         statusCode: 503,
