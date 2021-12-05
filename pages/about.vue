@@ -2,7 +2,7 @@
   <div id="about-page">
     <Header title="About" img="image-header-about.png" />
     <main>
-      <section class="description-section">
+      <!-- <section class="description-section">
         <h6 class="font-bold text-xl">Hello!</h6>
         <br />
         <p>
@@ -17,26 +17,18 @@
           completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
           been {{ techStart }} years working directly in the technology area.
         </p>
-      </section>
+      </section> -->
       <section class="finish-section pt-20 pb-10">
         <ElementSalesCreations />
       </section>
-      <section class="skills-section">
-        <h2 class="text-5xl font-black py-5">Skills</h2>
-        <div class="list-skill grid gap-5 grid-cols-10">
-          <div
-            v-for="(skill, key) in skills"
-            :key="`${key}_${skill.sys.id}`"
-            class="col-span-10 md:col-span-5 flex flex-wrap content-center"
-          >
-            <CardSkill :skill="skill" />
-          </div>
-        </div>
-      </section>
-      <section class="timeline-section py-5">
+      <!-- <page v-if="story.content.component" :key="story.content._uid" :blok="story.content" /> -->
+      <template v-if="story.content.component" v-editable="story.content.body">
+        <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
+      </template>
+      <!-- <section class="timeline-section py-5">
         <h2 class="text-5xl font-black py-5">Timeline</h2>
         <Timeline />
-      </section>
+      </section> -->
       <section class="resume-section my-10">
         <BannerCta />
       </section>
@@ -47,18 +39,48 @@
 
 <script lang="ts">
 import { mapState } from 'vuex'
+import { isEditModeGeneral } from '@/plugins/helper.js'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
-  asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
+  // asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
+  //   return {
+  //     // Inforamation datas and age
+  //     age:
+  //       parseInt($dayjs().format('MM')) < 8
+  //         ? parseInt($dayjs().format('YYYY')) - 1993 - 1
+  //         : parseInt($dayjs().format('YYYY')) - 1993,
+  //     designStart: parseInt($dayjs().format('YYYY')) - 2009,
+  //     techStart: parseInt($dayjs().format('YYYY')) - 2013,
+  //   }
+  // },
+  asyncData(context): any {
+    // eslint-disable-next-line eqeqeq
+    const fullSlug = context.route.path == '/' || context.route.path == '' ? 'home' : context.route.path
+
+    return context.app.$storyapi
+      .get(`cdn/stories/${fullSlug}`, {
+        version: 'draft',
+      })
+      .then((res: { data: any }) => {
+        return res.data
+      })
+      .catch((res: { response: { data: any; status: any } }) => {
+        if (!res.response) {
+          // eslint-disable-next-line no-console
+          console.error(res)
+          context.error({ statusCode: 404, message: 'Failed to receive content form api' })
+        } else {
+          // eslint-disable-next-line no-console
+          console.error(res.response.data)
+          context.error({ statusCode: res.response.status, message: res.response.data })
+        }
+      })
+  },
+  data() {
     return {
-      age:
-        parseInt($dayjs().format('MM')) < 8
-          ? parseInt($dayjs().format('YYYY')) - 1993 - 1
-          : parseInt($dayjs().format('YYYY')) - 1993,
-      designStart: parseInt($dayjs().format('YYYY')) - 2009,
-      techStart: parseInt($dayjs().format('YYYY')) - 2013,
+      story: { content: {} },
     }
   },
   async fetch({ store, error }) {
@@ -131,5 +153,8 @@ export default Vue.extend({
   computed: mapState({
     skills: (state: any) => state.skills.skills,
   }),
+  mounted() {
+    isEditModeGeneral(this)
+  },
 })
 </script>

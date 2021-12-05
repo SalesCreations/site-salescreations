@@ -27,3 +27,31 @@ export function isEditMode(app, nameContent, dispatchLocal) {
     }
   )
 }
+
+export function isEditModeGeneral(app) {
+  app.$storybridge(
+    () => {
+      // eslint-disable-next-line no-undef
+      const storyblokInstance = new StoryblokBridge()
+
+      // Listen to Storyblok's Visual Editor event
+      storyblokInstance.on(['input', 'published', 'change'], (event) => {
+        // eslint-disable-next-line eqeqeq
+        if (event.action == 'input') {
+          if (event.story.id === app.story.id) {
+            app.story.content = event.story.content
+          }
+        } else {
+          app.$nuxt.$router.go({
+            path: app.$nuxt.$router.currentRoute,
+            force: true,
+          })
+        }
+      })
+    },
+    (error) => {
+      // eslint-disable-next-line no-console
+      console.error(error)
+    }
+  )
+}
