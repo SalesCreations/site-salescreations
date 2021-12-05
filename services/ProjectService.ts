@@ -18,7 +18,7 @@ export default {
     })
   },
   getProject(payload: any) {
-    return apiClient.get(`${payload.path}`, {
+    return apiClient.get(`${payload.path}/?token=${process.env.tokenStoryblok}`, {
       params: {
         version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published',
       },
