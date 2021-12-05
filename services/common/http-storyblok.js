@@ -9,6 +9,6 @@ export const apiClient = axios.create({
   },
   params: {
     resolve_links: 1,
-    token: process.env.ACCESS_TOKEN_SB,
+    token: process.env.accessTokenSb,
   },
 })
