@@ -202,26 +202,26 @@ export default {
 
   generate: {
     fallback: true,
-    routes: async () => {
-      const posts: any = await PostService.getPostsRoutes({
-        path: '/writing',
-        isDev: process.env.NODE_ENV !== 'production',
-      }).then((response) => {
-        return response.data.stories.slice(1)
-      })
-      const postMap = posts.map((post: any) => {
-        return `/writing/${post.slug}`
-      })
-      const projects: any = await ProjectService.getProjectsRoutes({
-        path: '/work',
-        isDev: process.env.NODE_ENV !== 'production',
-      }).then((response) => {
-        return response.data.stories.slice(1)
-      })
-      const projectMap = projects.map((project: any) => {
-        return `/work/${project.slug}`
-      })
-      return [...postMap, ...projectMap]
-    },
+    // routes: async () => {
+    //   const posts: any = await PostService.getPostsRoutes({
+    //     path: '/writing',
+    //     isDev: process.env.NODE_ENV !== 'production',
+    //   }).then((response) => {
+    //     return response.data.stories.slice(1)
+    //   })
+    //   const postMap = posts.map((post: any) => {
+    //     return `/writing/${post.slug}`
+    //   })
+    //   const projects: any = await ProjectService.getProjectsRoutes({
+    //     path: '/work',
+    //     isDev: process.env.NODE_ENV !== 'production',
+    //   }).then((response) => {
+    //     return response.data.stories.slice(1)
+    //   })
+    //   const projectMap = projects.map((project: any) => {
+    //     return `/work/${project.slug}`
+    //   })
+    //   return [...postMap, ...projectMap]
+    // },
   },
 }
