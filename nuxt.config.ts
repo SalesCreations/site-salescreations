@@ -124,9 +124,6 @@ export default {
       githubClient: {
         endpoint: 'https://api.github.com/graphql',
       },
-      contentfulClient: {
-        endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`,
-      },
     },
   },
 
