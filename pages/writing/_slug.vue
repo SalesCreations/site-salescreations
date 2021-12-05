@@ -7,7 +7,7 @@
           <img class="rounded-full h-7 w-7" src="@/assets/images/avatar-rafael.jpg" alt="avatar author" width="22" height="22" />
           <span class="ml-1 bold text-xs sm:text-base">Rafael Sales</span>
           <span class="ml-2 sm:ml-3 bold text-gray-500 font-light flex-grow text-xs sm:text-base"
-            >{{ $dayjs(post.datetime).format('MMM DD, YYYY') }} • {{ time.text }}
+            >{{ $dayjs(post.first_published_at).format('MMM DD, YYYY') }} • {{ time.text }}
           </span>
           <svg
             class="cursor-pointer action-post hidden sm:block"
