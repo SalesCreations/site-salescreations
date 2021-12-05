@@ -1,5 +1,5 @@
 <template>
-  <div class="card-timeline" :date-is="$dayjs(event.datetime).format('YYYY')">
+  <div v-editable="event" class="card-timeline" :date-is="$dayjs(event.datetime).format('YYYY')">
     <h4 class="text-xl font-black">{{ event.title }}</h4>
     <p class="text-gray-700">
       {{ event.description }}

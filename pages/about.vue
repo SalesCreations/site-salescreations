@@ -2,7 +2,7 @@
   <div id="about-page">
     <Header title="About" img="image-header-about.png" />
     <main>
-      <!-- <section class="description-section">
+      <section class="description-section">
         <h6 class="font-bold text-xl">Hello!</h6>
         <br />
         <p>
@@ -17,18 +17,13 @@
           completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
           been {{ techStart }} years working directly in the technology area.
         </p>
-      </section> -->
+      </section>
       <section class="finish-section pt-20 pb-10">
         <ElementSalesCreations />
       </section>
-      <!-- <page v-if="story.content.component" :key="story.content._uid" :blok="story.content" /> -->
       <template v-if="story.content.component" v-editable="story.content.body">
         <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
       </template>
-      <!-- <section class="timeline-section py-5">
-        <h2 class="text-5xl font-black py-5">Timeline</h2>
-        <Timeline />
-      </section> -->
       <section class="resume-section my-10">
         <BannerCta />
       </section>
@@ -38,23 +33,11 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
 import { isEditModeGeneral } from '@/plugins/helper.js'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AboutPage',
-  // asyncData({ $dayjs }): { age: number; designStart: number; techStart: number } {
-  //   return {
-  //     // Inforamation datas and age
-  //     age:
-  //       parseInt($dayjs().format('MM')) < 8
-  //         ? parseInt($dayjs().format('YYYY')) - 1993 - 1
-  //         : parseInt($dayjs().format('YYYY')) - 1993,
-  //     designStart: parseInt($dayjs().format('YYYY')) - 2009,
-  //     techStart: parseInt($dayjs().format('YYYY')) - 2013,
-  //   }
-  // },
   asyncData(context): any {
     // eslint-disable-next-line eqeqeq
     const fullSlug = context.route.path == '/' || context.route.path == '' ? 'home' : context.route.path
@@ -81,17 +64,9 @@ export default Vue.extend({
   data() {
     return {
       story: { content: {} },
-    }
-  },
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('skills/fetchSkills')
-      await store.dispatch('events/fetchEvents', null)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
+      age: 0,
+      designStart: 0,
+      techStart: 0,
     }
   },
   head() {
@@ -150,11 +125,19 @@ export default Vue.extend({
       ],
     }
   },
-  computed: mapState({
-    skills: (state: any) => state.skills.skills,
-  }),
   mounted() {
     isEditModeGeneral(this)
+    this.datasInfo()
+  },
+  methods: {
+    datasInfo(): void {
+      this.age =
+        parseInt(this.$dayjs().format('MM')) < 8
+          ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
+          : parseInt(this.$dayjs().format('YYYY')) - 1993
+      this.designStart = parseInt(this.$dayjs().format('YYYY')) - 2009
+      this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
+    },
   },
 })
 </script>
