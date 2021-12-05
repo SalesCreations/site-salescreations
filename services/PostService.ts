@@ -9,6 +9,14 @@ export default {
       },
     })
   },
+  getPostsRoutes(payload: any) {
+    return apiClient.get('', {
+      params: {
+        starts_with: payload.path.substr(1),
+        version: payload.isDev ? 'draft' : 'published',
+      },
+    })
+  },
   getPost(payload: any) {
     return apiClient.get(`${payload.path}`, {
       params: {
