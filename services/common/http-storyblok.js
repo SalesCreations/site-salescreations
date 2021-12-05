@@ -1,10 +1,14 @@
 import axios from 'axios'
 
 export const apiClient = axios.create({
-  baseURL: `https://cdn.contentful.com/spaces/${process.env.CTF_SPACE_ID}`,
+  baseURL: `https://api.storyblok.com/v2/cdn/stories/`,
   whithCredentials: false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
+  },
+  params: {
+    resolve_links: 1,
+    token: process.env.ACCESS_TOKEN_SB,
   },
 })

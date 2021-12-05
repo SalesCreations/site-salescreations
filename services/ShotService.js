@@ -1,7 +1,7 @@
 import { apiClient } from './common/http-dribbble'
 
 export default {
-  getSkills() {
+  getShots() {
     return apiClient.get('/shots')
   },
 }

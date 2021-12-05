@@ -1,6 +1,6 @@
 import { ActionTree, MutationTree } from 'vuex'
-import { gql } from 'graphql-request'
 import { ProjectsCollectionItem, Project } from '@/plugins/types'
+import ProjectService from '@/services/ProjectService'
 
 export const state = () => ({
   projects: [] as ProjectsCollectionItem[],
@@ -16,64 +16,23 @@ export const mutations: MutationTree<RootState> = {
   SET_PROJECT(state, project: Project) {
     state.project = project
   },
+  UPDATE_POST(state, newProject: Project) {
+    state.project = newProject
+  },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async fetchProjects({ commit }, limit) {
-    const query = gql`
-      query {
-        projectsCollection(limit: ${limit}, order: year_ASC) {
-          total
-          skip
-          limit
-          items {
-            title
-            slug
-            resume
-            type
-            year
-            thumbnail {
-              title
-              url
-            }
-          }
-        }
-      }
-    `
-    const projects = await this.$graphql.contentfulClient
-      .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
-      .request(query)
-    commit('SET_PROJECTS', projects.projectsCollection.items)
+  async fetchProjects({ commit }, path) {
+    return await ProjectService.getProjects(path).then((response) => {
+      commit('SET_PROJECTS', response.data.stories.slice(1))
+    })
   },
-
-  async fetchProject({ commit }, slug) {
-    const query = gql`
-      query {
-        projectsCollection(where: { OR: { slug: "${slug}" } }) {
-          items {
-            title
-            slug
-            cover {
-              title
-              url
-            }
-            metaImage {
-              url
-            }
-            company
-            team
-            tools
-            roles
-            year
-            content
-            resume
-          }
-        }
-      }
-    `
-    const project = await this.$graphql.contentfulClient
-      .setHeaders({ authorization: `Bearer ${process.env.ctfCdaAccessToken}` })
-      .request(query)
-    commit('SET_PROJECT', project.projectsCollection.items[0])
+  async fetchProject({ commit }, path) {
+    return await ProjectService.getProject(path).then((response) => {
+      commit('SET_PROJECT', response.data.story)
+    })
+  },
+  async updateProject({ commit }, newPost: object) {
+    await commit('UPDATE_POST', newPost)
   },
 }

@@ -7,7 +7,7 @@
       served with
       <a class="font-bold link-footer" href="https://www.netlify.com/" target="_blank" rel="noreferrer"> Netlify </a>
       and updated with
-      <a class="font-bold link-footer" href="http://contentful.com/" target="_blank" rel="noreferrer"> Contentful </a>
+      <a class="font-bold link-footer" href="https://storyblok.com/" target="_blank" rel="noreferrer"> Storyblok </a>
     </p>
     <img
       v-if="image"

@@ -2,37 +2,33 @@
   <div id="Writing-page">
     <Header title="Writing" img="image-header-writing.png" />
     <main>
-      <ais-instant-search :search-client="searchClient" index-name="blogPost">
-        <section class="search-section">
-          <ais-search-box
-            aria-placeholder="Which article would you like to see..."
-            placeholder="Which article would you like to see..."
-          />
-          <IconAlgolia class="mt-2 float-right" />
-        </section>
-        <!-- <ais-stats /> -->
-        <section class="writing-section mt-10">
-          <ais-hits>
-            <template slot="item" slot-scope="{ item }">
-              <CardPostAlgolia :post="item.fields" />
-            </template>
-          </ais-hits>
-        </section>
-        <!-- <ais-pagination /> -->
-      </ais-instant-search>
+      <section class="writing-section mt-6">
+        <ul class="last-posts divide-y divide-gray-300">
+          <li v-for="post in posts" :key="post.id">
+            <CardPost :post="post" />
+          </li>
+        </ul>
+      </section>
     </main>
   </div>
 </template>
 
 <script lang="ts">
+import { mapState } from 'vuex'
 import Vue from 'vue'
-import algoliasearch from 'algoliasearch/lite'
 
 export default Vue.extend({
   name: 'WritingPage',
-  data: () => ({
-    searchClient: algoliasearch(`${process.env.algoliaAppId}`, `${process.env.algoliaApiKey}`),
-  }),
+  async fetch({ store, error, route, isDev, query }) {
+    try {
+      await store.dispatch('posts/fetchPosts', { path: route.path, isDev, query })
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time, please try again',
+      })
+    }
+  },
   head() {
     return {
       title: 'Writing ideas by Sales//Creations',
@@ -92,6 +88,9 @@ export default Vue.extend({
       ],
     }
   },
+  computed: mapState({
+    posts: (state: any) => state.posts.posts,
+  }),
 })
 </script>
 

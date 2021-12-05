@@ -1,14 +1,14 @@
 <template>
   <div class="card-post py-5">
-    <NuxtLink :to="`/writing/${post.slug}`" class="link-post">
+    <NuxtLink :to="`/${post.full_slug}`" class="link-post">
       <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-600">
-        {{ post.portugueses ? '🇧🇷' : '🇺🇸' }}{{ post.title }}
+        {{ post.content.portuguese ? '🇧🇷' : '🇺🇸' }}{{ post.content.title }}
       </h3>
       <p class="post-intro text-base mb-5">
-        {{ post.resume }}
+        {{ post.content.intro }}
       </p>
       <div class="post-info flex space-x-4 text-sm font-bold">
-        <strong>{{ $dayjs(post.datetime).format('MMM DD, YYYY') }}</strong>
+        <strong>{{ $dayjs(post.created_at).format('MMM DD, YYYY') }}</strong>
         <strong>{{ time.text }}</strong>
       </div>
     </NuxtLink>
@@ -32,7 +32,7 @@ export default Vue.extend({
     time: 0,
   }),
   created() {
-    this.time = readingTime(this.post.contents)
+    this.time = readingTime(this.post.content.longText)
   },
 })
 </script>

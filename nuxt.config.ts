@@ -3,7 +3,8 @@ import ProjectService from './services/ProjectService'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  ssr: false,
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -46,11 +47,11 @@ export default {
 
   // Config default server.
   server: {
-    port: 5000,
+    port: 3000,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/instantsearch'],
+  plugins: ['~/plugins/instantsearch', '~/plugins/components'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -87,6 +88,13 @@ export default {
     '@nuxtjs/robots',
     // https://sentry.nuxtjs.org/
     '@nuxtjs/sentry',
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: process.env.ACCESS_TOKEN_SB,
+        cacheProvider: 'memory',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -101,6 +109,7 @@ export default {
     algoliaAppId: process.env.ALGOLIA_APP_ID,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
     gtmId: process.env.GTM_ID,
+    tokenStoryblok: process.env.ACCESS_TOKEN_SB,
   },
 
   // Google Tag Manage module
@@ -152,14 +161,20 @@ export default {
     gzip: true,
     cacheTime: 1000 * 60 * 60 * 2,
     routes: async () => {
-      const posts: any = await PostService.getPosts().then((response) => {
-        return response
+      const posts: any = await PostService.getPostsRoutes({
+        path: '/writing',
+        isDev: process.env.NODE_ENV !== 'production',
+      }).then((response) => {
+        return response.data.stories.slice(1)
       })
       const postMap = posts.map((post: any) => {
         return `/writing/${post.slug}`
       })
-      const projects: any = await ProjectService.getProjects().then((response) => {
-        return response
+      const projects: any = await ProjectService.getProjectsRoutes({
+        path: '/work',
+        isDev: process.env.NODE_ENV !== 'production',
+      }).then((response) => {
+        return response.data.stories.slice(1)
       })
       const projectMap = projects.map((project: any) => {
         return `/work/${project.slug}`
@@ -187,12 +202,26 @@ export default {
 
   generate: {
     fallback: true,
-    routes: () => {
-      return PostService.getPosts().then((response) => {
-        return response.map((post: any) => {
-          return `/writing/${post.slug}`
-        })
+    routes: async () => {
+      const posts: any = await PostService.getPostsRoutes({
+        path: '/writing',
+        isDev: process.env.NODE_ENV !== 'production',
+      }).then((response) => {
+        return response.data.stories.slice(1)
       })
+      const postMap = posts.map((post: any) => {
+        return `/writing/${post.slug}`
+      })
+      const projects: any = await ProjectService.getProjectsRoutes({
+        path: '/work',
+        isDev: process.env.NODE_ENV !== 'production',
+      }).then((response) => {
+        return response.data.stories.slice(1)
+      })
+      const projectMap = projects.map((project: any) => {
+        return `/work/${project.slug}`
+      })
+      return [...postMap, ...projectMap]
     },
   },
 }

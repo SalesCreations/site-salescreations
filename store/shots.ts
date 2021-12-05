@@ -8,14 +8,14 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  SET_SHOTS(state, skills: object[]) {
-    state.shots = skills
+  SET_SHOTS(state, shots: object[]) {
+    state.shots = shots
   },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
   async fetchShots({ commit }) {
-    return await ShotService.getSkills().then((response) => {
+    return await ShotService.getShots().then((response) => {
       commit('SET_SHOTS', response.data)
     })
   },
