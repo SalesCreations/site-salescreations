@@ -19,9 +19,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'WritingPage',
-  async fetch({ store, error, route }) {
+  async fetch({ store, error, route, isDev, query }) {
     try {
-      await store.dispatch('posts/fetchPosts', route.path)
+      await store.dispatch('posts/fetchPosts', { path: route.path, isDev, query })
     } catch (e) {
       error({
         statusCode: 503,

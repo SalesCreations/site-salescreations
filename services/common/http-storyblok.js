@@ -8,7 +8,6 @@ export const apiClient = axios.create({
     'Content-Type': 'application/json',
   },
   params: {
-    version: 'draft',
     resolve_links: 1,
     token: process.env.ACCESS_TOKEN_SB,
   },

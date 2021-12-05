@@ -46,10 +46,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'HomePage',
-  async fetch({ store, error }) {
+  async fetch({ store, error, isDev, query }) {
     try {
-      await store.dispatch('posts/fetchPosts', '/writing')
-      await store.dispatch('projects/fetchProjects', '/work')
+      await store.dispatch('posts/fetchPosts', { path: '/writing', isDev, query })
+      await store.dispatch('projects/fetchProjects', { path: '/work', isDev, query })
     } catch (e) {
       error({
         statusCode: 503,

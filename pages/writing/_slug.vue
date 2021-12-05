@@ -100,9 +100,9 @@ export default Vue.extend({
       { network: 'email', name: 'Email' },
     ],
   }),
-  async fetch({ store, error, route }) {
+  async fetch({ store, error, route, isDev, query }) {
     try {
-      await store.dispatch('posts/fetchPost', route.path)
+      await store.dispatch('posts/fetchPost', { path: route.path, isDev, query })
     } catch (e) {
       error({
         statusCode: 503,

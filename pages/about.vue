@@ -39,12 +39,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'AboutPage',
   asyncData(context): any {
-    // eslint-disable-next-line eqeqeq
-    const fullSlug = context.route.path == '/' || context.route.path == '' ? 'home' : context.route.path
+    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
+    const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 
     return context.app.$storyapi
       .get(`cdn/stories/${fullSlug}`, {
-        version: 'draft',
+        version,
       })
       .then((res: { data: any }) => {
         return res.data

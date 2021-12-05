@@ -1,14 +1,19 @@
 import { apiClient } from './common/http-storyblok'
 
 export default {
-  getPosts(path: any) {
+  getPosts(payload: any) {
     return apiClient.get('', {
       params: {
-        starts_with: path.substr(1),
+        starts_with: payload.path.substr(1),
+        version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published',
       },
     })
   },
-  getPost(path: any) {
-    return apiClient.get(`${path}`)
+  getPost(payload: any) {
+    return apiClient.get(`${payload.path}`, {
+      params: {
+        version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published',
+      },
+    })
   },
 }
