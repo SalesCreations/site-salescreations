@@ -181,7 +181,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="postcss">
 .image-post {
   width: 100%;
   height: 268.031px;
@@ -228,6 +228,7 @@ export default Vue.extend({
 #writing-content img {
   @apply my-20;
   @apply px-10;
+  @apply w-full;
 }
 #writing-content blockquote {
   position: relative;
