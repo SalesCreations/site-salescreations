@@ -10,7 +10,9 @@
         </p>
       </section>
       <section class="unsplash-section">
-        <h2 class="text-5xl font-black py-10">My Photos</h2>
+        <h2 class="text-5xl font-black py-10">
+          My photos on <a class="link link-active" href="https://unsplash.com/@salescreations">Unsplash</a>
+        </h2>
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
           <div v-for="(columns, key) in payload" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
             <a v-for="photo in columns" :key="`photo-${photo.id}`" :href="photo.links.html" target="_blank" class="gallery__link">
@@ -166,5 +168,16 @@ export default Vue.extend({
   opacity: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
   transition: 0.3s;
+}
+.link-active::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 70%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #ffd600;
+  z-index: -1;
 }
 </style>
