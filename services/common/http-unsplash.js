@@ -9,6 +9,6 @@ export const apiClient = axios.create({
   },
   params: {
     client_id: process.env.unsplashKey,
-    per_page: 100,
+    per_page: 28,
   },
 })

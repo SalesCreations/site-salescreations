@@ -38,7 +38,7 @@ export default Vue.extend({
   name: 'PhotographPage',
   data: () => ({
     numberColumn: 3,
-    gutter: '24px',
+    gutter: '14px', // 24px
   }),
   async fetch({ store, error }) {
     try {
