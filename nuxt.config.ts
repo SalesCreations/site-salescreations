@@ -110,6 +110,7 @@ export default {
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
     gtmId: process.env.GTM_ID,
     tokenStoryblok: process.env.ACCESS_TOKEN_SB,
+    unsplashKey: process.env.UNSPLASH_KEY,
   },
 
   // Google Tag Manage module
@@ -123,9 +124,6 @@ export default {
     clients: {
       githubClient: {
         endpoint: 'https://api.github.com/graphql',
-      },
-      contentfulClient: {
-        endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}`,
       },
     },
   },
