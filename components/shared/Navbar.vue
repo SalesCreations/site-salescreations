@@ -2,13 +2,7 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <NuxtLink
-          to="/"
-          rel="home"
-          aria-label="link home"
-          @mouseover.native="brandHover = true"
-          @mouseleave.native="brandHover = false"
-        >
+        <a href="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
           <Logo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
@@ -17,7 +11,7 @@
             height="36"
             alt="Brand Sales//Creations gif"
           />
-        </NuxtLink>
+        </a>
       </div>
       <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">
@@ -25,6 +19,7 @@
           <NuxtLink to="/work/" class="link rounded-md text-sm text-base"> Work </NuxtLink>
           <NuxtLink to="/about/" class="link rounded-md text-sm text-base"> About </NuxtLink>
           <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
+          <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base"> Photograph </NuxtLink>
           <NuxtLink to="/writing/" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
         </div>
       </div>
