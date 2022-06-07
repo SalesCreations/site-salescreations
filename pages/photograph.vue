@@ -13,7 +13,7 @@
       </section>
       <section class="unsplash-section">
         <h2 class="text-5xl font-black py-10">
-          My photos on <a class="link link-active" href="https://unsplash.com/@salescreations">Unsplash</a>
+          My photos on <a class="link link-active" href="https://unsplash.com/@salescreations" target="_blank">Unsplash</a>
         </h2>
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
           <div v-for="(columns, key) in payload" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
