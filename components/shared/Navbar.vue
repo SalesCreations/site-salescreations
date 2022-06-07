@@ -25,6 +25,7 @@
           <NuxtLink to="/work/" class="link rounded-md text-sm text-base"> Work </NuxtLink>
           <NuxtLink to="/about/" class="link rounded-md text-sm text-base"> About </NuxtLink>
           <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
+          <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base"> Photograph </NuxtLink>
           <NuxtLink to="/writing/" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
         </div>
       </div>
