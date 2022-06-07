@@ -4,9 +4,11 @@
     <main>
       <section class="description-section">
         <p>
-          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a year-old product designerand front-end
-          developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that
-          are my two passions.
+          I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two
+          trips together with school. It was a basic photographic film camera and I remember her buying the films with 24 poses
+          😂. I didn't have the digital 'preview' and I only knew how the photo turned out when it was developed. When I started
+          my graduation, I had the photography subject teaching the basics and its aspects and in recent years, my passion for
+          registering moments has only increased.
         </p>
       </section>
       <section class="unsplash-section">
