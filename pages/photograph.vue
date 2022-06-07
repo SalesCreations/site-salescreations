@@ -9,10 +9,6 @@
           are my two passions.
         </p>
       </section>
-      <section class="finish-section pt-20 pb-10">
-        <ElementSalesCreations />
-      </section>
-
       <section class="unsplash-section">
         <h2 class="text-5xl font-black py-10">My Photos</h2>
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
