@@ -18,8 +18,15 @@
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
           <div v-for="(columns, key) in payload" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
             <a v-for="photo in columns" :key="`photo-${photo.id}`" :href="photo.links.html" target="_blank" class="gallery__link">
-              <figure class="gallery__thumb">
-                <img :src="photo.urls.regular" :alt="`Photo by ${photo.user.name}`" class="gallery__image" />
+              <figure class="gallery__thumb bg-gray-500">
+                <img
+                  :src="photo.urls.regular"
+                  :height="photo.height"
+                  :width="photo.width"
+                  :alt="`Photo by ${photo.user.name}`"
+                  loading="lazy"
+                  class="gallery__image"
+                />
                 <figcaption class="gallery__caption">Photo by {{ photo.user.name }}</figcaption>
               </figure>
             </a>
@@ -150,6 +157,9 @@ export default Vue.extend({
 .gallery__thumb {
   position: relative;
 }
+.gallery__thumb img {
+  animation: 1s appear;
+}
 .gallery__image {
   display: block;
   width: 100%;
@@ -181,5 +191,11 @@ export default Vue.extend({
   left: 0;
   background: #ffd600;
   z-index: -1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
 }
 </style>
