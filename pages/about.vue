@@ -72,9 +72,13 @@ export default Vue.extend({
   head() {
     return {
       title: 'About Sales//Creations',
-      description:
-        'I´m Rafael Sales but you can call me ´Sales´, a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions',
       meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'I´m Rafael Sales but you can call me ´Sales´, a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions',
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
@@ -89,12 +93,12 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'About Sales//Creations',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:title',
@@ -110,17 +114,17 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
       ],
     }
