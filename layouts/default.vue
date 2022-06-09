@@ -12,6 +12,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Navbar from '@/components/shared/Navbar.vue'
+import Footer from '@/components/shared/Footer.vue'
 import ButtonScroll from '~/components/buttons/ButtonScroll.vue'
 
 export default Vue.extend({
@@ -19,6 +20,7 @@ export default Vue.extend({
   components: {
     Navbar,
     ButtonScroll,
+    Footer,
   },
 })
 </script>
