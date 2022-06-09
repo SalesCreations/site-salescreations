@@ -61,10 +61,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Photographs with Sales//Creations',
-    }
+  head: {
+    title: 'Photographs with Sales//Creations',
   },
   computed: mapState({
     photos: (state: any) => state.photos.photos,

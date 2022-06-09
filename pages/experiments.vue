@@ -115,10 +115,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Experiments from Sales//Creations',
-    }
+  head: {
+    title: 'Experiments from Sales//Creations',
   },
   computed: mapState({
     repos: (state) => state.repos.repos,

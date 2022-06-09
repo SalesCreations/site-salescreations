@@ -42,10 +42,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Work done at Sales//Creations',
-    }
+  head: {
+    title: 'Work done at Sales//Creations',
   },
   computed: mapState({
     projects: (state: any) => state.projects.projects,

@@ -82,10 +82,8 @@ export default Vue.extend({
       techStart: 0,
     }
   },
-  head() {
-    return {
-      title: 'About Sales//Creations',
-    }
+  head: {
+    title: 'About Sales//Creations',
   },
   mounted() {
     isEditModeGeneral(this)

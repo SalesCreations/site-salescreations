@@ -35,10 +35,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Writing ideas by Sales//Creations',
-    }
+  head: {
+    title: 'Writing ideas by Sales//Creations',
   },
   computed: mapState({
     posts: (state: any) => state.posts.posts,
