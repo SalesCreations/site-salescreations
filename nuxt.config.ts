@@ -44,7 +44,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+        content: `${'https://salescreations-staging.netlify.app/' + 'thumbnail-site.png'}`,
       },
       {
         hid: 'twitter:image:alt',
@@ -64,12 +64,12 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+        content: `${'https://salescreations-staging.netlify.app/' + 'thumbnail-site.png'}`,
       },
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+        content: `${'https://salescreations-staging.netlify.app/' + 'thumbnail-site.png'}`,
       },
       {
         hid: 'og:image:alt',
