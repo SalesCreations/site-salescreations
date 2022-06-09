@@ -114,6 +114,12 @@ export default Vue.extend({
         'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
       meta: [
         {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
+        },
+        {
           hid: 'twitter:title',
           name: 'twitter:title',
           content: 'Experiments from Sales//Creations',
@@ -127,12 +133,12 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'Experiments from Sales//Creations',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:title',
@@ -148,17 +154,17 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
       ],
     }

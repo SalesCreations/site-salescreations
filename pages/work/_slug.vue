@@ -65,8 +65,12 @@ export default Vue.extend({
   head() {
     return {
       title: this.project.content.title,
-      description: this.project.content.resume,
       meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.project.content.intro,
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
@@ -80,7 +84,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.project.content.metaImage.filename,
+          content: `https:${this.project.content.metaImage.filename}`,
         },
         {
           hid: 'twitter:image:alt',
@@ -100,12 +104,12 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.project.content.metaImage.filename,
+          content: `https:${this.project.content.metaImage.filename}`,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: this.project.content.metaImage.filename,
+          content: `https:${this.project.content.metaImage.filename}`,
         },
         {
           hid: 'og:image:alt',

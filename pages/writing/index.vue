@@ -32,8 +32,12 @@ export default Vue.extend({
   head() {
     return {
       title: 'Writing ideas by Sales//Creations',
-      description: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
       meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
@@ -47,12 +51,12 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'Writing ideas by Sales//Creations',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:title',
@@ -67,17 +71,17 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
       ],
       link: [
@@ -94,7 +98,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="postcss">
 .ais-SearchBox form {
   @apply border-black;
   @apply border-2;
