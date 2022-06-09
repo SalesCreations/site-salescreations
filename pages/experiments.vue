@@ -133,7 +133,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'twitter:image:alt',
@@ -154,12 +154,12 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
+          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
         },
         {
           hid: 'og:image:alt',

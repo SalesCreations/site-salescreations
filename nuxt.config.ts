@@ -8,15 +8,15 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Sales//Creations - Creative Emotion',
+    title: 'Sales//Creations co-creation solutions',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'title',
-        name: 'title',
-        content: 'Sales//Creations - Creative Emotion',
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${'https://salescreations.com' + require('@/assets/images/thumbnail-site.png')}`,
       },
       {
         hid: 'theme-color',
