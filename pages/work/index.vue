@@ -23,9 +23,15 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import CardProject from '@/components/cards/CardProject.vue'
+import Header from '@/components/shared/Header.vue'
 
 export default Vue.extend({
   name: 'WorkPage',
+  components: {
+    CardProject,
+    Header,
+  },
   async fetch({ store, error, route, isDev, query }) {
     try {
       await store.dispatch('projects/fetchProjects', { path: route.path, isDev, query })

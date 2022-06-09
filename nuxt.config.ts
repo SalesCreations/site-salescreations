@@ -9,8 +9,6 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'theme-color',
@@ -37,7 +35,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dracula.css'],
+  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dark.css'],
 
   // Config default server.
   server: {

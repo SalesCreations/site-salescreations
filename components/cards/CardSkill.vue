@@ -9,9 +9,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import IconLaunch from '@/components/icons/IconLaunch.vue'
 
 export default Vue.extend({
   name: 'CardSkill',
+  components: {
+    IconLaunch,
+  },
   props: {
     skill: {
       type: Object,

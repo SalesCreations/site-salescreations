@@ -49,9 +49,13 @@
 import { mapState } from 'vuex'
 import { isEditMode } from '@/plugins/helper.js'
 import Vue from 'vue'
+import BannerContact from '@/components/banners/BannerContact.vue'
 
 export default Vue.extend({
   name: 'ShowProject',
+  components: {
+    BannerContact,
+  },
   async fetch({ store, error, route, isDev, query }) {
     try {
       await store.dispatch('projects/fetchProject', { path: route.path, isDev, query })

@@ -40,9 +40,13 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import Header from '@/components/shared/Header.vue'
 
 export default Vue.extend({
   name: 'PhotographPage',
+  components: {
+    Header,
+  },
   data: () => ({
     numberColumn: 3,
     gutter: '14px', // 24px

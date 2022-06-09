@@ -43,9 +43,19 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import CardProject from '@/components/cards/CardProject.vue'
+import CardPost from '@/components/cards/CardPost.vue'
+import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
+import ButtonMore from '@/components/buttons/ButtonMore.vue'
 
 export default Vue.extend({
   name: 'HomePage',
+  components: {
+    CardProject,
+    CardPost,
+    ElementSalesCreations,
+    ButtonMore,
+  },
   async fetch({ store, error, isDev, query }) {
     try {
       await store.dispatch('posts/fetchPosts', { path: '/writing', isDev, query })

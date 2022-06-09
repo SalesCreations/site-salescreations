@@ -65,9 +65,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Logo from '@/components/shared/Logo.vue'
 
 export default Vue.extend({
   name: 'Navbar',
+  components: {
+    Logo,
+  },
   data: () => ({
     dropdowNav: false,
     brandHover: false,

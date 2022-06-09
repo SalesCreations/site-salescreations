@@ -90,9 +90,17 @@
 <script>
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import Header from '@/components/shared/Header.vue'
+import CardRepo from '@/components/cards/CardRepo.vue'
+import CardShot from '@/components/cards/CardShot.vue'
 
 export default Vue.extend({
   name: 'ExperimentsPage',
+  components: {
+    Header,
+    CardRepo,
+    CardShot,
+  },
   data: () => ({
     moreShotHover: false,
   }),

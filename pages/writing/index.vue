@@ -16,9 +16,15 @@
 <script lang="ts">
 import { mapState } from 'vuex'
 import Vue from 'vue'
+import Header from '@/components/shared/Header.vue'
+import CardPost from '@/components/cards/CardPost.vue'
 
 export default Vue.extend({
   name: 'WritingPage',
+  components: {
+    Header,
+    CardPost,
+  },
   async fetch({ store, error, route, isDev, query }) {
     try {
       await store.dispatch('posts/fetchPosts', { path: route.path, isDev, query })

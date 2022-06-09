@@ -20,9 +20,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import IconGithub from '@/components/icons/IconGithub.vue'
 
 export default Vue.extend({
-  name: 'CardProject',
+  name: 'CardRepo',
+  components: {
+    IconGithub,
+  },
   filters: {
     truncate(string: string, maxLength: number, end = '...') {
       if (!string) return ''

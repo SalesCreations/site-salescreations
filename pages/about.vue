@@ -35,9 +35,22 @@
 <script lang="ts">
 import { isEditModeGeneral } from '@/plugins/helper.js'
 import Vue from 'vue'
+import Header from '@/components/shared/Header.vue'
+import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
+import BannerCta from '@/components/banners/BannerCta.vue'
+import CardSkill from '@/components/cards/CardSkill.vue'
+import CardTimeline from '@/components/timeline/CardTimeline.vue'
+
+Vue.component('CardSkill', CardSkill)
+Vue.component('CardTimeline', CardTimeline)
 
 export default Vue.extend({
   name: 'AboutPage',
+  components: {
+    Header,
+    ElementSalesCreations,
+    BannerCta,
+  },
   asyncData(context): any {
     const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
     const version = context.query._storyblok || context.isDev ? 'draft' : 'published'

@@ -49,7 +49,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'ButtonScrollUp',
+  name: 'ButtonScroll',
   data: () => ({
     scrollpx: 0,
   }),
