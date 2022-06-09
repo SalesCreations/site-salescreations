@@ -13,5 +13,13 @@ module.exports = {
   ],
   plugins: ['prettier'],
   // add your custom rules here
-  rules: {},
+  'no-use-before-define': [
+    'error',
+    {
+      functions: true,
+      classes: true,
+      variables: true,
+      allowNamedExports: false,
+    },
+  ],
 }
