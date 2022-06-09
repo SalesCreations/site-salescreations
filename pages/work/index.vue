@@ -39,8 +39,6 @@ export default Vue.extend({
   head() {
     return {
       title: 'Work done at Sales//Creations',
-      description:
-        'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
       meta: [
         {
           hid: 'description',
