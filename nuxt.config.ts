@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Sales//Creations co-creation solutions',
+    title: 'Welcome to Sales//Creations',
     meta: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
@@ -34,7 +34,7 @@ export default {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: 'Sales//Creations co-creation solutions',
+        content: 'Welcome to Sales//Creations',
       },
       {
         hid: 'twitter:description',
@@ -49,12 +49,12 @@ export default {
       {
         hid: 'twitter:image:alt',
         name: 'twitter:image:alt',
-        content: 'Sales//Creations co-creation solutions',
+        content: 'Welcome to Sales//Creations',
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Sales//Creations co-creation solutions',
+        content: 'Welcome to Sales//Creations',
       },
       {
         hid: 'og:description',
@@ -74,7 +74,7 @@ export default {
       {
         hid: 'og:image:alt',
         property: 'og:image:alt',
-        content: 'Sales//Creations co-creation solutions',
+        content: 'Welcome to Sales//Creations',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

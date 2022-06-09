@@ -45,61 +45,6 @@ export default Vue.extend({
   head() {
     return {
       title: 'Work done at Sales//Creations',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Work done at Sales//Creations',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Work done at Sales//Creations',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements.',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:secure_url',
-          property: 'og:image:secure_url',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:alt',
-          property: 'og:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-      ],
     }
   },
   computed: mapState({
