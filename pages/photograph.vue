@@ -59,53 +59,60 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: 'My Photographs',
-      description: 'Lorem',
+      title: 'Photographs with Sales//Creations',
       meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two trips together with school',
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'My Photographs',
+          content: 'Photographs with Sales//Creations',
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: 'Lorem',
+          content:
+            'I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two trips together with school',
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'My Photographs',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'My Photographs',
+          content: 'Photographs with Sales//Creations',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Lorem',
+          content:
+            'I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two trips together with school',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
       ],
     }

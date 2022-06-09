@@ -59,13 +59,17 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: 'Sales//Creations - Creative Emotion',
-      description: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+      title: 'Sales//Creations co-creation solutions',
       meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'twitter:description',
@@ -75,17 +79,17 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
         {
           hid: 'og:description',
@@ -95,17 +99,17 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: require('@/assets/images/thumbnail-site.png'),
+          content: window.location.origin + require('@/assets/images/thumbnail-site.png'),
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Sales//Creations - Creative Emotion',
+          content: 'Sales//Creations co-creation solutions',
         },
       ],
     }
@@ -117,7 +121,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .img-me {
   animation: 1s appear;
   margin: auto;
