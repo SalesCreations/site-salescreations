@@ -8,8 +8,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    title: 'Sales//Creations co-creation solutions',
     meta: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+      },
       {
         hid: 'theme-color',
         name: 'theme-color',
@@ -21,14 +27,54 @@ export default {
         content: 'website',
       },
       {
-        hid: 'og:type',
-        property: 'og:type',
-        content: 'website',
-      },
-      {
         hid: 'og:site_name',
         property: 'og:site_name',
         content: 'Sales//Creations',
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Sales//Creations co-creation solutions',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: 'Sales//Creations co-creation solutions',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Sales//Creations co-creation solutions',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: `${'https://salescreations.com.br/' + 'thumbnail-site.png'}`,
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Sales//Creations co-creation solutions',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

@@ -1,4 +1,4 @@
-<!-- ![cover-salescreations](https://res.cloudinary.com/www-salescreations-com-br/image/upload/v1631837402/cover.png)
+![cover-salescreations](https://res.cloudinary.com/www-salescreations-com-br/image/upload/v1631837402/cover.png)
 # Sales//Creations Website
 
 [![NuxtJS](https://img.shields.io/badge/Nuxt-black?style=for-the-badge&logo=nuxt.js&logoColor=white)](https://nuxtjs.org/)
@@ -25,4 +25,4 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org). -->
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
