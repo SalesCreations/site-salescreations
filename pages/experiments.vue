@@ -115,67 +115,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Experiments from Sales//Creations',
-      description:
-        'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Experiments from Sales//Creations',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Experiments from Sales//Creations',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            'Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:secure_url',
-          property: 'og:image:secure_url',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:alt',
-          property: 'og:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-      ],
-    }
+  head: {
+    title: 'Experiments from Sales//Creations',
   },
   computed: mapState({
     repos: (state) => state.repos.repos,

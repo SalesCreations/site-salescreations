@@ -21,10 +21,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import SocialLinks from '@/components/shared/SocialLinks.vue'
 
 export default Vue.extend({
   name: 'Footer',
-
+  components: {
+    SocialLinks
+  },
   props: {
     image: {
       type: Boolean,

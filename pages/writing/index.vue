@@ -35,68 +35,8 @@ export default Vue.extend({
       })
     }
   },
-  head() {
-    return {
-      title: 'Writing ideas by Sales//Creations',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Writing ideas by Sales//Creations',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Writing ideas by Sales//Creations',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:secure_url',
-          property: 'og:image:secure_url',
-          content: `${window.location.origin + require('@/assets/images/thumbnail-site.png')}`,
-        },
-        {
-          hid: 'og:image:alt',
-          property: 'og:image:alt',
-          content: 'Sales//Creations co-creation solutions',
-        },
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css',
-        },
-      ],
-    }
+  head: {
+    title: 'Writing ideas by Sales//Creations',
   },
   computed: mapState({
     posts: (state: any) => state.posts.posts,
