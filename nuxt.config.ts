@@ -241,7 +241,7 @@ export default {
     routes: async () => {
       const posts: any = await PostService.getPostsRoutes({
         path: '/writing',
-        isDev: process.env.NODE_ENV !== 'production',
+        isDev: true,
       }).then((response) => {
         return response.data.stories.slice(1)
       })
@@ -250,7 +250,7 @@ export default {
       })
       const projects: any = await ProjectService.getProjectsRoutes({
         path: '/work',
-        isDev: process.env.NODE_ENV !== 'production',
+        isDev: true,
       }).then((response) => {
         return response.data.stories.slice(1)
       })
