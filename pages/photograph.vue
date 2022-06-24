@@ -1,6 +1,6 @@
 <template>
   <div id="photograph-page">
-    <Header title="Photograph" img="image-header-about.png" />
+    <Header title="Photograph" img="image-header-photograph.png" />
     <main>
       <section class="description-section">
         <p>
