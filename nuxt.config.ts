@@ -81,7 +81,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dark.css'],
+  css: ['@/assets/css/main.css'],
 
   // Config default server.
   server: {
@@ -126,6 +126,13 @@ export default {
     '@nuxtjs/robots',
     // https://sentry.nuxtjs.org/
     '@nuxtjs/sentry',
+    // https://github.com/Llang8/nuxt-highlightjs
+    [
+      'nuxt-highlightjs',
+      { 
+        style: 'github-dark-dimmed' 
+      }
+    ],
     [
       'storyblok-nuxt',
       {
