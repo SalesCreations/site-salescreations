@@ -295,6 +295,7 @@ export default Vue.extend({
 }
 #writing-content ul li {
   @apply mb-3;
+  list-style: disc;
 }
 .action-post:hover {
   transform: scale(1.09);
