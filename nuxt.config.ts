@@ -81,7 +81,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css'],
+  css: ['@/assets/css/main.css', '~/node_modules/highlight.js/styles/dark.css'],
 
   // Config default server.
   server: {
@@ -130,7 +130,7 @@ export default {
     [
       'nuxt-highlightjs',
       { 
-        style: 'github-dark-dimmed' 
+        style: 'dark' 
       }
     ],
     [
