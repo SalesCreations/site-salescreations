@@ -70,7 +70,10 @@
     </header>
     <main>
       <section class="show-writing-section">
-        <article id="writing-content" v-html="$md.render(post.content.longText)" />
+        <!-- <article id="writing-content" v-html="$md.render(post.content.longText)" /> -->
+        <article id="writing-content">
+          <RichTextRenderer  :document="post.content.article" />
+        </article>
       </section>
     </main>
   </div>
@@ -169,6 +172,11 @@ export default Vue.extend({
   },
   computed: mapState({
     post: (state: any) => state.posts.post,
+    richtext() {
+      return typeof this.post.content.article === 'string'
+        ? this.post.content.article
+        : this.$storyapi.richTextResolver.render(this.post.content.article)
+    },
   }),
   created() {
     this.time = readingTime(this.post.content.longText)
