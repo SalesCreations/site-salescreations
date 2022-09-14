@@ -127,12 +127,7 @@ export default {
     // https://sentry.nuxtjs.org/
     '@nuxtjs/sentry',
     // https://github.com/Llang8/nuxt-highlightjs
-    [
-      'nuxt-highlightjs',
-      { 
-        style: 'dark' 
-      }
-    ],
+    'nuxt-highlightjs',
     [
       'storyblok-nuxt',
       {
