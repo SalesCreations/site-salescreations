@@ -1,6 +1,6 @@
 <template>
-  <pre>
-    <code v-highlight :class="elementClass">
+  <pre v-highlightjs="sourcecode">
+    <code :class="elementClass">
       <slot />
     </code>
   </pre>
