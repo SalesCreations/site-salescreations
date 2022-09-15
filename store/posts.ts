@@ -24,7 +24,7 @@ export const mutations: MutationTree<RootState> = {
 export const actions: ActionTree<RootState, RootState> = {
   async fetchPosts({ commit }, path) {
     return await PostService.getPosts(path).then((response) => {
-      commit('SET_POSTS', response.data.stories.slice(1))
+      commit('SET_POSTS', response.data.stories.slice(0, -1))
     })
   },
   async fetchPost({ commit }, path) {
