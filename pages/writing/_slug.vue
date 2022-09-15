@@ -237,7 +237,7 @@ export default Vue.extend({
   @apply tracking-wide;
   @apply mb-5;
 }
-#writing-content img {
+#writing-content img:not(.object-cover) {
   @apply my-20;
   @apply px-10;
   @apply w-full;
