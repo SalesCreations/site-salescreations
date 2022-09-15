@@ -31,7 +31,8 @@
       "@nuxtjs/dayjs",
       "@nuxtjs/sentry",
       "nuxt-graphql-request/types"
-    ]
+    ],
+    "jsx": "preserve"
   },
   "exclude": [
     "node_modules",

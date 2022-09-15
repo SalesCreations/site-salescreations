@@ -132,7 +132,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="postcss">
 .image-project {
   width: 100%;
   animation: 1s appear;

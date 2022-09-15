@@ -37,7 +37,7 @@ export default Vue.extend({
     },
   }),
   data: () => ({
-    time: 0,
+    time: { "text": "", "minutes": 0, "time": 0, "words": 0 },
   }),
   created() {
     this.time = readingTime(this.richtext)
