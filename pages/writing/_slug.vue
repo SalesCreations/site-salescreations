@@ -179,7 +179,7 @@ export default Vue.extend({
     },
   }),
   created() {
-    this.time = readingTime(this.post.content.longText)
+    this.time = readingTime(this.richtext)
   },
   mounted() {
     isEditMode(this, 'post', 'posts/updatePost')

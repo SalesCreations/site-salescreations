@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { mapState } from 'vuex'
 import { BlogPostCollectionItem } from '@/plugins/types'
 const readingTime = require('reading-time')
 
@@ -28,11 +29,18 @@ export default Vue.extend({
       required: true,
     },
   },
+  computed: mapState({
+    richtext() {
+      return typeof this.post.content.article === 'string'
+        ? this.post.content.article
+        : this.$storyapi.richTextResolver.render(this.post.content.article)
+    },
+  }),
   data: () => ({
     time: 0,
   }),
   created() {
-    this.time = readingTime(this.post.content.longText)
+    this.time = readingTime(this.richtext)
   },
 })
 </script>
