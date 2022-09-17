@@ -18,20 +18,20 @@
     </header>
     <main>
       <section class="projects-section">
-        <h2 class="text-5xl font-black py-5">Projects</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('projects') }}</h2>
         <div class="last-projects">
           <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
-        <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
+        <ButtonMore class="ml-auto" :label="$t('seeMoreProjects')" :to="localePath('/work/')" />
       </section>
       <section class="writing-section mt-10">
-        <h2 class="text-5xl font-black py-5">Writing</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('writing') }}</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardPost :post="post" />
           </li>
         </ul>
-        <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
+        <ButtonMore class="ml-auto" :label="$t('seeMoreArticles')" :to="localePath('/writing/')" />
       </section>
       <section class="finish-section py-48">
         <ElementSalesCreations />

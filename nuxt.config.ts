@@ -126,6 +126,8 @@ export default {
     '@nuxtjs/robots',
     // https://sentry.nuxtjs.org/
     '@nuxtjs/sentry',
+    // https://i18n.nuxtjs.org/
+    '@nuxtjs/i18n',
     [
       'storyblok-nuxt',
       {
@@ -181,6 +183,26 @@ export default {
       background_color: '#ffffff',
       theme_color: '#000000',
     },
+  },
+
+  // i18n module: https://i18n.nuxtjs.org/setup
+  i18n: {
+    langDir: 'assets/locales/',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+        description: 'English',
+      },
+      {
+        code: 'pt-br',
+        name: 'Brazilian Portuguese',
+        file: 'pt-br.json',
+        description: 'Brazilian Portuguese',
+      }
+    ],
+    defaultLocale: 'en',
   },
 
   // Nuxt Robots module: https://github.com/nuxt-community/robots-module#readme
