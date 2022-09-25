@@ -1,6 +1,6 @@
 <template>
   <div id="about-page">
-    <Header title="About" img="image-header-about.png" />
+    <Header :title="$t('about')" img="image-header-about.png" />
     <main>
       <section class="description-section">
         <h6 class="font-bold text-xl">Hello!</h6>
@@ -52,12 +52,14 @@ export default Vue.extend({
     BannerCta,
   },
   asyncData(context): any {
-    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
+    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path.split('/').pop()
     const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
+    const language = context.i18n.getLocaleCookie() === 'en' ? '' : context.i18n.getLocaleCookie()
 
     return context.app.$storyapi
       .get(`cdn/stories/${fullSlug}`, {
         version,
+        language
       })
       .then((res: { data: any }) => {
         return res.data

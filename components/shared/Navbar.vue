@@ -25,10 +25,10 @@
           </div>
           <div class="language flex space-x-5 ml-8">
             <nuxt-link class="i18n" :to="switchLocalePath('en')">
-              <IconFlagBritain class="w-6 h-6"/>
+              <img src="@/assets/images/flags/britain-flag.svg" class="w-6 h-6" alt="english-flag" />
             </nuxt-link>
             <nuxt-link class="i18n" :to="switchLocalePath('pt-br')">
-              <img src="@/assets/images/flags/brazil-flag.svg" class="w-6 h-6" alt="" />
+              <img src="@/assets/images/flags/brazil-flag.svg" class="w-6 h-6" alt="brazil-flag" />
             </nuxt-link>
           </div>
         </div>

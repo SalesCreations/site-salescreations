@@ -7,5 +7,18 @@
   "writing": "Writing",
   "projects": "Projects",
   "seeMoreProjects": "See More Projects",
-  "seeMoreArticles": "See More Articles"
+  "seeMoreArticles": "See More Articles",
+  "titleHome": "Hello, I’m Rafael Sales",
+  "descriptionHome":
+    "I am a <strong>Product Designer and Front-End Developer</strong>, initially I created Sales Creations in 2016 with a focus on helping companies in design projects, but in recent years I changed my positioning only from design to work with design and technology assisting in co-creation with companies in search for solutions.",
+  "workDescription":
+    "Here you will find some projects I've done throughout my professional career, from <strong>UX research</strong> projects, <strong>UI design</strong> projects aimed at interfaces and even <strong>motion design</strong> aimed at product advertisements. I believe we can use design as a gateway to translating problems into humanistic and empowering opportunities.",
+  "downloadMyResume": "Download my resume",
+  "reposPinnedGithub": "Repos Pinned Github",
+  "latestProjectsOnDribbble": "Latest projects on Dribbble",
+  "experimentsDescription":
+    "Here on the experiments page I want to share some of my side projects that I'm always developing within the design and development area, here I want to present some of my <a href='https://github.com/rsales' class='underline text-blue-500' target='_blank'>github</a> repositories and some quick design projects that I share through the <a href='https://dribbble.com/salescreations' class='underline text-blue-500' target='_blank'>dribbble</a> platform and who knows soon come here to present some audio visual projects.",
+  "myPhotosOnUnsplash": "My photos on <a class='link link-active' href='https://unsplash.com/@salescreations' target='_blank'>Unsplash</a>",
+  "photographDescription":
+    "I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two trips together with school. It was a basic photographic film camera and I remember her buying the films with 24 poses 😂. I didn't have the digital 'preview' and I only knew how the photo turned out when it was developed. When I started my graduation, I had the photography subject teaching the basics and its aspects and in recent years, my passion for registering moments has only increased."
 }
