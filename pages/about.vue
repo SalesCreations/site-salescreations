@@ -3,20 +3,11 @@
     <Header :title="$t('about')" img="image-header-about.png" />
     <main>
       <section class="description-section">
-        <h6 class="font-bold text-xl">Hello!</h6>
+        <h6 class="font-bold text-xl">{{$t('hello')}}</h6>
         <br />
-        <p>
-          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a {{ age }}-year-old product designer
-          and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
-          design that are my two passions.
-        </p>
+        <p v-html="$t('aboutDescriptionOne', {age: age})" />
         <br />
-        <p>
-          I started my career in the graphic sector, when I was in the last year of high school and fell in love with the
-          possibilities within the design area, right after that I entered the university in the graphic design course, today
-          completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
-          been {{ techStart }} years working directly in the technology area.
-        </p>
+        <p v-html="$t('aboutDescriptionTwo', {designStart: designStart, techStart: techStart})" />
       </section>
       <section class="finish-section pt-20 pb-10">
         <ElementSalesCreations />
@@ -78,7 +69,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      story: { content: {} },
+      story: { content: {component: {}, body: {blok: {component: {}, _uid: 0}}} },
       age: 0,
       designStart: 0,
       techStart: 0,
