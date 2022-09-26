@@ -55,7 +55,7 @@ export default Vue.extend({
   async fetch({ store, error, isDev, query, i18n }) {
     try {
       await store.dispatch('posts/fetchPosts', { path: i18n.getLocaleCookie() === 'en' ? '/writing/' : '/pt-br/writing/', isDev, query })
-      await store.dispatch('projects/fetchProjects', { path: '/work', isDev, query })
+      await store.dispatch('projects/fetchProjects', { path: i18n.getLocaleCookie() === 'en' ? '/work/' : '/pt-br/work/', isDev, query })
     } catch (e) {
       error({
         statusCode: 503,

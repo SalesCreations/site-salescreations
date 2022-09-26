@@ -1,6 +1,6 @@
 <template>
   <div id="card-project" class="py-8 px-10 bg-white my-5 rounded border-2 border-black">
-    <NuxtLink :to="`/work/${project.slug}`" class="link-post flex flex-col sm:flex-row">
+    <NuxtLink :to="`/${project.full_slug}`" class="link-post flex flex-col sm:flex-row">
       <div class="descriptions">
         <p class="tag-project text-sm font-thin">{{ project.content.type }} - {{ project.content.year }}</p>
         <h3 class="title-project text-3xl font-black">{{ project.content.title }}</h3>
