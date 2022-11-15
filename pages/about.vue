@@ -1,13 +1,22 @@
 <template>
   <div id="about-page">
-    <Header :title="$t('about')" img="image-header-about.png" />
+    <Header title="About" img="image-header-about.png" />
     <main>
       <section class="description-section">
-        <h6 class="font-bold text-xl">{{$t('hello')}}</h6>
+        <h6 class="font-bold text-xl">Hello!</h6>
         <br />
-        <p v-html="$t('aboutDescriptionOne', {age: age})" />
+        <p>
+          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a {{ age }}-year-old product designer
+          and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
+          design that are my two passions.
+        </p>
         <br />
-        <p v-html="$t('aboutDescriptionTwo', {designStart: designStart, techStart: techStart})" />
+        <p>
+          I started my career in the graphic sector, when I was in the last year of high school and fell in love with the
+          possibilities within the design area, right after that I entered the university in the graphic design course, today
+          completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
+          been {{ techStart }} years working directly in the technology area.
+        </p>
       </section>
       <section class="finish-section pt-20 pb-10">
         <ElementSalesCreations />
@@ -43,14 +52,12 @@ export default Vue.extend({
     BannerCta,
   },
   asyncData(context): any {
-    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path.split('/').pop()
+    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
     const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    const language = context.i18n.getLocaleCookie() === 'en' ? '' : context.i18n.getLocaleCookie()
 
     return context.app.$storyapi
       .get(`cdn/stories/${fullSlug}`, {
         version,
-        language
       })
       .then((res: { data: any }) => {
         return res.data
@@ -69,7 +76,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      story: { content: {component: {}, body: {blok: {component: {}, _uid: 0}}} },
+      story: { content: {} },
       age: 0,
       designStart: 0,
       techStart: 0,

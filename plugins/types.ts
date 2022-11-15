@@ -81,29 +81,9 @@ export interface ProjectsCollectionItem {
   resume: string
   type: string
   year: number
-  full_slug: string
-  content: {
+  thumbnail: {
     title: string
-    _uid: string
-    type: string
-    year: number
-    company: string
-    team: string[]
-    tools: string[]
-    roles: string[]
-    resume: string
-    content: string
-    component: string
-    thumbnail: {
-      id: number
-      alt: string
-      name: string
-      focus: any
-      title: string
-      filename: string
-      copyright: string
-      fieldtype: string
-    }
+    url: string
   }
 }
 
