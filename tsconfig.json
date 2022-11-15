@@ -30,7 +30,8 @@
       "@types/node",
       "@nuxtjs/dayjs",
       "@nuxtjs/sentry",
-      "nuxt-graphql-request/types"
+      "nuxt-graphql-request/types",
+      "@nuxtjs/i18n"
     ],
     "jsx": "preserve"
   },

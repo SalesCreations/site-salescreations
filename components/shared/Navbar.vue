@@ -2,7 +2,7 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <a href="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
+        <a :href="localePath('/')" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
           <Logo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
@@ -15,12 +15,22 @@
       </div>
       <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">
-        <div class="flex space-x-10">
-          <NuxtLink to="/work/" class="link rounded-md text-sm text-base"> Work </NuxtLink>
-          <NuxtLink to="/about/" class="link rounded-md text-sm text-base"> About </NuxtLink>
-          <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
-          <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base"> Photograph </NuxtLink>
-          <NuxtLink to="/writing/" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
+        <div class="flex">
+          <div class="pages flex space-x-10">
+            <NuxtLink :to="localePath('/work/')" class="link rounded-md text-sm text-base"> {{ $t('work') }} </NuxtLink>
+            <NuxtLink :to="localePath('/about/')" class="link rounded-md text-sm text-base"> {{ $t('about') }} </NuxtLink>
+            <NuxtLink :to="localePath('/experiments/')"  class="link rounded-md text-sm text-base"> {{ $t('experiments') }} </NuxtLink>
+            <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-sm text-base"> {{ $t('photograph') }} </NuxtLink>
+            <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-sm text-base"> {{ $t('writing') }} </NuxtLink>
+          </div>
+          <div class="language flex space-x-5 ml-8">
+            <nuxt-link class="i18n" :to="switchLocalePath('en')">
+              <img src="@/assets/images/flags/britain-flag.svg" class="w-6 h-6" alt="english-flag" />
+            </nuxt-link>
+            <nuxt-link class="i18n" :to="switchLocalePath('pt-br')">
+              <img src="@/assets/images/flags/brazil-flag.svg" class="w-6 h-6" alt="brazil-flag" />
+            </nuxt-link>
+          </div>
         </div>
       </div>
       <!-- NAVIGATION MOBILE -->
@@ -57,19 +67,23 @@
     </div>
     <div :class="`dropdow-nav bg-white w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
       <div class="flex flex-col">
-        <NuxtLink to="/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Home </NuxtLink>
-        <NuxtLink to="/work/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Work </NuxtLink>
-        <NuxtLink to="/about/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
-          About
+        <NuxtLink :to="localePath('/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> 
+          {{ $t('home') }}
         </NuxtLink>
-        <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
-          Experiments
+        <NuxtLink :to="localePath('/work/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> 
+          {{ $t('work') }} 
         </NuxtLink>
-        <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
-          Photograph
+        <NuxtLink :to="localePath('/about/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+          {{ $t('about') }} 
         </NuxtLink>
-        <NuxtLink to="/writing/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
-          Writing
+        <NuxtLink :to="localePath('/experiments/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+          {{ $t('experiments') }} 
+        </NuxtLink>
+        <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+          {{ $t('photograph') }} 
+        </NuxtLink>
+        <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+          {{ $t('writing') }} 
         </NuxtLink>
       </div>
     </div>
@@ -79,12 +93,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import Logo from '@/components/shared/Logo.vue'
+import IconFlagBritain from '../icons/IconFlagBritain.vue';
 
 export default Vue.extend({
   name: 'Navbar',
   components: {
     Logo,
-  },
+    IconFlagBritain
+},
   data: () => ({
     dropdowNav: false,
     brandHover: false,
@@ -93,7 +109,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-a.nuxt-link-active::after {
+a.nuxt-link-active::after:not(.i18n) {
   content: ' ';
   display: block;
   position: absolute;
@@ -105,15 +121,15 @@ a.nuxt-link-active::after {
   background: #ffd600;
   z-index: -1;
 }
-a.nuxt-link-active {
+a.nuxt-link-active:not(.i18n) {
   position: relative;
 }
-.dropdow-nav {
+.dropdow-nav:not(.i18n) {
   opacity: 0;
   transition: 0.3s;
   display: none;
 }
-.dropdow-nav.active {
+.dropdow-nav.active:not(.i18n) {
   opacity: 1;
   transition: 0.3s;
   display: block;

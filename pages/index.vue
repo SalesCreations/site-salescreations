@@ -2,12 +2,8 @@
   <div id="home-page">
     <header class="grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 sm:col-span-7 flex flex-wrap content-center">
-        <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">Hello, I’m Rafael Sales</h1>
-        <p class="text-base">
-          I am a <strong>Product Designer and Front-End Developer</strong>, initially I created Sales Creations in 2016 with a
-          focus on helping companies in design projects, but in recent years I changed my positioning only from design to work
-          with design and technology assisting in co-creation with companies in search for solutions.
-        </p>
+        <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">{{ $t('titleHome') }}</h1>
+        <p class="text-base" v-html="$t('descriptionHome')"></p>
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <div class="image-action relative mx-auto">
@@ -18,20 +14,20 @@
     </header>
     <main>
       <section class="projects-section">
-        <h2 class="text-5xl font-black py-5">Projects</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('projects') }}</h2>
         <div class="last-projects">
           <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
-        <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
+        <ButtonMore class="ml-auto" :label="$t('seeMoreProjects')" :to="localePath('/work/')" />
       </section>
       <section class="writing-section mt-10">
-        <h2 class="text-5xl font-black py-5">Writing</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('writing') }}</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardPost :post="post" />
           </li>
         </ul>
-        <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
+        <ButtonMore class="ml-auto" :label="$t('seeMoreArticles')" :to="localePath('/writing/')" />
       </section>
       <section class="finish-section py-48">
         <ElementSalesCreations />
@@ -56,10 +52,10 @@ export default Vue.extend({
     ElementSalesCreations,
     ButtonMore,
   },
-  async fetch({ store, error, isDev, query }) {
+  async fetch({ store, error, isDev, query, i18n }) {
     try {
-      await store.dispatch('posts/fetchPosts', { path: '/writing', isDev, query })
-      await store.dispatch('projects/fetchProjects', { path: '/work', isDev, query })
+      await store.dispatch('posts/fetchPosts', { path: i18n.getLocaleCookie() === 'en' ? '/writing/' : '/pt-br/writing/', isDev, query })
+      await store.dispatch('projects/fetchProjects', { path: i18n.getLocaleCookie() === 'en' ? '/work/' : '/pt-br/work/', isDev, query })
     } catch (e) {
       error({
         statusCode: 503,

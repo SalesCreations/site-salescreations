@@ -1,20 +1,14 @@
 <template>
   <div id="photograph-page">
-    <Header title="Photograph" img="image-header-photograph.png" />
+    <Header :title="$t('photograph')" img="image-header-photograph.png" />
     <main>
       <section class="description-section">
         <p>
-          I remember when I was a child, my mother let me take the family photography camera to take pictures of my first two
-          trips together with school. It was a basic photographic film camera and I remember her buying the films with 24 poses
-          😂. I didn't have the digital 'preview' and I only knew how the photo turned out when it was developed. When I started
-          my graduation, I had the photography subject teaching the basics and its aspects and in recent years, my passion for
-          registering moments has only increased.
+          {{ $t('photographDescription') }}
         </p>
       </section>
       <section class="unsplash-section">
-        <h2 class="text-5xl font-black py-10">
-          My photos on <a class="link link-active" href="https://unsplash.com/@salescreations" target="_blank">Unsplash</a>
-        </h2>
+        <h2 class="text-5xl font-black py-10" v-html="$t('myPhotosOnUnsplash')"></h2>
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
           <div v-for="(columns, key) in payload" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
             <a v-for="photo in columns" :key="`photo-${photo.id}`" :href="photo.links.html" target="_blank" class="gallery__link">
