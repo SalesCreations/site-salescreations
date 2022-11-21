@@ -1,6 +1,6 @@
 <template>
   <div id="Writing-page">
-    <Header :title="$t('writing')" img="image-header-writing.png" />
+    <Header title="Writing" img="image-header-writing.png" />
     <main>
       <section class="writing-section mt-6">
         <ul class="last-posts divide-y divide-gray-300">
