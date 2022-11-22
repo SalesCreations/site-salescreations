@@ -1,6 +1,6 @@
 <template>
   <div id="about-page">
-    <Header title="About" img="image-header-about.png" />
+    <SharedHeader title="About" img="image-header-about.png" />
     <main>
       <section class="description-section">
         <h6 class="font-bold text-xl">Hello!</h6>
@@ -21,9 +21,9 @@
       <section class="finish-section pt-20 pb-10">
         <ElementSalesCreations />
       </section>
-      <template v-if="story.content.component" v-editable="story.content.body">
+      <!-- <template v-if="story.content.component" v-editable="story.content.body">
         <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
-      </template>
+      </template> -->
       <section class="resume-section my-10">
         <BannerCta />
       </section>
@@ -32,48 +32,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { isEditModeGeneral } from '@/plugins/helper.js'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
-import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
-import BannerCta from '@/components/banners/BannerCta.vue'
-import CardSkill from '@/components/cards/CardSkill.vue'
-import CardTimeline from '@/components/timeline/CardTimeline.vue'
-
-Vue.component('CardSkill', CardSkill)
-Vue.component('CardTimeline', CardTimeline)
-
-export default Vue.extend({
+<script>
+export default {
   name: 'AboutPage',
-  components: {
-    Header,
-    ElementSalesCreations,
-    BannerCta,
-  },
-  asyncData(context): any {
-    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
-    const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-
-    return context.app.$storyapi
-      .get(`cdn/stories/${fullSlug}`, {
-        version,
-      })
-      .then((res: { data: any }) => {
-        return res.data
-      })
-      .catch((res: { response: { data: any; status: any } }) => {
-        if (!res.response) {
-          // eslint-disable-next-line no-console
-          console.error(res)
-          context.error({ statusCode: 404, message: 'Failed to receive content form api' })
-        } else {
-          // eslint-disable-next-line no-console
-          console.error(res.response.data)
-          context.error({ statusCode: res.response.status, message: res.response.data })
-        }
-      })
-  },
   data() {
     return {
       story: { content: {} },
@@ -82,15 +43,12 @@ export default Vue.extend({
       techStart: 0,
     }
   },
-  head: {
-    title: 'About Sales//Creations',
-  },
   mounted() {
     isEditModeGeneral(this)
     this.datasInfo()
   },
   methods: {
-    datasInfo(): void {
+    datasInfo() {
       this.age =
         parseInt(this.$dayjs().format('MM')) < 8
           ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
@@ -99,5 +57,5 @@ export default Vue.extend({
       this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
     },
   },
-})
+}
 </script>

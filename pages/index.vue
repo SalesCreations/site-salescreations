@@ -19,17 +19,17 @@
     <main>
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
-        <div class="last-projects">
+        <!-- <div class="last-projects">
           <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
-        </div>
+        </div> -->
         <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
-          <li v-for="(post, key) in posts" :key="`post--${key}`">
+          <!-- <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardPost :post="post" />
-          </li>
+          </li> -->
         </ul>
         <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
       </section>
@@ -39,40 +39,6 @@
     </main>
   </div>
 </template>
-
-<script lang="ts">
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import CardProject from '@/components/cards/CardProject.vue'
-import CardPost from '@/components/cards/CardPost.vue'
-import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
-import ButtonMore from '@/components/buttons/ButtonMore.vue'
-
-export default Vue.extend({
-  name: 'HomePage',
-  components: {
-    CardProject,
-    CardPost,
-    ElementSalesCreations,
-    ButtonMore,
-  },
-  async fetch({ store, error, isDev, query }) {
-    try {
-      await store.dispatch('posts/fetchPosts', { path: '/writing', isDev, query })
-      await store.dispatch('projects/fetchProjects', { path: '/work', isDev, query })
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
-  computed: mapState({
-    posts: (state: any) => state.posts.posts,
-    projects: (state: any) => state.projects.projects,
-  }),
-})
-</script>
 
 <style lang="postcss" scoped>
 .img-me {

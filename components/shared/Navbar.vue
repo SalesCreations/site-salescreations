@@ -3,7 +3,7 @@
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
         <a href="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
-          <Logo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
+          <SharedLogo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
             src="@/assets/images/gif-hover.gif"
@@ -16,11 +16,11 @@
       <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">
         <div class="flex space-x-10">
-          <NuxtLink to="/work/" class="link rounded-md text-sm text-base"> Work </NuxtLink>
-          <NuxtLink to="/about/" class="link rounded-md text-sm text-base"> About </NuxtLink>
-          <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base"> Experiments </NuxtLink>
-          <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base"> Photograph </NuxtLink>
-          <NuxtLink to="/writing/" class="link rounded-md text-sm text-base"> Writing </NuxtLink>
+          <NuxtLink to="/work/" class="link rounded-md text-base"> Work </NuxtLink>
+          <NuxtLink to="/about/" class="link rounded-md text-base"> About </NuxtLink>
+          <NuxtLink to="/experiments/" class="link rounded-md text-base"> Experiments </NuxtLink>
+          <NuxtLink to="/photograph/" class="link rounded-md text-base"> Photograph </NuxtLink>
+          <NuxtLink to="/writing/" class="link rounded-md text-base"> Writing </NuxtLink>
         </div>
       </div>
       <!-- NAVIGATION MOBILE -->
@@ -57,18 +57,18 @@
     </div>
     <div :class="`dropdow-nav bg-white w-100 sm:hidden ${dropdowNav ? 'active' : ''}`">
       <div class="flex flex-col">
-        <NuxtLink to="/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Home </NuxtLink>
-        <NuxtLink to="/work/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false"> Work </NuxtLink>
-        <NuxtLink to="/about/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/" class="link rounded-md text-base my-2" @click="dropdowNav = false"> Home </NuxtLink>
+        <NuxtLink to="/work/" class="link rounded-md text-base my-2" @click="dropdowNav = false"> Work </NuxtLink>
+        <NuxtLink to="/about/" class="link rounded-md text-base my-2" @click="dropdowNav = false">
           About
         </NuxtLink>
-        <NuxtLink to="/experiments/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/experiments/" class="link rounded-md text-base my-2" @click="dropdowNav = false">
           Experiments
         </NuxtLink>
-        <NuxtLink to="/photograph/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/photograph/" class="link rounded-md text-base my-2" @click="dropdowNav = false">
           Photograph
         </NuxtLink>
-        <NuxtLink to="/writing/" class="link rounded-md text-sm text-base my-2" @click.native="dropdowNav = false">
+        <NuxtLink to="/writing/" class="link rounded-md text-base my-2" @click="dropdowNav = false">
           Writing
         </NuxtLink>
       </div>
@@ -76,20 +76,16 @@
   </nav>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Logo from '@/components/shared/Logo.vue'
-
-export default Vue.extend({
-  name: 'Navbar',
-  components: {
-    Logo,
-  },
-  data: () => ({
-    dropdowNav: false,
-    brandHover: false,
-  }),
-})
+<script>
+export default {
+  name: 'Footer',
+  data() {
+    return {
+      dropdowNav: false,
+      brandHover: false,
+    }
+  }
+}
 </script>
 
 <style scoped>

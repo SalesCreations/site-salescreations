@@ -1,6 +1,6 @@
 <template>
   <div id="photograph-page">
-    <Header title="Photograph" img="image-header-photograph.png" />
+    <SharedHeader title="Photograph" img="image-header-photograph.png" />
     <main>
       <section class="description-section">
         <p>
@@ -11,7 +11,7 @@
           registering moments has only increased.
         </p>
       </section>
-      <section class="unsplash-section">
+      <!-- <section class="unsplash-section">
         <h2 class="text-5xl font-black py-10">
           My photos on <a class="link link-active" href="https://unsplash.com/@salescreations" target="_blank">Unsplash</a>
         </h2>
@@ -32,124 +32,7 @@
             </a>
           </div>
         </div>
-      </section>
+      </section> -->
     </main>
   </div>
 </template>
-
-<script lang="ts">
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
-
-export default Vue.extend({
-  name: 'PhotographPage',
-  components: {
-    Header,
-  },
-  data: () => ({
-    numberColumn: 3,
-    gutter: '14px', // 24px
-  }),
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('photos/fetchPhotos')
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
-  head: {
-    title: 'Photographs with Sales//Creations',
-  },
-  computed: mapState({
-    photos: (state: any) => state.photos.photos,
-    payload(): any[] {
-      const resp: any[] = []
-      this.photos.map((photo: any, index: number) => {
-        const col = index % this.numberColumn
-        if (resp[col]) {
-          resp[col].push(photo)
-        } else {
-          resp[col] = [photo]
-        }
-        return {}
-      })
-      return resp
-    },
-  }),
-})
-</script>
-
-<style lang="postcss">
-.gallery {
-  display: grid;
-  grid-column-gap: var(--column-gutter);
-  align-items: start;
-  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
-}
-.gallery__column {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  row-gap: var(--row-gutter);
-}
-.gallery:hover .gallery__image {
-  filter: grayscale(1);
-}
-.gallery__link {
-  margin: 2px;
-  overflow: hidden;
-}
-.gallery__link:hover .gallery__image {
-  filter: grayscale(0);
-}
-.gallery__link:hover .gallery__caption {
-  opacity: 1;
-}
-.gallery__thumb {
-  position: relative;
-}
-.gallery__thumb img {
-  animation: 1s appear;
-}
-.gallery__image {
-  display: block;
-  width: 100%;
-  transition: 0.3s;
-}
-.gallery__image:hover {
-  transform: scale(1.1);
-}
-.gallery__caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 25px 15px 15px;
-  width: 100%;
-  font-family: 'Raleway', sans-serif;
-  font-size: 16px;
-  color: white;
-  opacity: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-  transition: 0.3s;
-}
-.link-active::after {
-  content: ' ';
-  display: block;
-  position: absolute;
-  top: 70%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #ffd600;
-  z-index: -1;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-}
-</style>

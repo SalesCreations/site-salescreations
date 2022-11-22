@@ -45,14 +45,14 @@
   </button>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
+<script>
+export default {
   name: 'ButtonScroll',
-  data: () => ({
-    scrollpx: 0,
-  }),
+  data() {
+    return {
+      scrollpx: 0,
+    }
+  },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
   },
@@ -67,7 +67,7 @@ export default Vue.extend({
       this.scrollpx = window.scrollY
     },
   },
-})
+}
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div id="experiments-page">
-    <Header title="Experiments" img="image-header-experiments.png" />
+    <SharedHeader title="Experiments" img="image-header-experiments.png" />
     <main>
       <section class="description-section">
         <p>
@@ -12,7 +12,7 @@
           platform and who knows soon come here to present some audio visual projects.
         </p>
       </section>
-      <section class="github-section">
+      <!-- <section class="github-section">
         <h2 class="text-5xl font-black py-10">Repos Pinned Github</h2>
         <div class="grid gap-4 grid-cols-12">
           <div
@@ -82,45 +82,18 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </main>
-  </div>
+  </div>  
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
-import CardRepo from '@/components/cards/CardRepo.vue'
-import CardShot from '@/components/cards/CardShot.vue'
-
-export default Vue.extend({
+export default {
   name: 'ExperimentsPage',
-  components: {
-    Header,
-    CardRepo,
-    CardShot,
-  },
-  data: () => ({
-    moreShotHover: false,
-  }),
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('repos/fetchRepos')
-      await store.dispatch('shots/fetchShots')
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
+  data() {
+    return {
+      moreShotHover: false,
     }
   },
-  head: {
-    title: 'Experiments from Sales//Creations',
-  },
-  computed: mapState({
-    repos: (state) => state.repos.repos,
-    shots: (state) => state.shots.shots,
-  }),
-})
+}
 </script>
