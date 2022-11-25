@@ -12,15 +12,15 @@
           platform and who knows soon come here to present some audio visual projects.
         </p>
       </section>
-      <!-- <section class="github-section">
+      <section class="github-section">
         <h2 class="text-5xl font-black py-10">Repos Pinned Github</h2>
         <div class="grid gap-4 grid-cols-12">
           <div
-            v-for="(repo, key) in repos"
+            v-for="(repo, key) in userGitHub.user.pinnedItems.nodes"
             :key="`${key}_${repo.id}`"
             class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
           >
-            <CardRepo :repo="repo" />
+            <CardsCardRepo :repo="repo" />
           </div>
         </div>
       </section>
@@ -33,7 +33,7 @@
               :key="`shot-${shot.id}`"
               class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
             >
-              <CardShot :shot="shot" />
+              <CardsCardShot :shot="shot" />
             </div>
           </template>
           <div
@@ -82,10 +82,31 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
     </main>
   </div>  
 </template>
+
+<script setup>
+const config = useRuntimeConfig();
+const url = 'https://api.dribbble.com/v2/user/shots';
+const options = {
+  server: false,
+  headers: { 
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${config.public.dribbbleToken}`,
+  }
+}
+const { data: shots, pending, errors } = await useLazyAsyncData('shots_lazy', () => {
+  return $fetch(url, options);
+})
+const { data: userGitHub } = await useAsyncGql({
+  operation: 'user',
+  variables: { limit: 5 }
+});
+
+</script>
 
 <script>
 export default {

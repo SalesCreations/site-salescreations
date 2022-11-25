@@ -19,13 +19,13 @@
         </p>
       </section>
       <section class="finish-section pt-20 pb-10">
-        <ElementSalesCreations />
+        <SharedElementSalesCreations />
       </section>
       <!-- <template v-if="story.content.component" v-editable="story.content.body">
         <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
       </template> -->
       <section class="resume-section my-10">
-        <BannerCta />
+        <BannersBannerCta />
       </section>
       <section class="ig-section"></section>
     </main>
@@ -44,8 +44,8 @@ export default {
     }
   },
   mounted() {
-    isEditModeGeneral(this)
-    this.datasInfo()
+    // isEditModeGeneral(this)
+    // this.datasInfo()
   },
   methods: {
     datasInfo() {

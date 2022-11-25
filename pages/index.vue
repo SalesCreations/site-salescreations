@@ -22,7 +22,7 @@
         <!-- <div class="last-projects">
           <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div> -->
-        <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
+        <!-- <ButtonMore class="ml-auto" label="See More Projects" to="/work" /> -->
       </section>
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
@@ -31,10 +31,10 @@
             <CardPost :post="post" />
           </li> -->
         </ul>
-        <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
+        <!-- <ButtonMore class="ml-auto" label="See More Articles" to="/writing" /> -->
       </section>
       <section class="finish-section py-48">
-        <ElementSalesCreations />
+        <SharedElementSalesCreations />
       </section>
     </main>
   </div>
