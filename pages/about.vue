@@ -32,30 +32,22 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'AboutPage',
-  data() {
-    return {
-      story: { content: {} },
-      age: 0,
-      designStart: 0,
-      techStart: 0,
-    }
-  },
-  mounted() {
-    // isEditModeGeneral(this)
-    // this.datasInfo()
-  },
-  methods: {
-    datasInfo() {
-      this.age =
-        parseInt(this.$dayjs().format('MM')) < 8
-          ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
-          : parseInt(this.$dayjs().format('YYYY')) - 1993
-      this.designStart = parseInt(this.$dayjs().format('YYYY')) - 2009
-      this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
-    },
-  },
+<script setup>
+useHead({
+  title: 'About SalesCreations',
+})
+
+let story = ref({content:{}});
+let age = ref(0);
+let designStart = ref(0);
+let techStart = ref(0);
+
+function datasInfo() {
+  this.age =
+    parseInt(this.$dayjs().format('MM')) < 8
+      ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
+      : parseInt(this.$dayjs().format('YYYY')) - 1993
+  this.designStart = parseInt(this.$dayjs().format('YYYY')) - 2009
+  this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
 }
 </script>

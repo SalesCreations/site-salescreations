@@ -38,6 +38,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Photographs with SalesCreations',
+})
 const config = useRuntimeConfig();
 const numberColumn = 3
 const gutter = '14px' // 24px

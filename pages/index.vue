@@ -40,6 +40,9 @@
   </div>
 </template>
 
+<script setup>
+</script>
+
 <style lang="postcss" scoped>
 .img-me {
   animation: 1s appear;

@@ -20,8 +20,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'WorkPage',
-}
+<script setup>
+useHead({
+  title: 'Work done at SalesCreations',
+})
 </script>
