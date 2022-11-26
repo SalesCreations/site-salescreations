@@ -19,14 +19,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'CardShot',
-  props: {
-    shot: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  shot: {
+    type: Object,
+    required: true,
   },
-}
+})
 </script>

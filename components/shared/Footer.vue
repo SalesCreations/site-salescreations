@@ -19,21 +19,14 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-  data() {
-    return {
-      show: false
-    }
+<script setup>
+let show = ref(false);
+const props = defineProps({
+  image: {
+    type: Boolean,
+    required: true,
   },
-  props: {
-    image: {
-      type: Boolean,
-      required: true,
-    },
-  },
-}
+})
 </script>
 
 <style scoped>

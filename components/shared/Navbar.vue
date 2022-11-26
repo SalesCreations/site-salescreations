@@ -76,16 +76,9 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-  data() {
-    return {
-      dropdowNav: false,
-      brandHover: false,
-    }
-  }
-}
+<script setup>
+let dropdowNav = ref(false);
+let brandHover = ref(false);
 </script>
 
 <style scoped>

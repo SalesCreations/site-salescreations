@@ -91,6 +91,7 @@
 useHead({
   title: 'Experiments from SalesCreations',
 })
+let moreShotHover = ref(false);
 const config = useRuntimeConfig();
 const url = 'https://api.dribbble.com/v2/user/shots';
 const options = {
@@ -108,15 +109,4 @@ const { data: userGitHub } = await useAsyncGql({
   operation: 'user',
   variables: { limit: 5 }
 });
-</script>
-
-<script>
-export default {
-  name: 'ExperimentsPage',
-  data() {
-    return {
-      moreShotHover: false,
-    }
-  },
-}
 </script>

@@ -18,22 +18,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'CardRepo',
-  props: {
-    repo: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  repo: {
+    type: Object,
+    required: true,
   },
-  methods: {
-    truncateText(string, maxLength, end = '...') {
-      if (!string) return ''
-      string = string.toString()
-      return `${string.substring(0, maxLength)}${string.length > maxLength ? end : ''}`
-    }
-  }
+})
+const truncateText = (string, maxLength, end = '...') => {
+  if (!string) return ''
+  string = string.toString()
+  return `${string.substring(0, maxLength)}${string.length > maxLength ? end : ''}`
 }
 </script>
 

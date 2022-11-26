@@ -45,29 +45,26 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: 'ButtonScroll',
-  data() {
-    return {
-      scrollpx: 0,
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    },
-    handleScroll() {
-      this.scrollpx = window.scrollY
-    },
-  },
+<script setup>
+const scrollpx = ref(0);
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+function handleScroll() {
+  scrollpx.value = window.scrollY;
+}
+
+// watch(scrollpx, ( newValue, oldValue ) => {
+//   triggerLog(newValue);
+// })
 </script>
 
 <style scoped>

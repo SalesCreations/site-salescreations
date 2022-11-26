@@ -7,20 +7,17 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'Header',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
   },
-}
+  img: {
+    type: String,
+    required: true,
+  },
+})
 </script>
 
 <style scoped>

@@ -10,10 +10,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BannerCta',
-}
+<script setup>
 </script>
 
 <style scoped>
