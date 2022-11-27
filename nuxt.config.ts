@@ -13,16 +13,22 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     'nuxt-graphql-client',
+    ['@storyblok/nuxt', { 
+      accessToken: process.env.ACCESS_TOKEN_SB,
+      bridge: true,
+      apiOptions: { region: 'eu' },
+      useApiClient: true
+    }],
   ],
   components: {
-    dirs: [
-      '~/components',
-    ]
+    global: true,
+    dirs: ['~/components'],
   },
   runtimeConfig: {
     public: {
       dribbbleToken: process.env.DRIBBBLE_TOKEN,
       unsplashKey: process.env.UNSPLASH_KEY,
+      accessTokenSb: process.env.ACCESS_TOKEN_SB,
       'graphql-client': {
         clients: {
           default: 'https://api.spacex.land/graphql',
@@ -35,7 +41,7 @@ export default defineNuxtConfig({
             retainToken: true,
           }
         }
-      }
+      },
     }
   }
 })

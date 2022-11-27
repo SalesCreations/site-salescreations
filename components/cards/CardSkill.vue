@@ -1,29 +1,21 @@
 <template>
   <div v-editable="skill" class="card-skill py-2">
     <a :href="skill.link.url" target="_blank" rel="noreferrer">
-      <h3 class="text-3xl font-black flex items-center">{{ skill.title }} <IconLaunch class="ml-3 mt-1" /></h3>
+      <h3 class="text-3xl font-black flex items-center">{{ skill.title }} <IconsIconLaunch class="ml-3 mt-1" /></h3>
       <p class="text-base text-gray-700">{{ skill.description }}</p>
     </a>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import IconLaunch from '@/components/icons/IconLaunch.vue'
-
-export default Vue.extend({
-  name: 'CardSkill',
-  components: {
-    IconLaunch,
-  },
-  props: {
-    skill: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  skill: {
+    type: Object,
+    required: true,
   },
 })
 </script>
+
 
 <style>
 .card-skill:hover a svg path {

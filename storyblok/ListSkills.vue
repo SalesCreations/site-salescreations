@@ -6,21 +6,16 @@
       :blok="skill"
       class="col-span-10 md:col-span-5 flex flex-wrap content-center"
     >
-      <CardSkill :skill="skill" />
+      <CardsCardSkill :skill="skill" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'InputSearch',
-  props: {
-    blok: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  blok: {
+    type: Object,
+    required: true,
   },
 })
 </script>

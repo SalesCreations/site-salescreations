@@ -21,9 +21,9 @@
       <section class="finish-section pt-20 pb-10">
         <SharedElementSalesCreations />
       </section>
-      <!-- <template v-if="story.content.component" v-editable="story.content.body">
-        <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
-      </template> -->
+      <template v-if="story.story.content.component" v-editable="story.story.content.component">
+				<StoryblokComponent :is="blok.component" v-for="blok in story.story.content.body" :key="blok._uid" :blok="blok" />
+      </template>
       <section class="resume-section my-10">
         <BannersBannerCta />
       </section>
@@ -33,21 +33,46 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs'
+
 useHead({
   title: 'About SalesCreations',
 })
 
-let story = ref({content:{}});
-let age = ref(0);
-let designStart = ref(0);
-let techStart = ref(0);
+const config = useRuntimeConfig();
+let age = ref(0)
+let designStart = ref(0)
+let techStart = ref(0)
+
+const url = 'https://api.storyblok.com/v2/cdn/stories/about'
+const options = {
+  server: false,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    token: config.public.accessTokenSb
+  },
+}
+
+const { data: story } = await useLazyAsyncData('about', () => {
+  return $fetch(url, options);
+})
 
 function datasInfo() {
-  this.age =
-    parseInt(this.$dayjs().format('MM')) < 8
-      ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
-      : parseInt(this.$dayjs().format('YYYY')) - 1993
-  this.designStart = parseInt(this.$dayjs().format('YYYY')) - 2009
-  this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
+  age =
+    parseInt(dayjs().format('MM')) < 8
+      ? parseInt(dayjs().format('YYYY')) - 1993 - 1
+      : parseInt(dayjs().format('YYYY')) - 1993
+  designStart = parseInt(dayjs().format('YYYY')) - 2009
+  techStart = parseInt(dayjs().format('YYYY')) - 2013
 }
+
+datasInfo()
+
+onMounted(() => {
+	useStoryblokBridge(story.value.story.id, (evStory) => (story.value.story = evStory));
+});
 </script>
