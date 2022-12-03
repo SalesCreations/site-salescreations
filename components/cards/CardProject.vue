@@ -19,17 +19,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { ProjectsCollectionItem } from '@/plugins/types'
-
-export default Vue.extend({
-  name: 'CardProject',
-  props: {
-    project: {
-      type: Object as PropType<ProjectsCollectionItem>,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  project: {
+    type: Object,
+    required: true,
   },
 })
 </script>
