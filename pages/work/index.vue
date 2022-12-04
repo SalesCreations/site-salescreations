@@ -13,7 +13,7 @@
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
         <div class="last-projects">
-          <CardsCardProject v-for="(project, key) in projects.stories.slice(1)" :key="`project--${key}`" :project="project" />
+          <CardsCardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
       </section>
     </main>
@@ -24,10 +24,11 @@
 useHead({
   title: 'Work done at SalesCreations',
 })
+let projects = ref({})
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 const options = {
-  server: false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -36,11 +37,9 @@ const options = {
 		resolve_links: 1,
     starts_with: 'work',
     version: 'published',
-    // version: payload.query._storyblok !== undefined || payload.isDev ? 'draft' : 'published'
     token: config.public.accessTokenSb,
   },
 }
-const { data: projects } = await useLazyAsyncData('projects', () => {
-  return $fetch(url, options);
-})
+const { data, pending, error, refresh } = await useFetch(url, options)
+projects = data.value.stories.slice(1)
 </script>

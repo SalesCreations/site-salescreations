@@ -51,7 +51,7 @@ const route = useRoute()
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
 const options = {
-  server: false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -61,9 +61,6 @@ const options = {
     token: config.public.accessTokenSb,
   },
 }
-const { data } = await useLazyAsyncData('project', () => {
-  return $fetch(url, options);
-})
+const { data, pending, error, refresh } = await useFetch(url, options)
 project = data.value.story;
-console.log(project)
 </script>

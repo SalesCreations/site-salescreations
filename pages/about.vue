@@ -34,19 +34,16 @@
 
 <script setup>
 import dayjs from 'dayjs'
-
 useHead({
   title: 'About SalesCreations',
 })
-
 const config = useRuntimeConfig();
 let age = ref(0)
 let designStart = ref(0)
 let techStart = ref(0)
-
 const url = 'https://api.storyblok.com/v2/cdn/stories/about'
 const options = {
-  server: false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -56,11 +53,7 @@ const options = {
     token: config.public.accessTokenSb
   },
 }
-
-const { data: story } = await useLazyAsyncData('about', () => {
-  return $fetch(url, options);
-})
-
+const { data: story, pending, error, refresh } = await useFetch(url, options)
 function datasInfo() {
   age =
     parseInt(dayjs().format('MM')) < 8
@@ -69,9 +62,7 @@ function datasInfo() {
   designStart = parseInt(dayjs().format('YYYY')) - 2009
   techStart = parseInt(dayjs().format('YYYY')) - 2013
 }
-
 datasInfo()
-
 onMounted(() => {
 	useStoryblokBridge(story.value.story.id, (evStory) => (story.value.story = evStory));
 });
