@@ -111,7 +111,7 @@ post = data.value.story;
   background-size: cover;
   animation: 1s appear;
   margin: auto;
-  color-adjust: exact;
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
 }
@@ -181,13 +181,13 @@ post = data.value.story;
 }
 #writing-content pre {
   @apply my-8;
-  color-adjust: exact;
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
 }
 #writing-content pre code {
   @apply rounded;
-  color-adjust: exact;
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
 }

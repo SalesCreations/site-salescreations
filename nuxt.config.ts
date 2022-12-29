@@ -4,7 +4,10 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',
-      title: 'Welcome to SalesCreations'
+      title: 'Welcome to SalesCreations',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
     }
   },
   css: ['@/assets/css/main.css'],

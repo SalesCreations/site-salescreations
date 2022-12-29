@@ -7,8 +7,8 @@
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
             src="@/assets/images/gif-hover.gif"
-            width="36"
-            height="36"
+            width="36.5"
+            height="36.5"
             alt="Brand Sales//Creations gif"
           />
         </a>
