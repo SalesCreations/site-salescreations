@@ -82,7 +82,7 @@ let brandHover = ref(false);
 </script>
 
 <style scoped>
-a.nuxt-link-active::after {
+a.router-link-active::after {
   content: ' ';
   display: block;
   position: absolute;
@@ -94,7 +94,7 @@ a.nuxt-link-active::after {
   background: #ffd600;
   z-index: -1;
 }
-a.nuxt-link-active {
+a.router-link-active {
   position: relative;
 }
 .dropdow-nav {
