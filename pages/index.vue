@@ -19,19 +19,19 @@
     <main>
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
-        <!-- <div class="last-projects">
-          <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
-        </div> -->
-        <!-- <ButtonMore class="ml-auto" label="See More Projects" to="/work" /> -->
+        <div class="last-projects">
+          <CardsCardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
+        </div>
+        <ButtonsButtonMore class="ml-auto" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
-          <!-- <li v-for="(post, key) in posts" :key="`post--${key}`">
-            <CardPost :post="post" />
-          </li> -->
+          <li v-for="(post, key) in posts" :key="`post--${key}`">
+            <CardsCardPost :post="post" />
+          </li>
         </ul>
-        <!-- <ButtonMore class="ml-auto" label="See More Articles" to="/writing" /> -->
+        <ButtonsButtonMore class="ml-auto" label="See More Articles" to="/writing" />
       </section>
       <section class="finish-section py-48">
         <SharedElementSalesCreations />
@@ -41,6 +41,41 @@
 </template>
 
 <script setup>
+let projects = ref({})
+let posts = ref({})
+const config = useRuntimeConfig();
+const url = 'https://api.storyblok.com/v2/cdn/stories'
+const projectsOptions = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    starts_with: 'work',
+    version: 'published',
+    token: config.public.accessTokenSb,
+  },
+}
+const { data, pending, error, refresh } = await useFetch(url, projectsOptions)
+projects = data.value.stories.slice(1)
+
+const postsOptions = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    starts_with: 'writing',
+    version: 'published',
+    token: config.public.accessTokenSb,
+  },
+}
+const postsData = await useFetch(url, postsOptions)
+posts = postsData.data.value.stories.slice(1)
 </script>
 
 <style lang="postcss" scoped>

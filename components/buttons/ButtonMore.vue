@@ -7,14 +7,10 @@
   </NuxtLink>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'ButtonMore',
-
-  props: {
-    label: {
+<script setup>
+let show = ref(false);
+const props = defineProps({
+  label: {
       type: String,
       required: true,
     },
@@ -27,7 +23,6 @@ export default Vue.extend({
       required: false,
       default: 'black',
     },
-  },
 })
 </script>
 
