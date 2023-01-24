@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    'nuxt-graphql-client',
+    // 'nuxt-graphql-client',
     ['@storyblok/nuxt', { 
       accessToken: process.env.ACCESS_TOKEN_SB,
       bridge: true,
@@ -32,6 +32,7 @@ export default defineNuxtConfig({
       dribbbleToken: process.env.DRIBBBLE_TOKEN,
       unsplashKey: process.env.UNSPLASH_KEY,
       accessTokenSb: process.env.ACCESS_TOKEN_SB,
+      writeCodeSegment: process.env.WRITE_CODE_SEGMENT,
       'graphql-client': {
         clients: {
           default: 'https://api.spacex.land/graphql',
