@@ -72,9 +72,7 @@
     <main>
       <section class="show-writing-section">
         <!-- <article id="writing-content" v-html="$md.render(post.content.longText)" /> -->
-        <article id="writing-content">
-          <!-- <RichTextRenderer  :document="post.content.article" /> -->
-        </article>
+        <article id="writing-content" v-html="articleContent"></article>
       </section>
     </main>
   </div>
@@ -99,6 +97,7 @@ const options = {
 }
 const { data, pending, error, refresh } = await useFetch(url, options)
 post = data.value.story;
+const articleContent = computed(() => renderRichText(post.content.article));
 </script>
 
 <style lang="postcss">

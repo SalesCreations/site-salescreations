@@ -8,14 +8,15 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-const route = useRoute()
+import { useRoute } from 'vue-router';
+const route = useRoute();
 
-const analyticPage = () => {
-  analytics.page()
+const analyticPage = (eventName) => {
+  analytics.page(eventName);
 }
 
-watch(() => route.params, analyticPage)
-onMounted(() => analyticPage());
+watch(() => route.name, () => {
+  analyticPage('Visited ' + route.name)
+});
+onMounted(() => analyticPage('App Loaded or refreshed'));
 </script>
-
