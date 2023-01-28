@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    // 'nuxt-graphql-client',
+    'nuxt-graphql-client',
     ['@storyblok/nuxt', { 
       accessToken: process.env.ACCESS_TOKEN_SB,
       bridge: true,
@@ -35,7 +35,6 @@ export default defineNuxtConfig({
       writeCodeSegment: process.env.WRITE_CODE_SEGMENT,
       'graphql-client': {
         clients: {
-          default: 'https://api.spacex.land/graphql',
           github: {
             host: 'https://api.github.com/graphql',
             token: {
