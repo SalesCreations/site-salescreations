@@ -46,10 +46,19 @@
 </template>
 
 <script setup>
+// =======================
+// initialization variables
+// =======================
+
 let project = ref({})
 const route = useRoute()
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
+
+// =======================
+// Request Storyblok API and generate 'project'
+// =======================
+
 const options = {
   server: true,
   headers: {

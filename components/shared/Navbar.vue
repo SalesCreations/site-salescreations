@@ -2,8 +2,8 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <a href="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
-          <SharedLogo :class="`${brandHover ? 'hidden' : 'block'}`" alt="Brand Sales//Creations" />
+        <NuxtLink to="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
+          <SharedLogo :class="`${brandHover ? 'hidden' : 'block'}`" width="33" height="33" alt="Brand Sales//Creations" />
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
             src="@/assets/images/gif-hover.gif"
@@ -11,7 +11,7 @@
             height="36.5"
             alt="Brand Sales//Creations gif"
           />
-        </a>
+        </NuxtLink>
       </div>
       <!-- NAVIGATION DESKTOP -->
       <div class="hidden sm:block ml-auto">

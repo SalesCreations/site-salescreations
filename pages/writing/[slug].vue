@@ -7,7 +7,8 @@
           <img class="rounded-full h-7 w-7" src="@/assets/images/avatar-rafael.jpg" alt="avatar author" width="22" height="22" />
           <span class="ml-1 bold text-xs sm:text-base">Rafael Sales</span>
           <span class="ml-2 sm:ml-3 bold text-gray-500 font-light flex-grow text-xs sm:text-base">
-            {{ $dayjs(post.first_published_at).format('MMM DD, YYYY') }} • 
+            {{ $dayjs(post.first_published_at).format('MMM DD, YYYY') }} 
+            <!-- •  -->
             <!-- {{ time.text }} -->
           </span>
           <svg
@@ -24,7 +25,7 @@
               fill="black"
             />
           </svg>
-          <div class="relative inline-block text-left">
+          <!-- <div class="relative inline-block text-left">
             <svg
               class="cursor-pointer action-post"
               width="20"
@@ -64,14 +65,13 @@
                 </SharedShareNetwork>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="image-post" :style="`background-image: url('${post.content.image}')`" />
       </div>
     </header>
     <main>
       <section class="show-writing-section">
-        <!-- <article id="writing-content" v-html="$md.render(post.content.longText)" /> -->
         <article id="writing-content" v-html="articleContent"></article>
       </section>
     </main>
@@ -79,11 +79,21 @@
 </template>
 
 <script setup>
-import dayjs from 'dayjs'
-let post = ref({})
-const route = useRoute()
+import dayjs from 'dayjs';
+
+// =======================
+// initialization variables
+// =======================
+
+let post = ref({});
+const route = useRoute();
 const config = useRuntimeConfig();
-const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
+const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`;
+
+// =======================
+// Request Storyblok API and generate 'post'
+// =======================
+
 const options = {
   server: true,
   headers: {
@@ -95,9 +105,21 @@ const options = {
     token: config.public.accessTokenSb,
   },
 }
-const { data, pending, error, refresh } = await useFetch(url, options)
+const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
+
+// Generate Article content
+// =======================
+
 const articleContent = computed(() => renderRichText(post.content.article));
+
+// =======================
+// initialization time read
+// =======================
+// const readingTime = require('reading-time');
+// let time = { "text": "", "minutes": 0, "time": 0, "words": 0 };
+// time = readingTime(articleContent);
+
 </script>
 
 <style lang="postcss">

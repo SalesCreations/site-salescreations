@@ -41,10 +41,19 @@
 </template>
 
 <script setup>
+// =======================
+// initialization variables
+// =======================
+
 let projects = ref({})
 let posts = ref({})
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+// =======================
+// Request Storyblok API and generate 'projects'
+// =======================
+
 const projectsOptions = {
   server: true,
   headers: {
@@ -60,6 +69,10 @@ const projectsOptions = {
 }
 const { data, pending, error, refresh } = await useFetch(url, projectsOptions)
 projects = data.value.stories.slice(1)
+
+// =======================
+// Request Storyblok API and generate 'posts'
+// =======================
 
 const postsOptions = {
   server: true,
