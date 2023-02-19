@@ -109,25 +109,67 @@ const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
 
 // Generate Article content
-// =======================
-
 const articleContent = computed(() => renderRichText(post.content.article));
 
 // =======================
 // General methos
 // =======================
 
+// Function Print Page
 const printPage = () => {
   window.print()
 }
 
 // initialization time read
-// =======================
-
 // const readingTime = require('reading-time');
 // let time = { "text": "", "minutes": 0, "time": 0, "words": 0 };
 // time = readingTime(articleContent);
 
+// =======================
+// <Head> define meta tags
+// =======================
+
+useHead({
+  title: post.content.title,
+  meta: [
+    {
+      name: 'description',
+      content: post.content.intro
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: post.content.title,
+    },
+    {
+      property: 'og:description',
+      content: post.content.intro
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: post.content.image
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: post.content.image
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
+})
 </script>
 
 <style lang="postcss">

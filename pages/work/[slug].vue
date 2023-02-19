@@ -74,8 +74,6 @@ const { data, pending, error, refresh } = await useFetch(url, options)
 project = data.value.story;
 
 // Generate Article content
-// =======================
-
 const articleContent = computed(() => renderRichText(project.content.new_content));
 </script>
 
