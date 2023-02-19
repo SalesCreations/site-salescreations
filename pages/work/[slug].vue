@@ -105,7 +105,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: () => project?.content.image
+      content: () => project?.content.metaImage
     },
     {
       property: 'twitter:card',
@@ -113,7 +113,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: () => project?.content.image
+      content: () => project?.content.metaImage
     },
     {
       property: 'twitter:site',
