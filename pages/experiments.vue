@@ -88,12 +88,31 @@
 </template>
 
 <script setup>
+// =======================
+// <Head> define meta tags
+// =======================
 useHead({
   title: 'Experiments from SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area."
+    }
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
 let moreShotHover = ref(false);
 const config = useRuntimeConfig();
 const url = 'https://api.dribbble.com/v2/user/shots';
+
+// =======================
+// Request Dribbble API and generate 'shots'
+// =======================
+
 const options = {
   server: false,
   headers: { 
@@ -105,6 +124,11 @@ const options = {
 const { data: shots, pending, errors } = await useLazyAsyncData('shots_lazy', () => {
   return $fetch(url, options);
 })
+
+// =======================
+// Request GitHub API in GraphQl and generate 'userGithbub'
+// =======================
+
 const { data: userGitHub } = await useAsyncGql({
   operation: 'user',
   variables: { limit: 5 }

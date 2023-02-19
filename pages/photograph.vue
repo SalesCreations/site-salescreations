@@ -38,13 +38,32 @@
 </template>
 
 <script setup>
+// =======================
+// <Head> define meta tags
+// =======================
 useHead({
   title: 'Photographs with SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area."
+    },
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
 const config = useRuntimeConfig();
 const numberColumn = 3
 const gutter = '14px' // 24px
 const url = 'https://api.unsplash.com/users/salescreations/photos';
+
+// =======================
+// Request Unsplash API and generate 'photos'
+// =======================
+
 const options = {
   server: false,
   headers: { 
@@ -59,6 +78,10 @@ const options = {
 const { data } = await useLazyAsyncData('photos_lazy', () => {
   return $fetch(url, options);
 })
+
+// Mounting gallery equal position design "unsplash"
+// =======================
+
 const photos = computed({
   get() {
     if(data.value) {

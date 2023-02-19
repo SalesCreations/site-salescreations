@@ -21,12 +21,39 @@
 </template>
 
 <script setup>
+// =======================
+// <Head> define meta tags
+// =======================
+
 useHead({
   title: 'Work done at SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
+    }
+  ]
 })
+
+// useServerSeoMeta({
+//   title: 'Work done at SalesCreations',
+//   ogTitle: 'Work done at SalesCreations',
+//   description: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements',
+//   ogDescription: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements',
+// })
+
+// =======================
+// Request Storyblok API and generate 'projects'
+// =======================
+
 let projects = ref({})
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+// =======================
+// Request Storyblok API and generate 'projects'
+// =======================
+
 const options = {
   server: true,
   headers: {

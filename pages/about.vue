@@ -34,14 +34,39 @@
 
 <script setup>
 import dayjs from 'dayjs'
+
+// =======================
+// <Head> define meta tags
+// =======================
+
 useHead({
   title: 'About SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
+    },
+    {
+      name: 'og:image',
+      content: window.location.origin + "/thumbnail-site.png",
+    }
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
 const config = useRuntimeConfig();
 let age = ref(0)
 let designStart = ref(0)
 let techStart = ref(0)
 const url = 'https://api.storyblok.com/v2/cdn/stories/about'
+
+// =======================
+// Request Storyblok API and generate 'story'
+// =======================
+
 const options = {
   server: true,
   headers: {
@@ -54,7 +79,12 @@ const options = {
   },
 }
 const { data: story, pending, error, refresh } = await useFetch(url, options)
-function datasInfo() {
+
+// =======================
+// Setting Dates Information about me
+// =======================
+
+function datesInfo() {
   age =
     parseInt(dayjs().format('MM')) < 8
       ? parseInt(dayjs().format('YYYY')) - 1993 - 1
@@ -62,7 +92,7 @@ function datasInfo() {
   designStart = parseInt(dayjs().format('YYYY')) - 2009
   techStart = parseInt(dayjs().format('YYYY')) - 2013
 }
-datasInfo()
+datesInfo()
 onMounted(() => {
 	useStoryblokBridge(story.value.story.id, (evStory) => (story.value.story = evStory));
 });
