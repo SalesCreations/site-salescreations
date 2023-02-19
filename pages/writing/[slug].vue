@@ -134,7 +134,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: post.content.intro
+      content: () => post?.content.intro
     },
     {
       property: 'og:site_name',
@@ -142,19 +142,19 @@ useHead({
     },
     {
       property: 'og:title',
-      content: post.content.title,
+      content: () => post?.content.title,
     },
     {
       property: 'og:description',
-      content: post.content.intro
+      content: () => post?.content.intro
     },
     {
       property: 'og:article',
-      content: "webise"
+      content: "article"
     },
     {
       property: 'og:image',
-      content: post.content.image
+      content: () => post?.content.image
     },
     {
       property: 'twitter:card',
@@ -162,7 +162,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: post.content.image
+      content: () => post?.content.image
     },
     {
       property: 'twitter:site',
