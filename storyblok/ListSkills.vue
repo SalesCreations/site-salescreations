@@ -1,10 +1,10 @@
 <template>
-  <div v-editable="blok" class="list-skill grid gap-5 grid-cols-10">
+  <div v-editable="blok" class="list-skill">
     <div
       v-for="skill in blok.skill"
       :key="skill._uid"
       :blok="skill"
-      class="col-span-10 md:col-span-5 flex flex-wrap content-center"
+      class="card-skill-capsule"
     >
       <CardsCardSkill :skill="skill" />
     </div>
@@ -19,3 +19,12 @@ const props = defineProps({
   },
 })
 </script>
+
+<style lang="postcss">
+  .list-skill {
+    @apply grid gap-5 grid-cols-10
+  }
+  .card-skill-capsule {
+    @apply col-span-10 md:col-span-5 flex flex-wrap content-center
+  }
+</style>
