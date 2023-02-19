@@ -75,6 +75,52 @@ project = data.value.story;
 
 // Generate Article content
 const articleContent = computed(() => renderRichText(project.content.new_content));
+
+// =======================
+// <Head> define meta tags
+// =======================
+
+useHead({
+  title: project.content.title,
+  meta: [
+    {
+      name: 'description',
+      content: () => project?.content.resume
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: () => project?.content.title,
+    },
+    {
+      property: 'og:description',
+      content: () => project?.content.resume
+    },
+    {
+      property: 'og:article',
+      content: "article"
+    },
+    {
+      property: 'og:image',
+      content: () => project?.content.image
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: () => project?.content.image
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
+})
 </script>
 
 <style lang="postcss">

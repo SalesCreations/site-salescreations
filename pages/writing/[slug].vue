@@ -130,7 +130,7 @@ const printPage = () => {
 // =======================
 
 useHead({
-  title: post.content.title,
+  title: post?.content.title,
   meta: [
     {
       name: 'description',
