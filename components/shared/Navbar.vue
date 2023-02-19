@@ -2,7 +2,7 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <NuxtLink to="/" rel="home" aria-label="link home" @mouseover="brandHover = true" @mouseleave="brandHover = false">
+        <NuxtLink to="/" rel="home" aria-label="link home" class="brand-link" @mouseover="brandHover = true" @mouseleave="brandHover = false">
           <SharedLogo :class="`${brandHover ? 'hidden' : 'block'}`" width="33" height="33" alt="Brand Sales//Creations" />
           <img
             :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
@@ -96,6 +96,9 @@ a.router-link-active::after {
 }
 a.router-link-active {
   position: relative;
+}
+a.brand-link::after {
+  content: none
 }
 .dropdow-nav {
   opacity: 0;
