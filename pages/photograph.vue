@@ -41,12 +41,49 @@
 // =======================
 // <Head> define meta tags
 // =======================
+
 useHead({
   title: 'Photographs with SalesCreations',
   meta: [
     {
       name: 'description',
-      content: "Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area."
+      content: "xxxx"
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Photographs with SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: "xxxx"
+    },
+    {
+      property: 'og:url',
+      content: window.location.origin
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
     },
   ]
 })

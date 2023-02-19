@@ -14,12 +14,68 @@
 </template>
 
 <script setup>
+// =======================
+// <Head> define meta tags
+// =======================
+
 useHead({
   title: 'Writing ideas by SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.'
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Work done at SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: 'I am a Product Designer and Front-End Developer, initially I created Sales Creations in 2016.'
+    },
+    {
+      property: 'og:url',
+      content: window.location.origin
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
 let posts = ref({})
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+// =======================
+// Request Storyblok API and generate 'posts'
+// =======================
+
 const options = {
   server: true,
   headers: {

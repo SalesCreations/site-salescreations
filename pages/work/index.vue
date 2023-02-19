@@ -31,19 +31,48 @@ useHead({
     {
       name: 'description',
       content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
-    }
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Work done at SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
+    },
+    {
+      property: 'og:url',
+      content: window.location.origin
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: window.location.origin + "/thumbnail-site.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
   ]
 })
 
-// useServerSeoMeta({
-//   title: 'Work done at SalesCreations',
-//   ogTitle: 'Work done at SalesCreations',
-//   description: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements',
-//   ogDescription: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements',
-// })
-
 // =======================
-// Request Storyblok API and generate 'projects'
+// initialization variables
 // =======================
 
 let projects = ref({})

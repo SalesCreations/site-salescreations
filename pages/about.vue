@@ -46,7 +46,6 @@ useHead({
       name: 'description',
       content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
     },
-    // Open Graph tags
     {
       property: 'og:site_name',
       content: 'SalesCreations',
@@ -85,24 +84,6 @@ useHead({
     },
   ]
 })
-
-{/* 
-  <meta property="og:site_name" content="Colby Fayock" />
-  <meta property=“og:title” content=“Anyone Can Map! Inspiration and an introduction to the world of mapping - Colby Fayock" />
-  <meta property="og:description" content="Chef Gusteau was a visionary who created food experiences for the world to enjoy. How can we take his lessons and apply them to the world of…" />
-  <meta property="og:url" content="https://www.colbyfayock.com/2020/03/anyone-can-map-inspiration-and-an-introduction-to-the-world-of-mapping/" />
-  <meta property="og:type" content="article" />
-  <meta property="article:publisher" content="https://www.colbyfayock.com" />
-  <meta property="article:section" content="Coding" />
-  <meta property="article:tag" content="Coding" />
-  <meta property="og:image" content="xxxx" />
-  <meta property="og:image:secure_url" content="xxxx" />
-  <meta property="og:image:width" content="1280" />
-  <meta property="og:image:height" content="640" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="xxxx" />
-  <meta property="twitter:site" content="@colbyfayock" /> 
-*/}
 
 // =======================
 // initialization variables
