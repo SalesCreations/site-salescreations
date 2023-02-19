@@ -46,7 +46,7 @@ useHead({
     },
     {
       property: 'og:url',
-      content: window.location.origin
+      content: "https://salescreations.com.br"
     },
     {
       property: 'og:article',
@@ -54,7 +54,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: window.location.origin + "/thumbnail-site.png"
+      content: "./thumbnail-site.png"
     },
     {
       property: 'twitter:card',
@@ -62,7 +62,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: window.location.origin + "/thumbnail-site.png"
+      content: "./thumbnail-site.png"
     },
     {
       property: 'twitter:site',
