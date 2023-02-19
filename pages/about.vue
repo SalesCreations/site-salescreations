@@ -48,6 +48,7 @@ useHead({
     },
     {
       name: 'og:image',
+      property: 'og:image',
       content: window.location.origin + "/thumbnail-site.png",
     }
   ]
