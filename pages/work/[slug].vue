@@ -36,7 +36,7 @@
     </header>
     <main>
       <section class="show-project-section">
-        <!-- <article id="project-content" v-html="$md.render(project.content.content)" /> -->
+        <article id="project-content" v-html="articleContent"></article>
       </section>
       <section class="contact-section my-10">
         <BannersBannerContact />
@@ -72,4 +72,129 @@ const options = {
 }
 const { data, pending, error, refresh } = await useFetch(url, options)
 project = data.value.story;
+
+// Generate Article content
+// =======================
+
+const articleContent = computed(() => renderRichText(project.content.new_content));
 </script>
+
+<style lang="postcss">
+.image-post {
+  width: 100%;
+  height: 268.031px;
+  background-color: gainsboro;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: 1s appear;
+  margin: auto;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+.dropdown-off {
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.3s;
+}
+.dropdown-on {
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.3s;
+}
+#project-content h2 {
+  @apply font-serif;
+  @apply font-bold;
+  @apply text-3xl;
+  @apply mt-10;
+  @apply mb-5;
+}
+#project-content p,
+#project-content ul {
+  @apply font-serif;
+  @apply text-lg;
+  @apply text-gray-800;
+  @apply tracking-wide;
+  @apply mb-5;
+}
+#project-content img:not(.object-cover) {
+  @apply my-20;
+  @apply px-10;
+  @apply w-full;
+}
+#project-content blockquote {
+  position: relative;
+  z-index: 600;
+  margin: 30px 0 0 0;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4 !important;
+  font-family: 'Roboto Slab', serif;
+  z-index: 0 !important;
+}
+#project-content blockquote p {
+  @apply font-bold;
+  @apply text-2xl;
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+#project-content blockquote p:first-child:before {
+  @apply text-gray-200;
+  content: '\201C';
+  font-size: 6em;
+  font-weight: 700;
+  opacity: 1;
+  position: absolute;
+  top: 0.25em;
+  left: -0.25em;
+  text-shadow: none;
+  z-index: -1;
+}
+#project-content pre {
+  @apply my-8;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
+}
+#project-content pre code {
+  @apply rounded;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
+}
+#project-content a {
+  @apply text-blue-600;
+  @apply underline;
+}
+#project-content ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply pl-4;
+  @apply my-10;
+}
+#project-content ul li {
+  @apply mb-3;
+  list-style: disc;
+}
+.action-post:hover {
+  transform: scale(1.09);
+}
+@media (min-width: 768px) {
+  #project-content ul {
+    @apply pl-10;
+  }
+}
+@media print {
+  .comments-section,
+  .action-post {
+    display: none;
+  }
+}
+</style>
