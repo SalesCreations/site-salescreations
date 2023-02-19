@@ -1,6 +1,6 @@
-<!-- <template>
+<template>
   <div class="input-search py-5">
-    <label for="search">
+    <!-- <label for="search">
       <input
         id="search"
         class="border-black border-2 px-8 py-2 w-full rounded-lg"
@@ -10,12 +10,12 @@
         :onfocus="`this.placeholder = ''`"
         :onblur="`this.placeholder = '${text}'`"
       />
-    </label>
+    </label> -->
     <IconAlgolia class="mt-2 float-right" />
   </div>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -27,7 +27,7 @@ export default Vue.extend({
     },
   },
 })
-</script>
+</script> -->
 
 <style>
 label {
@@ -58,4 +58,4 @@ input::placeholder {
   color: black;
   font-weight: bold;
 }
-</style> -->
+</style>

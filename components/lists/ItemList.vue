@@ -1,10 +1,11 @@
-<!-- <template>
-  <li v-editable="blok">
+<template>
+  <p>review</p>
+  <!-- <li v-editable="blok">
     {{ blok.value }}
-  </li>
+  </li> -->
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
