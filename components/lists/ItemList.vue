@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <li v-editable="blok">
     {{ blok.value }}
   </li>
@@ -16,4 +16,4 @@ export default Vue.extend({
     },
   },
 })
-</script>
+</script> -->

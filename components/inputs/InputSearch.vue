@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="input-search py-5">
     <label for="search">
       <input
@@ -58,4 +58,4 @@ input::placeholder {
   color: black;
   font-weight: bold;
 }
-</style>
+</style> -->
