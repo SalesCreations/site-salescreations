@@ -59,16 +59,12 @@ useHead({
       content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
     },
     {
-      property: 'og:url',
-      content: "https://salescreations.com.br"
-    },
-    {
       property: 'og:article',
       content: "webise"
     },
     {
       property: 'og:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:card',
@@ -76,7 +72,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:site',

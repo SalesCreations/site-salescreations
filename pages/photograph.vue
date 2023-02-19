@@ -62,16 +62,12 @@ useHead({
       content: "xxxx"
     },
     {
-      property: 'og:url',
-      content: "https://salescreations.com.br"
-    },
-    {
       property: 'og:article',
       content: "webise"
     },
     {
       property: 'og:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:card',
@@ -79,7 +75,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:site',

@@ -45,16 +45,12 @@ useHead({
       content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
     },
     {
-      property: 'og:url',
-      content: "https://salescreations.com.br"
-    },
-    {
       property: 'og:article',
       content: "webise"
     },
     {
       property: 'og:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:card',
@@ -62,7 +58,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: "./thumbnail-site.png"
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
     },
     {
       property: 'twitter:site',
