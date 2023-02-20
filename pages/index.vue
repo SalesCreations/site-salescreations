@@ -85,7 +85,8 @@ const postsOptions = {
   },
 }
 const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories.slice(1)
+posts = postsData.data.value.stories
+// posts = postsData.data.value.stories.slice(1)
 </script>
 
 <style lang="postcss" scoped>
