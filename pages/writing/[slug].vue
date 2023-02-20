@@ -31,7 +31,10 @@
     </header>
     <main>
       <section class="show-writing-section">
-        <article id="writing-content" v-html="articleContent"></article>
+        <!-- <article id="writing-content" v-html="articleContent"></article> -->
+        <article id="writing-content" v-editable="post">
+          <Vue3RuntimeTemplate :template="resolvedRichText"></Vue3RuntimeTemplate>
+        </article>
       </section>
     </main>
   </div>
@@ -39,6 +42,10 @@
 
 <script setup>
 import dayjs from 'dayjs';
+import Vue3RuntimeTemplate from 'vue3-runtime-template';
+import IframeSpotify from '~/components/shared/IframeSpotify.vue';
+// import cloneDeep from 'clone-deep';
+// import { createApp, h } from 'vue';
 
 // =======================
 // initialization variables
@@ -68,7 +75,16 @@ const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
 
 // Generate Article content
-const articleContent = computed(() => renderRichText(post.content.article));
+const resolvedRichText = computed(() => renderRichText(post.content.article, {
+  resolver: (component, blok) => {
+    switch (component) {
+      case 'IframeSpotify':
+        return `<component :body='${JSON.stringify(blok)}' is="Shared${component}" />`
+      default:
+        return 'Resolver not defined'
+    };
+  },
+}))
 
 // =======================
 // General methos
