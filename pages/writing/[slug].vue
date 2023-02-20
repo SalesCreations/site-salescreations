@@ -113,7 +113,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: () => post?.content.image
+      content: () => "https:" + post?.content.image
     },
     {
       property: 'twitter:card',
@@ -121,7 +121,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: () => post?.content.image
+      content: () => "https:" + post?.content.image
     },
     {
       property: 'twitter:site',
