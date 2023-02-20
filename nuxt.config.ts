@@ -17,6 +17,24 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-graphql-client',
     'nuxt-simple-sitemap',
+    ['@nuxtjs/i18n', {
+      langDir: 'assets/locales/',
+      defaultLocale: 'en',
+      locales: [
+        {
+          code: 'en',
+          name: 'English',
+          file: 'en.json',
+          description: 'English',
+        },
+        {
+          code: 'pt-br',
+          name: 'Brazilian Portuguese',
+          file: 'pt-br.json',
+          description: 'Brazilian Portuguese',
+        }
+      ],
+    }],
     ['@nuxtjs/robots', {
       rules: {
         UserAgent: '*',
