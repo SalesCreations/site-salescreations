@@ -65,13 +65,13 @@ useHead({
 // =======================
 
 let posts = ref({});
+const nuxtApp = useNuxtApp();
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 
 // =======================
 // Request Storyblok API and generate 'posts'
 // =======================
-
 const options = {
   server: true,
   headers: {
@@ -80,7 +80,7 @@ const options = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: 'writing',
+    starts_with: nuxtApp.$i18n.getLocaleCookie() === 'en' ? '[default]/writing/' : '[default]/pt-br/writing',
     version: 'published',
     token: config.public.accessTokenSb,
   },
