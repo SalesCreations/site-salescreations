@@ -6,6 +6,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const analytics = Analytics({
     app: 'site-salescreations',
+    debug: process.env.NODE_ENV === 'development',
     plugins: [
       segmentPlugin({
         writeKey: runtimeConfig.public.writeCodeSegment
