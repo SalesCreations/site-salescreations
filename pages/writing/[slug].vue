@@ -25,47 +25,6 @@
               fill="black"
             />
           </svg>
-          <!-- <div class="relative inline-block text-left">
-            <svg
-              class="cursor-pointer action-post"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              @click="socialShare = !socialShare"
-            >
-              <path
-                d="M15.75 9.25001C15.9312 9.25001 16.1063 9.31565 16.2429 9.43477C16.3795 9.5539 16.4684 9.71845 16.493 9.89801L16.5 10V15.25C16.5 15.9503 16.2329 16.6242 15.7531 17.1343C15.2733 17.6444 14.617 17.9522 13.918 17.995L13.75 18H6.25C5.54971 18 4.87579 17.7329 4.3657 17.2531C3.85561 16.7733 3.54778 16.117 3.505 15.418L3.5 15.25V10C3.50006 9.80998 3.57224 9.62707 3.70197 9.48822C3.8317 9.34937 4.0093 9.26493 4.19888 9.25198C4.38846 9.23903 4.57589 9.29852 4.7233 9.41844C4.87071 9.53836 4.9671 9.70976 4.993 9.89801L5 10V15.25C5 15.897 5.492 16.43 6.122 16.494L6.25 16.5H13.75C14.0593 16.4999 14.3576 16.3851 14.5871 16.1779C14.8167 15.9707 14.9613 15.6857 14.993 15.378L15 15.25V10C15 9.80109 15.079 9.61033 15.2197 9.46968C15.3603 9.32903 15.5511 9.25001 15.75 9.25001ZM5.227 6.46201L9.47 2.22001C9.59699 2.09299 9.76534 2.01576 9.94445 2.00236C10.1236 1.98897 10.3015 2.04029 10.446 2.14701L10.53 2.22001L14.773 6.46201C14.9089 6.59545 14.989 6.7756 14.9969 6.96591C15.0048 7.15621 14.9401 7.34241 14.8158 7.48671C14.6914 7.63101 14.5169 7.7226 14.3275 7.7429C14.1381 7.7632 13.9481 7.71068 13.796 7.59601L13.712 7.52301L10.75 4.56001V12.25C10.75 12.4312 10.6844 12.6063 10.5652 12.7429C10.4461 12.8795 10.2816 12.9684 10.102 12.993L10 13C9.81876 13 9.64366 12.9344 9.50707 12.8152C9.37048 12.6961 9.28165 12.5316 9.257 12.352L9.25 12.25V4.56001L6.288 7.52301C6.16095 7.65029 5.9924 7.72768 5.81307 7.74108C5.63373 7.75448 5.45555 7.70299 5.311 7.59601L5.227 7.52301C5.09972 7.39596 5.02233 7.22741 5.00893 7.04807C4.99553 6.86874 5.04701 6.69056 5.154 6.54601L5.227 6.46201L9.47 2.22001L5.227 6.46201Z"
-                fill="black"
-              />
-            </svg>
-            <div
-              class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-              :class="`${socialShare ? 'dropdown-on' : 'dropdown-off'}`"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabindex="-1"
-            >
-              <div class="py-1" role="none">
-                <SharedShareNetwork
-                  v-for="network in networks"
-                  :key="network.network"
-                  class="link text-gray-700 block px-4 pt-2 pb-1 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  :network="network.network"
-                  :url="sharing.url"
-                  :title="post.content.title"
-                  :description="post.content.info"
-                  :twitter-user="sharing.twitter"
-                >
-                  <span>{{ network.name }}</span>
-                </SharedShareNetwork>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="image-post" :style="`background-image: url('${post.content.image}')`" />
       </div>

@@ -11,10 +11,12 @@
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
     "nuxt": "3.0.0",
+    "nuxt-simple-sitemap": "^1.0.7",
     "postcss-custom-properties": "^13.1.0"
   },
   "dependencies": {
     "@analytics/segment": "^1.1.4",
+    "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.3.0",
     "@pinia/nuxt": "^0.4.5",
     "@storyblok/nuxt": "^4.5.0",

@@ -2,7 +2,7 @@
   <div class="card-post py-5">
     <NuxtLink :to="`/${post.full_slug}`" class="link-post">
       <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-600">
-        {{ post.content.portuguese ? '🇧🇷' : '🇺🇸' }}{{ post.content.title }}
+        {{ post.content.portuguese ? '🇧🇷' : '🇬🇧' }}{{ post.content.title }}
       </h3>
       <p class="post-intro text-base mb-5">
         {{ post.content.intro }}

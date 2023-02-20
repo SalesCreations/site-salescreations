@@ -16,6 +16,14 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     'nuxt-graphql-client',
+    'nuxt-simple-sitemap',
+    ['@nuxtjs/robots', {
+      rules: {
+        UserAgent: '*',
+        Disallow: ['/*.gif', '/*.pdf', '/404.html', '/500.html'],
+        Allow: ['/', '/work/', '/about/', '/experiments/', '/photograph/', '/writing/']
+      }
+    }],
     ['@storyblok/nuxt', { 
       accessToken: process.env.ACCESS_TOKEN_SB,
       bridge: true,
@@ -44,7 +52,31 @@ export default defineNuxtConfig({
             retainToken: true,
           }
         }
-      },
+      }
+    }
+  },
+  sitemap: {
+    hostname: 'https://salescreations.com.br',
+    trailingSlash: true,
+    include: [
+      '/work',
+      '/about',
+      '/experiments',
+      '/photograph',
+      '/writing',
+    ]
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/work/',
+        '/about/',
+        '/experiments/',
+        '/photograph/',
+        '/writing/',
+      ]
     }
   }
 })
