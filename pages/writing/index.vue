@@ -1,6 +1,6 @@
 <template>
   <div id="Writing-page">
-    <SharedHeader title="Work" img="image-header-writing.png" />
+    <SharedHeader :title="$t('writing')" img="image-header-writing.png" />
     <main>
       <section class="writing-section mt-6">
         <ul class="last-posts divide-y divide-gray-300">
