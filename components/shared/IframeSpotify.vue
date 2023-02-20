@@ -4,17 +4,11 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
-  
-  export default Vue.extend({
-    name: 'IframeSpotify',
-    props: {
-      body: {
-        type: Object,
-        required: true,
-      },
-    },
-  })
-  </script>
-  
+<script setup>
+const props = defineProps({
+  body: {
+    type: String,
+    required: true,
+  },
+})
+</script>

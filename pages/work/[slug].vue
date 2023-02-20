@@ -36,114 +36,121 @@
     </header>
     <main>
       <section class="show-project-section">
-        <article id="project-content" v-html="$md.render(project.content.content)" />
+        <article id="project-content" v-html="articleContent"></article>
       </section>
       <section class="contact-section my-10">
-        <BannerContact />
+        <BannersBannerContact />
       </section>
     </main>
   </div>
 </template>
 
-<script lang="ts">
-import { mapState } from 'vuex'
-import { isEditMode } from '@/plugins/helper.js'
-import Vue from 'vue'
-import BannerContact from '@/components/banners/BannerContact.vue'
+<script setup>
+// =======================
+// initialization variables
+// =======================
 
-export default Vue.extend({
-  name: 'ShowProject',
-  components: {
-    BannerContact,
+let project = ref({})
+const route = useRoute()
+const config = useRuntimeConfig();
+const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
+
+// =======================
+// Request Storyblok API and generate 'project'
+// =======================
+
+const options = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
-  async fetch({ store, error, route, isDev, query }) {
-    try {
-      await store.dispatch('projects/fetchProject', { path: route.path, isDev, query })
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
+  params: {
+    version: 'published',
+    token: config.public.accessTokenSb,
   },
-  head() {
-    return {
-      title: this.project.content.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.project.content.intro,
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: this.project.content.title,
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: this.project.content.resume,
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: `https:${this.project.content.metaImage.filename}`,
-        },
-        {
-          hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
-          content: this.project.content.title,
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.project.content.title,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.project.content.resume,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `https:${this.project.content.metaImage.filename}`,
-        },
-        {
-          hid: 'og:image:secure_url',
-          property: 'og:image:secure_url',
-          content: `https:${this.project.content.metaImage.filename}`,
-        },
-        {
-          hid: 'og:image:alt',
-          property: 'og:image:alt',
-          content: this.project.content.title,
-        },
-      ],
-    }
-  },
-  computed: mapState({
-    project: (state: any) => state.projects.project,
-  }),
-  mounted() {
-    isEditMode(this, 'project', 'projects/updateProject')
-  },
+}
+const { data, pending, error, refresh } = await useFetch(url, options)
+project = data.value.story;
+
+// Generate Article content
+const articleContent = computed(() => renderRichText(project.content.new_content));
+
+// =======================
+// <Head> define meta tags
+// =======================
+
+useHead({
+  title: project.content.title,
+  meta: [
+    {
+      name: 'description',
+      content: () => project?.content.resume
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: () => project?.content.title,
+    },
+    {
+      property: 'og:description',
+      content: () => project?.content.resume
+    },
+    {
+      property: 'og:article',
+      content: "article"
+    },
+    {
+      property: 'og:image',
+      content: () => project?.content.metaImage.filename
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: () => project?.content.metaImage.filename
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
 })
 </script>
 
 <style lang="postcss">
-.image-project {
+.image-post {
   width: 100%;
+  height: 268.031px;
+  background-color: gainsboro;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   animation: 1s appear;
   margin: auto;
-  margin-top: -40px;
-  aspect-ratio: attr(width) / attr(height);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
 }
 @keyframes appear {
   0% {
     opacity: 0;
   }
+}
+.dropdown-off {
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.3s;
+}
+.dropdown-on {
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.3s;
 }
 #project-content h2 {
   @apply font-serif;
@@ -160,10 +167,10 @@ export default Vue.extend({
   @apply tracking-wide;
   @apply mb-5;
 }
-#project-content img {
-  @apply my-32;
+#project-content img:not(.object-cover) {
+  @apply my-20;
   @apply px-10;
-  transform: scale(1.17);
+  @apply w-full;
 }
 #project-content blockquote {
   position: relative;
@@ -189,20 +196,20 @@ export default Vue.extend({
   font-weight: 700;
   opacity: 1;
   position: absolute;
-  top: -0.35em;
+  top: 0.25em;
   left: -0.25em;
   text-shadow: none;
   z-index: -1;
 }
 #project-content pre {
   @apply my-8;
-  color-adjust: exact;
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
 }
 #project-content pre code {
   @apply rounded;
-  color-adjust: exact;
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
 }
@@ -218,13 +225,20 @@ export default Vue.extend({
 }
 #project-content ul li {
   @apply mb-3;
+  list-style: disc;
 }
-@media (max-width: 560px) {
-  .image-project {
-    margin-top: 0;
+.action-post:hover {
+  transform: scale(1.09);
+}
+@media (min-width: 768px) {
+  #project-content ul {
+    @apply pl-10;
   }
-  #project-content img {
-    @apply px-0;
+}
+@media print {
+  .comments-section,
+  .action-post {
+    display: none;
   }
 }
 </style>

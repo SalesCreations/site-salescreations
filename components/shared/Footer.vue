@@ -1,6 +1,6 @@
 <template>
   <footer class="relative">
-    <SocialLinks />
+    <SharedSocialLinks />
     <p class="text-center font-light">
       built with
       <a class="font-bold link-footer" href="https://nuxtjs.org/" target="_blank" rel="noreferrer"> Nuxt.js </a>
@@ -19,20 +19,12 @@
   </footer>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import SocialLinks from '@/components/shared/SocialLinks.vue'
-
-export default Vue.extend({
-  name: 'Footer',
-  components: {
-    SocialLinks
-  },
-  props: {
-    image: {
-      type: Boolean,
-      required: true,
-    },
+<script setup>
+let show = ref(false);
+const props = defineProps({
+  image: {
+    type: Boolean,
+    required: true,
   },
 })
 </script>

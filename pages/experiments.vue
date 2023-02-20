@@ -1,6 +1,6 @@
 <template>
   <div id="experiments-page">
-    <Header title="Experiments" img="image-header-experiments.png" />
+    <SharedHeader title="Experiments" img="image-header-experiments.png" />
     <main>
       <section class="description-section">
         <p>
@@ -16,11 +16,11 @@
         <h2 class="text-5xl font-black py-10">Repos Pinned Github</h2>
         <div class="grid gap-4 grid-cols-12">
           <div
-            v-for="(repo, key) in repos"
+            v-for="(repo, key) in userGitHub.user.pinnedItems.nodes"
             :key="`${key}_${repo.id}`"
             class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
           >
-            <CardRepo :repo="repo" />
+            <CardsCardRepo :repo="repo" />
           </div>
         </div>
       </section>
@@ -33,7 +33,7 @@
               :key="`shot-${shot.id}`"
               class="col-span-12 sm:col-span-6 md:col-span-4 flex flex-wrap content-center"
             >
-              <CardShot :shot="shot" />
+              <CardsCardShot :shot="shot" />
             </div>
           </template>
           <div
@@ -84,43 +84,86 @@
         </div>
       </section>
     </main>
-  </div>
+  </div>  
 </template>
 
-<script>
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
-import CardRepo from '@/components/cards/CardRepo.vue'
-import CardShot from '@/components/cards/CardShot.vue'
+<script setup>
+// =======================
+// <Head> define meta tags
+// =======================
 
-export default Vue.extend({
-  name: 'ExperimentsPage',
-  components: {
-    Header,
-    CardRepo,
-    CardShot,
-  },
-  data: () => ({
-    moreShotHover: false,
-  }),
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('repos/fetchRepos')
-      await store.dispatch('shots/fetchShots')
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
-  head: {
-    title: 'Experiments from Sales//Creations',
-  },
-  computed: mapState({
-    repos: (state) => state.repos.repos,
-    shots: (state) => state.shots.shots,
-  }),
+useHead({
+  title: 'Experiments from SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area."
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Experiments from SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: "Here on the experiments page I want to share some of my side projects that I`m always developing within the design and development area."
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
+let moreShotHover = ref(false);
+const config = useRuntimeConfig();
+const url = 'https://api.dribbble.com/v2/user/shots';
+
+// =======================
+// Request Dribbble API and generate 'shots'
+// =======================
+
+const options = {
+  server: false,
+  headers: { 
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${config.public.dribbbleToken}`,
+  }
+}
+const { data: shots, pending, errors } = await useLazyAsyncData('shots_lazy', () => {
+  return $fetch(url, options);
+})
+
+// =======================
+// Request GitHub API in GraphQl and generate 'userGithbub'
+// =======================
+
+const { data: userGitHub } = await useAsyncGql({
+  operation: 'user',
+  variables: { limit: 5 }
+});
 </script>

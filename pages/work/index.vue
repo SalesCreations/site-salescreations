@@ -1,6 +1,6 @@
 <template>
   <div id="work-page">
-    <Header title="Work" img="image-header-work.png" />
+    <SharedHeader title="Work" img="image-header-work.png" />
     <main>
       <section class="description-section">
         <p>
@@ -13,40 +13,85 @@
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
         <div class="last-projects">
-          <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
+          <CardsCardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
       </section>
     </main>
   </div>
 </template>
 
-<script lang="ts">
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import CardProject from '@/components/cards/CardProject.vue'
-import Header from '@/components/shared/Header.vue'
+<script setup>
+// =======================
+// <Head> define meta tags
+// =======================
 
-export default Vue.extend({
-  name: 'WorkPage',
-  components: {
-    CardProject,
-    Header,
-  },
-  async fetch({ store, error, route, isDev, query }) {
-    try {
-      await store.dispatch('projects/fetchProjects', { path: route.path, isDev, query })
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
-  head: {
-    title: 'Work done at Sales//Creations',
-  },
-  computed: mapState({
-    projects: (state: any) => state.projects.projects,
-  }),
+useHead({
+  title: 'Work done at SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Work done at SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: 'Here you will find some projects I`ve done throughout my professional career, from UX research projects, UI design projects aimed at interfaces and even motion design aimed at product advertisements'
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
+let projects = ref({})
+const config = useRuntimeConfig();
+const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+// =======================
+// Request Storyblok API and generate 'projects'
+// =======================
+
+const options = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    starts_with: 'work',
+    version: 'published',
+    token: config.public.accessTokenSb,
+  },
+}
+const { data, pending, error, refresh } = await useFetch(url, options)
+projects = data.value.stories.slice(1)
 </script>

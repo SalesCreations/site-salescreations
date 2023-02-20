@@ -7,17 +7,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'CardTimeline',
-
-  props: {
-    event: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  event: {
+    type: Object,
+    required: true,
   },
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="photograph-page">
-    <Header title="Photograph" img="image-header-photograph.png" />
+    <SharedHeader title="Photograph" img="image-header-photograph.png" />
     <main>
       <section class="description-section">
         <p>
@@ -16,7 +16,7 @@
           My photos on <a class="link link-active" href="https://unsplash.com/@salescreations" target="_blank">Unsplash</a>
         </h2>
         <div class="gallery" :style="`--column-gutter: ${gutter}; --columns: ${numberColumn}`">
-          <div v-for="(columns, key) in payload" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
+          <div v-for="(columns, key) in photos" :key="key" class="gallery__column" :style="`--row-gutter: ${gutter}`">
             <a v-for="photo in columns" :key="`photo-${photo.id}`" :href="photo.links.html" target="_blank" class="gallery__link">
               <figure class="gallery__thumb bg-gray-500">
                 <img
@@ -37,49 +37,99 @@
   </div>
 </template>
 
-<script lang="ts">
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
+<script setup>
+// =======================
+// <Head> define meta tags
+// =======================
 
-export default Vue.extend({
-  name: 'PhotographPage',
-  components: {
-    Header,
-  },
-  data: () => ({
-    numberColumn: 3,
-    gutter: '14px', // 24px
-  }),
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('photos/fetchPhotos')
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
-  },
-  head: {
-    title: 'Photographs with Sales//Creations',
-  },
-  computed: mapState({
-    photos: (state: any) => state.photos.photos,
-    payload(): any[] {
-      const resp: any[] = []
-      this.photos.map((photo: any, index: number) => {
-        const col = index % this.numberColumn
+useHead({
+  title: 'Photographs with SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "xxxx"
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Photographs with SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: "xxxx"
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
+})
+
+// =======================
+// initialization variables
+// =======================
+
+const config = useRuntimeConfig();
+const numberColumn = 3
+const gutter = '14px' // 24px
+const url = 'https://api.unsplash.com/users/salescreations/photos';
+
+// =======================
+// Request Unsplash API and generate 'photos'
+// =======================
+
+const options = {
+  server: false,
+  headers: { 
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    params: {
+      client_id: config.public.unsplashKey,
+      per_page: 28,
+    },
+}
+const { data } = await useLazyAsyncData('photos_lazy', () => {
+  return $fetch(url, options);
+})
+
+// Mounting gallery equal position design "unsplash"
+// =======================
+
+const photos = computed({
+  get() {
+    if(data.value) {
+      let resp = []
+      data.value.map((photo, index) => {
+        let col = index % numberColumn
         if (resp[col]) {
           resp[col].push(photo)
         } else {
           resp[col] = [photo]
-        }
-        return {}
+        }    
       })
       return resp
-    },
-  }),
+    }
+  },
 })
 </script>
 

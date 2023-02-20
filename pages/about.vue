@@ -1,6 +1,6 @@
 <template>
   <div id="about-page">
-    <Header title="About" img="image-header-about.png" />
+    <SharedHeader title="About" img="image-header-about.png" />
     <main>
       <section class="description-section">
         <h6 class="font-bold text-xl">Hello!</h6>
@@ -19,85 +19,109 @@
         </p>
       </section>
       <section class="finish-section pt-20 pb-10">
-        <ElementSalesCreations />
+        <SharedElementSalesCreations />
       </section>
-      <template v-if="story.content.component" v-editable="story.content.body">
-        <component :is="blok.component" v-for="blok in story.content.body" :key="blok._uid" :blok="blok" />
+      <template v-if="story.story.content.component" v-editable="story.story.content.component">
+				<StoryblokComponent :is="blok.component" v-for="blok in story.story.content.body" :key="blok._uid" :blok="blok" />
       </template>
       <section class="resume-section my-10">
-        <BannerCta />
+        <BannersBannerCta />
       </section>
       <section class="ig-section"></section>
     </main>
   </div>
 </template>
 
-<script lang="ts">
-import { isEditModeGeneral } from '@/plugins/helper.js'
-import Vue from 'vue'
-import Header from '@/components/shared/Header.vue'
-import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
-import BannerCta from '@/components/banners/BannerCta.vue'
-import CardSkill from '@/components/cards/CardSkill.vue'
-import CardTimeline from '@/components/timeline/CardTimeline.vue'
+<script setup>
+import dayjs from 'dayjs'
 
-Vue.component('CardSkill', CardSkill)
-Vue.component('CardTimeline', CardTimeline)
+// =======================
+// <Head> define meta tags
+// =======================
 
-export default Vue.extend({
-  name: 'AboutPage',
-  components: {
-    Header,
-    ElementSalesCreations,
-    BannerCta,
-  },
-  asyncData(context): any {
-    const fullSlug = context.route.path === '/' || context.route.path === '' ? 'home' : context.route.path
-    const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-
-    return context.app.$storyapi
-      .get(`cdn/stories/${fullSlug}`, {
-        version,
-      })
-      .then((res: { data: any }) => {
-        return res.data
-      })
-      .catch((res: { response: { data: any; status: any } }) => {
-        if (!res.response) {
-          // eslint-disable-next-line no-console
-          console.error(res)
-          context.error({ statusCode: 404, message: 'Failed to receive content form api' })
-        } else {
-          // eslint-disable-next-line no-console
-          console.error(res.response.data)
-          context.error({ statusCode: res.response.status, message: res.response.data })
-        }
-      })
-  },
-  data() {
-    return {
-      story: { content: {} },
-      age: 0,
-      designStart: 0,
-      techStart: 0,
-    }
-  },
-  head: {
-    title: 'About Sales//Creations',
-  },
-  mounted() {
-    isEditModeGeneral(this)
-    this.datasInfo()
-  },
-  methods: {
-    datasInfo(): void {
-      this.age =
-        parseInt(this.$dayjs().format('MM')) < 8
-          ? parseInt(this.$dayjs().format('YYYY')) - 1993 - 1
-          : parseInt(this.$dayjs().format('YYYY')) - 1993
-      this.designStart = parseInt(this.$dayjs().format('YYYY')) - 2009
-      this.techStart = parseInt(this.$dayjs().format('YYYY')) - 2013
+useHead({
+  title: 'About SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
     },
-  },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'About SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
 })
+
+// =======================
+// initialization variables
+// =======================
+
+const config = useRuntimeConfig();
+let age = ref(0)
+let designStart = ref(0)
+let techStart = ref(0)
+const url = 'https://api.storyblok.com/v2/cdn/stories/about'
+
+// =======================
+// Request Storyblok API and generate 'story'
+// =======================
+
+const options = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    token: config.public.accessTokenSb
+  },
+}
+const { data: story, pending, error, refresh } = await useFetch(url, options)
+
+// =======================
+// Setting Dates Information about me
+// =======================
+
+function datesInfo() {
+  age =
+    parseInt(dayjs().format('MM')) < 8
+      ? parseInt(dayjs().format('YYYY')) - 1993 - 1
+      : parseInt(dayjs().format('YYYY')) - 1993
+  designStart = parseInt(dayjs().format('YYYY')) - 2009
+  techStart = parseInt(dayjs().format('YYYY')) - 2013
+}
+datesInfo()
+onMounted(() => {
+	useStoryblokBridge(story.value.story.id, (evStory) => (story.value.story = evStory));
+});
 </script>

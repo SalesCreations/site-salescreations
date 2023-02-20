@@ -19,16 +19,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'CardShot',
-  props: {
-    shot: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  shot: {
+    type: Object,
+    required: true,
   },
 })
 </script>

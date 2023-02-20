@@ -20,58 +20,75 @@
       <section class="projects-section">
         <h2 class="text-5xl font-black py-5">Projects</h2>
         <div class="last-projects">
-          <CardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
+          <CardsCardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
-        <ButtonMore class="ml-auto" label="See More Projects" to="/work" />
+        <ButtonsButtonMore class="ml-auto" label="See More Projects" to="/work" />
       </section>
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">Writing</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="`post--${key}`">
-            <CardPost :post="post" />
+            <CardsCardPost :post="post" />
           </li>
         </ul>
-        <ButtonMore class="ml-auto" label="See More Articles" to="/writing" />
+        <ButtonsButtonMore class="ml-auto" label="See More Articles" to="/writing" />
       </section>
       <section class="finish-section py-48">
-        <ElementSalesCreations />
+        <SharedElementSalesCreations />
       </section>
     </main>
   </div>
 </template>
 
-<script lang="ts">
-import { mapState } from 'vuex'
-import Vue from 'vue'
-import CardProject from '@/components/cards/CardProject.vue'
-import CardPost from '@/components/cards/CardPost.vue'
-import ElementSalesCreations from '@/components/shared/ElementSalesCreations.vue'
-import ButtonMore from '@/components/buttons/ButtonMore.vue'
+<script setup>
+// =======================
+// initialization variables
+// =======================
 
-export default Vue.extend({
-  name: 'HomePage',
-  components: {
-    CardProject,
-    CardPost,
-    ElementSalesCreations,
-    ButtonMore,
+let projects = ref({})
+let posts = ref({})
+const config = useRuntimeConfig();
+const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+// =======================
+// Request Storyblok API and generate 'projects'
+// =======================
+
+const projectsOptions = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
-  async fetch({ store, error, isDev, query }) {
-    try {
-      await store.dispatch('posts/fetchPosts', { path: '/writing', isDev, query })
-      await store.dispatch('projects/fetchProjects', { path: '/work', isDev, query })
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch events at this time, please try again',
-      })
-    }
+  params: {
+		resolve_links: 1,
+    starts_with: 'work',
+    version: 'published',
+    token: config.public.accessTokenSb,
   },
-  computed: mapState({
-    posts: (state: any) => state.posts.posts,
-    projects: (state: any) => state.projects.projects,
-  }),
-})
+}
+const { data, pending, error, refresh } = await useFetch(url, projectsOptions)
+projects = data.value.stories.slice(1)
+
+// =======================
+// Request Storyblok API and generate 'posts'
+// =======================
+
+const postsOptions = {
+  server: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  params: {
+		resolve_links: 1,
+    starts_with: 'writing',
+    version: 'published',
+    token: config.public.accessTokenSb,
+  },
+}
+const postsData = await useFetch(url, postsOptions)
+posts = postsData.data.value.stories.slice(1)
 </script>
 
 <style lang="postcss" scoped>
