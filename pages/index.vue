@@ -87,8 +87,10 @@ const postsOptions = {
     token: config.public.accessTokenSb,
   },
 }
-const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories?.slice(1)
+if (nuxtApp) {
+  const postsData = await useFetch(url, postsOptions)
+  posts = postsData.data.value.stories?.slice(1)
+}
 </script>
 
 <style lang="postcss" scoped>
