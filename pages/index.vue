@@ -65,7 +65,7 @@ const projectsOptions = {
   },
 }
 const { data, pending, error, refresh } = await useFetch(url, projectsOptions)
-projects = data.value.stories.slice(1)
+projects = data.value.stories?.slice(1)
 
 // =======================
 // Request Storyblok API and generate 'posts'
@@ -85,8 +85,7 @@ const postsOptions = {
   },
 }
 const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories
-// posts = postsData.data.value.stories.slice(1)
+posts = data.value.stories?.slice(1)
 </script>
 
 <style lang="postcss" scoped>
