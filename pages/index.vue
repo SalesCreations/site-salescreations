@@ -73,7 +73,7 @@ projects = projectsData.data.value.stories?.slice(1)
 // Request Storyblok API and generate 'posts'
 // =======================
 
-let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing' 
+// let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing' 
 const postsOptions = {
   server: true,
   headers: {
@@ -82,15 +82,14 @@ const postsOptions = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: await pathWriting(),
+    starts_with: '[default]/writing/',
     version: 'published',
     token: config.public.accessTokenSb,
   },
 }
-if (nuxtApp) {
-  const postsData = await useFetch(url, postsOptions)
-  posts = postsData.data.value.stories?.slice(1)
-}
+
+const postsData = await useFetch(url, postsOptions)
+posts = postsData.data.value.stories?.slice(1)
 </script>
 
 <style lang="postcss" scoped>
