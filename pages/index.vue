@@ -23,9 +23,9 @@
       <section class="writing-section mt-10">
         <h2 class="text-5xl font-black py-5">{{ $t('writing') }}</h2>
         <ul class="last-posts divide-y divide-gray-300">
-          <li v-for="(post, key) in posts" :key="`post--${key}`">
+          <!-- <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardsCardPost :post="post" />
-          </li>
+          </li> -->
         </ul>
         <ButtonsButtonMore class="ml-auto" :label="$t('seeMoreArticles')" :to="localePath('/writing/')" />
       </section>
@@ -71,21 +71,21 @@ projects = projectsData.data.value.stories?.slice(1)
 // Request Storyblok API and generate 'posts'
 // =======================
 
-const postsOptions = {
-  server: true,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  params: {
-		resolve_links: 1,
-    starts_with: nuxtApp.$i18n.getLocaleCookie() === 'en' ? '[default]/writing/' : '[default]/pt-br/writing',
-    version: 'published',
-    token: config.public.accessTokenSb,
-  },
-}
-const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories?.slice(1)
+// const postsOptions = {
+//   server: true,
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   params: {
+// 		resolve_links: 1,
+//     starts_with: nuxtApp.$i18n.getLocaleCookie() === 'en' ? '[default]/writing/' : '[default]/pt-br/writing',
+//     version: 'published',
+//     token: config.public.accessTokenSb,
+//   },
+// }
+// const postsData = await useFetch(url, postsOptions)
+// posts = postsData.data.value.stories?.slice(1)
 </script>
 
 <style lang="postcss" scoped>
