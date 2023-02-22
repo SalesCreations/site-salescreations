@@ -41,9 +41,11 @@
 </template>
 
 <script setup>
+import 'highlight.js/styles/base16/dracula.css'
 import dayjs from 'dayjs';
+import hljs from 'highlight.js';
+import cloneDeep from 'clone-deep';
 import Vue3RuntimeTemplate from 'vue3-runtime-template';
-import IframeSpotify from '~/components/shared/IframeSpotify.vue';
 
 // =======================
 // initialization variables
@@ -74,17 +76,31 @@ const options = {
 const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
 
+
 // Generate Article content
+const mySchema = cloneDeep(RichTextSchema); // you can make a copy of the default RichTextSchema
 const resolvedRichText = computed(() => renderRichText(post.content.article, {
+  schema: mySchema,
   resolver: (component, blok) => {
     switch (component) {
       case 'IframeSpotify':
         return `<component :body='${JSON.stringify(blok)}' is="Shared${component}" />`
+        break;
       default:
         return 'Resolver not defined'
     };
   },
 }))
+
+// =======================
+// Define Highlight
+// =======================
+
+onMounted(() => {
+  document.querySelectorAll('pre > code').forEach(el => {
+    hljs.highlightElement(el);
+  });
+})
 
 // =======================
 // General methos
