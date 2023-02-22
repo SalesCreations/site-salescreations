@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from '#imports'
 import dayjs from 'dayjs';
 
 // =======================
@@ -76,6 +77,12 @@ useHead({
 // initialization variables
 // =======================
 
+// i18n variables
+const localePath = useLocalePath();
+const { locale } = useI18n();
+let isEnglishI18n = locale.value === 'en';
+
+// general variables
 const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories/about';
@@ -88,6 +95,7 @@ let techStart = ref(0);
 // Request Storyblok API and generate 'story'
 // =======================
 
+let pathAbout = async () => isEnglishI18n ? null : 'pt-br';
 const options = {
   server: true,
   headers: {
@@ -97,6 +105,7 @@ const options = {
   params: {
 		resolve_links: 1,
     version: isDev ? 'draft' : 'published',
+    language: await pathAbout(),
     token: config.public.accessTokenSb
   },
 }

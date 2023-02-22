@@ -81,6 +81,7 @@ let posts = ref({});
 // =======================
 // Request Storyblok API and generate 'posts'
 // =======================
+
 let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const options = {
   server: true,
