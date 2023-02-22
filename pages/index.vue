@@ -39,6 +39,48 @@
 <script setup>
 import { useI18n, useLocalePath } from '#imports'
 
+useHead({
+  title: 'Welcome to SalesCreations',
+  meta: [
+    {
+      name: 'description',
+      content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
+    },
+    {
+      property: 'og:site_name',
+      content: 'SalesCreations',
+    },
+    {
+      property: 'og:title',
+      content: 'Welcome to SalesCreations',
+    },
+    {
+      property: 'og:description',
+      content: "I'm Rafael Sales but you can call me 'Sales', a 28-year-old product designer and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and design that are my two passions"
+    },
+    {
+      property: 'og:article',
+      content: "webise"
+    },
+    {
+      property: 'og:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:image',
+      content: "https://res.cloudinary.com/salesunited93/image/upload/v1676817900/thumbnail-site_emx94f.png"
+    },
+    {
+      property: 'twitter:site',
+      content: '@SalesUnited'
+    },
+  ]
+})
+
 // =======================
 // initialization variables
 // =======================
