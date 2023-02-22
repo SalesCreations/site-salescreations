@@ -74,6 +74,24 @@
         <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-base my-2" @click="dropdowNav = false"> {{ $t('photograph') }} </NuxtLink>
         <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-base my-2" @click="dropdowNav = false"> {{ $t('writing') }} </NuxtLink>
       </div>
+      <div class="language flex space-x-5 mt-4">
+        <nuxt-link class="i18n" :to="switchLocalePath('en')">
+          <img 
+            src="@/assets/images/flags/britain-flag.svg" 
+            class="flag-img w-8 h-8" 
+            @click="dropdowNav = false"
+            alt="english-flag"
+          />
+        </nuxt-link>
+        <nuxt-link class="i18n" :to="switchLocalePath('pt-br')">
+          <img 
+            src="@/assets/images/flags/brazil-flag.svg" 
+            class="flag-img w-8 h-8" 
+            @click="dropdowNav = false"
+            alt="brazil-flag" 
+          />
+        </nuxt-link>
+      </div>
     </div>
   </nav>
 </template>
