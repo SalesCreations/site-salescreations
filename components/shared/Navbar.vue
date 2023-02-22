@@ -23,7 +23,7 @@
             <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-base"> {{ $t('photograph') }} </NuxtLink>
             <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-base"> {{ $t('writing') }} </NuxtLink>
           </div>
-          <div class="language flex space-x-5 ml-8">
+          <div v-if="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path)" class="language flex space-x-5 ml-8">
             <nuxt-link class="i18n" :to="switchLocalePath('en')">
               <img src="@/assets/images/flags/britain-flag.svg" class="flag-img w-6 h-6" alt="english-flag" />
             </nuxt-link>
@@ -74,7 +74,7 @@
         <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-base my-2" @click="dropdowNav = false"> {{ $t('photograph') }} </NuxtLink>
         <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-base my-2" @click="dropdowNav = false"> {{ $t('writing') }} </NuxtLink>
       </div>
-      <div class="language flex space-x-5 mt-4">
+      <div v-if="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path)" class="language flex space-x-5 mt-4">
         <nuxt-link class="i18n" :to="switchLocalePath('en')">
           <img 
             src="@/assets/images/flags/britain-flag.svg" 
@@ -97,7 +97,7 @@
 </template>
 
 <script setup>
-import { useLocalePath, useSwitchLocalePath } from '#imports'
+import { useLocalePath, useSwitchLocalePath, useRoute } from '#imports'
 // =======================
 // initialization variables
 // =======================
@@ -105,7 +105,11 @@ import { useLocalePath, useSwitchLocalePath } from '#imports'
 // i18n variables
 const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
+let route = useRoute()
 const { locale } = useI18n();
+
+const isArticleRegex = new RegExp('\/(writing.+)+$');
+const isWorkRegex = new RegExp('\/(work.+)+$');
 
 // general variables
 let dropdowNav = ref(false);
