@@ -23,11 +23,11 @@
             <NuxtLink :to="localePath('/photograph/')" class="link rounded-md text-base"> {{ $t('photograph') }} </NuxtLink>
             <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-base"> {{ $t('writing') }} </NuxtLink>
           </div>
-          <div v-if="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path)" class="language flex space-x-5 ml-8">
-            <nuxt-link class="i18n" :to="switchLocalePath('en')">
+          <div class="language flex space-x-5 ml-8">
+            <nuxt-link class="i18n" :to="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path) ? switchLocalePath('en') : null">
               <img src="@/assets/images/flags/britain-flag.svg" class="flag-img w-6 h-6" alt="english-flag" />
             </nuxt-link>
-            <nuxt-link class="i18n" :to="switchLocalePath('pt-br')">
+            <nuxt-link class="i18n" :to="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path) ? switchLocalePath('pt-br') : null">
               <img src="@/assets/images/flags/brazil-flag.svg" class="flag-img w-6 h-6" alt="brazil-flag" />
             </nuxt-link>
           </div>
@@ -75,7 +75,7 @@
         <NuxtLink :to="localePath('/writing/')" class="link rounded-md text-base my-2" @click="dropdowNav = false"> {{ $t('writing') }} </NuxtLink>
       </div>
       <div v-if="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path)" class="language flex space-x-5 mt-4">
-        <nuxt-link class="i18n" :to="switchLocalePath('en')">
+        <nuxt-link class="i18n" :to="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path) ? switchLocalePath('en') : null">
           <img 
             src="@/assets/images/flags/britain-flag.svg" 
             class="flag-img w-8 h-8" 
@@ -83,7 +83,7 @@
             alt="english-flag"
           />
         </nuxt-link>
-        <nuxt-link class="i18n" :to="switchLocalePath('pt-br')">
+        <nuxt-link class="i18n" :to="!isArticleRegex.test(route.path) && !isWorkRegex.test(route.path) ? switchLocalePath('pt-br') : null">
           <img 
             src="@/assets/images/flags/brazil-flag.svg" 
             class="flag-img w-8 h-8" 
