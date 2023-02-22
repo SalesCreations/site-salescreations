@@ -79,6 +79,17 @@
 </template>
 
 <script setup>
+import { useLocalePath, useSwitchLocalePath } from '#imports'
+// =======================
+// initialization variables
+// =======================
+
+// i18n variables
+const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
+const { locale } = useI18n();
+
+// general variables
 let dropdowNav = ref(false);
 let brandHover = ref(false);
 </script>

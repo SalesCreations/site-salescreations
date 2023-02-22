@@ -37,17 +37,22 @@
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from '#imports'
+
 // =======================
 // initialization variables
 // =======================
 
-let projects = ref({})
-let posts = ref({})
-const nuxtApp = useNuxtApp();
+// i18n variables
+const localePath = useLocalePath();
+const { locale } = useI18n();
+let isEnglishI18n = locale.value === 'en';
+
+// general variables
+let projects = ref({});
+let posts = ref({});
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
-
-let isEnglishI18n = nuxtApp.$i18n.getLocaleCookie() === 'en'
 
 // =======================
 // Request Storyblok API and generate 'projects'
@@ -73,7 +78,7 @@ projects = projectsData.data.value.stories?.slice(1)
 // Request Storyblok API and generate 'posts'
 // =======================
 
-// let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing' 
+let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const postsOptions = {
   server: true,
   headers: {
@@ -82,7 +87,7 @@ const postsOptions = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: '[default]/writing/',
+    starts_with: await pathWriting(),
     version: 'published',
     token: config.public.accessTokenSb,
   },

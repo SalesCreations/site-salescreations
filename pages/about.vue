@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 // =======================
 // <Head> define meta tags
@@ -77,10 +77,11 @@ useHead({
 // =======================
 
 const config = useRuntimeConfig();
-let age = ref(0)
-let designStart = ref(0)
-let techStart = ref(0)
-const url = 'https://api.storyblok.com/v2/cdn/stories/about'
+let age = ref(0);
+let designStart = ref(0);
+let techStart = ref(0);
+const url = 'https://api.storyblok.com/v2/cdn/stories/about';
+
 
 // =======================
 // Request Storyblok API and generate 'story'

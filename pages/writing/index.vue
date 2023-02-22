@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from '#imports'
+
 // =======================
 // <Head> define meta tags
 // =======================
@@ -64,14 +66,20 @@ useHead({
 // initialization variables
 // =======================
 
+// i18n variables
+const localePath = useLocalePath();
+const { locale } = useI18n();
+let isEnglishI18n = locale.value === 'en';
+
+// general variables
 let posts = ref({});
-const nuxtApp = useNuxtApp();
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 
 // =======================
 // Request Storyblok API and generate 'posts'
 // =======================
+let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const options = {
   server: true,
   headers: {
@@ -80,7 +88,7 @@ const options = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: nuxtApp.$i18n.getLocaleCookie() === 'en' ? '[default]/writing/' : '[default]/pt-br/writing',
+    starts_with: await pathWriting(),
     version: 'published',
     token: config.public.accessTokenSb,
   },
