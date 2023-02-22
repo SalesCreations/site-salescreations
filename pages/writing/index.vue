@@ -72,9 +72,11 @@ const { locale } = useI18n();
 let isEnglishI18n = locale.value === 'en';
 
 // general variables
-let posts = ref({});
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
-const url = 'https://api.storyblok.com/v2/cdn/stories'
+const url = 'https://api.storyblok.com/v2/cdn/stories';
+
+let posts = ref({});
 
 // =======================
 // Request Storyblok API and generate 'posts'
@@ -89,7 +91,7 @@ const options = {
   params: {
 		resolve_links: 1,
     starts_with: await pathWriting(),
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }

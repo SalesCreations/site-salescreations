@@ -44,17 +44,17 @@
 import dayjs from 'dayjs';
 import Vue3RuntimeTemplate from 'vue3-runtime-template';
 import IframeSpotify from '~/components/shared/IframeSpotify.vue';
-// import cloneDeep from 'clone-deep';
-// import { createApp, h } from 'vue';
 
 // =======================
 // initialization variables
 // =======================
 
-let post = ref({});
+const isDev = process.env.NODE_ENV === 'development';
 const route = useRoute();
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`;
+
+let post = ref({});
 
 // =======================
 // Request Storyblok API and generate 'post'
@@ -67,7 +67,7 @@ const options = {
     'Content-Type': 'application/json',
   },
   params: {
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }

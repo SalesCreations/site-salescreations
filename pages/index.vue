@@ -49,11 +49,12 @@ const { locale } = useI18n();
 let isEnglishI18n = locale.value === 'en';
 
 // general variables
-let projects = ref({});
-let posts = ref({});
-// let postsPending = ref(false);
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+let projects = ref({});
+let posts = ref({});
 
 // =======================
 // Request Storyblok API and generate 'projects'
@@ -68,7 +69,7 @@ const projectsOptions = {
   params: {
 		resolve_links: 1,
     starts_with: 'work',
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }
@@ -89,7 +90,7 @@ const postsOptions = {
   params: {
 		resolve_links: 1,
     starts_with: await pathWriting(),
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }

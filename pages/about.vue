@@ -76,12 +76,13 @@ useHead({
 // initialization variables
 // =======================
 
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
+const url = 'https://api.storyblok.com/v2/cdn/stories/about';
+
 let age = ref(0);
 let designStart = ref(0);
 let techStart = ref(0);
-const url = 'https://api.storyblok.com/v2/cdn/stories/about';
-
 
 // =======================
 // Request Storyblok API and generate 'story'
@@ -95,6 +96,7 @@ const options = {
   },
   params: {
 		resolve_links: 1,
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb
   },
 }
