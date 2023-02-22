@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative">
+  <footer class="relative -z-10">
     <SharedSocialLinks />
     <p class="text-center font-light">
       built with

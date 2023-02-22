@@ -1,29 +1,20 @@
 <template>
   <div id="about-page">
-    <SharedHeader title="About" img="image-header-about.png" />
+    <SharedHeader :title="$t('about')" img="image-header-about.png" />
     <main>
       <section class="description-section">
-        <h6 class="font-bold text-xl">Hello!</h6>
+        <h6 class="font-bold text-xl">{{$t('hello')}}</h6>
         <br />
-        <p>
-          I'm <strong>Rafael Sales</strong> but you can call me <strong>'Sales'</strong>, a {{ age }}-year-old product designer
-          and front-end developer who is very fond of co-creating solutions to complex day-to-day problems, uniting technology and
-          design that are my two passions.
-        </p>
+        <p v-html="$t('aboutDescriptionOne', {age: age})"></p>
         <br />
-        <p>
-          I started my career in the graphic sector, when I was in the last year of high school and fell in love with the
-          possibilities within the design area, right after that I entered the university in the graphic design course, today
-          completing {{ designStart }} years that I started in the world of design and within the {{ designStart }} years I have
-          been {{ techStart }} years working directly in the technology area.
-        </p>
+        <p v-html="$t('aboutDescriptionTwo', {designStart: designStart, techStart: techStart})"></p>
       </section>
       <section class="finish-section pt-20 pb-10">
         <SharedElementSalesCreations />
       </section>
-      <template v-if="story.story.content.component" v-editable="story.story.content.component">
+      <div v-if="story.story.content.component" v-editable="story.story.content.component">
 				<StoryblokComponent :is="blok.component" v-for="blok in story.story.content.body" :key="blok._uid" :blok="blok" />
-      </template>
+      </div>
       <section class="resume-section my-10">
         <BannersBannerCta />
       </section>
@@ -33,7 +24,7 @@
 </template>
 
 <script setup>
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 // =======================
 // <Head> define meta tags
@@ -85,11 +76,13 @@ useHead({
 // initialization variables
 // =======================
 
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
-let age = ref(0)
-let designStart = ref(0)
-let techStart = ref(0)
-const url = 'https://api.storyblok.com/v2/cdn/stories/about'
+const url = 'https://api.storyblok.com/v2/cdn/stories/about';
+
+let age = ref(0);
+let designStart = ref(0);
+let techStart = ref(0);
 
 // =======================
 // Request Storyblok API and generate 'story'
@@ -103,6 +96,7 @@ const options = {
   },
   params: {
 		resolve_links: 1,
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb
   },
 }

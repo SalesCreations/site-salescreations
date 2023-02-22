@@ -1,6 +1,6 @@
 <template>
   <div id="Writing-page">
-    <SharedHeader title="Work" img="image-header-writing.png" />
+    <SharedHeader :title="$t('writing')" img="image-header-writing.png" />
     <main>
       <section class="writing-section mt-6">
         <ul class="last-posts divide-y divide-gray-300">
@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from '#imports'
+
 // =======================
 // <Head> define meta tags
 // =======================
@@ -64,14 +66,22 @@ useHead({
 // initialization variables
 // =======================
 
-let posts = ref({});
+// i18n variables
+const localePath = useLocalePath();
+const { locale } = useI18n();
+let isEnglishI18n = locale.value === 'en';
+
+// general variables
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
-const url = 'https://api.storyblok.com/v2/cdn/stories'
+const url = 'https://api.storyblok.com/v2/cdn/stories';
+
+let posts = ref({});
 
 // =======================
 // Request Storyblok API and generate 'posts'
 // =======================
-
+let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const options = {
   server: true,
   headers: {
@@ -80,8 +90,8 @@ const options = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: 'writing',
-    version: 'published',
+    starts_with: await pathWriting(),
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }

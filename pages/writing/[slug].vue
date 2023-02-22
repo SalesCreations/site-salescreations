@@ -31,7 +31,10 @@
     </header>
     <main>
       <section class="show-writing-section">
-        <article id="writing-content" v-html="articleContent"></article>
+        <!-- <article id="writing-content" v-html="articleContent"></article> -->
+        <article id="writing-content" v-editable="post">
+          <Vue3RuntimeTemplate :template="resolvedRichText"></Vue3RuntimeTemplate>
+        </article>
       </section>
     </main>
   </div>
@@ -39,15 +42,19 @@
 
 <script setup>
 import dayjs from 'dayjs';
+import Vue3RuntimeTemplate from 'vue3-runtime-template';
+import IframeSpotify from '~/components/shared/IframeSpotify.vue';
 
 // =======================
 // initialization variables
 // =======================
 
-let post = ref({});
+const isDev = process.env.NODE_ENV === 'development';
 const route = useRoute();
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`;
+
+let post = ref({});
 
 // =======================
 // Request Storyblok API and generate 'post'
@@ -60,7 +67,7 @@ const options = {
     'Content-Type': 'application/json',
   },
   params: {
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }
@@ -68,7 +75,16 @@ const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
 
 // Generate Article content
-const articleContent = computed(() => renderRichText(post.content.article));
+const resolvedRichText = computed(() => renderRichText(post.content.article, {
+  resolver: (component, blok) => {
+    switch (component) {
+      case 'IframeSpotify':
+        return `<component :body='${JSON.stringify(blok)}' is="Shared${component}" />`
+      default:
+        return 'Resolver not defined'
+    };
+  },
+}))
 
 // =======================
 // General methos

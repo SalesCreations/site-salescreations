@@ -2,12 +2,8 @@
   <div id="home-page">
     <header class="grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 sm:col-span-7 flex flex-wrap content-center">
-        <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">Hello, I’m Rafael Sales</h1>
-        <p class="text-base">
-          I am a <strong>Product Designer and Front-End Developer</strong>, initially I created Sales Creations in 2016 with a
-          focus on helping companies in design projects, but in recent years I changed my positioning only from design to work
-          with design and technology assisting in co-creation with companies in search for solutions.
-        </p>
+        <h1 class="text-5xl font-black leading-none md:leading-normal mb-5 md:mb-0">{{ $t('titleHome') }}</h1>
+        <p class="text-base" v-html="$t('descriptionHome')"></p>
       </div>
       <div class="col-span-10 sm:col-span-3 flex flex-wrap content-center">
         <div class="image-action relative mx-auto">
@@ -18,20 +14,20 @@
     </header>
     <main>
       <section class="projects-section">
-        <h2 class="text-5xl font-black py-5">Projects</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('projects') }}</h2>
         <div class="last-projects">
           <CardsCardProject v-for="(project, key) in projects" :key="`project--${key}`" :project="project" />
         </div>
-        <ButtonsButtonMore class="ml-auto" label="See More Projects" to="/work" />
+        <ButtonsButtonMore class="ml-auto" :label="$t('seeMoreProjects')" :to="localePath('/work/')" />
       </section>
       <section class="writing-section mt-10">
-        <h2 class="text-5xl font-black py-5">Writing</h2>
+        <h2 class="text-5xl font-black py-5">{{ $t('writing') }}</h2>
         <ul class="last-posts divide-y divide-gray-300">
           <li v-for="(post, key) in posts" :key="`post--${key}`">
             <CardsCardPost :post="post" />
           </li>
         </ul>
-        <ButtonsButtonMore class="ml-auto" label="See More Articles" to="/writing" />
+        <ButtonsButtonMore class="ml-auto" :label="$t('seeMoreArticles')" :to="localePath('/writing/')" />
       </section>
       <section class="finish-section py-48">
         <SharedElementSalesCreations />
@@ -41,14 +37,24 @@
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from '#imports'
+
 // =======================
 // initialization variables
 // =======================
 
-let projects = ref({})
-let posts = ref({})
+// i18n variables
+const localePath = useLocalePath();
+const { locale } = useI18n();
+let isEnglishI18n = locale.value === 'en';
+
+// general variables
+const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
+
+let projects = ref({});
+let posts = ref({});
 
 // =======================
 // Request Storyblok API and generate 'projects'
@@ -63,17 +69,18 @@ const projectsOptions = {
   params: {
 		resolve_links: 1,
     starts_with: 'work',
-    version: 'published',
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }
-const { data, pending, error, refresh } = await useFetch(url, projectsOptions)
-projects = data.value.stories.slice(1)
+const { data: projectsData, pending: projectPending } = await useFetch(url, projectsOptions)
+projects = projectsData.value.stories?.slice(1)
 
 // =======================
 // Request Storyblok API and generate 'posts'
 // =======================
 
+let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const postsOptions = {
   server: true,
   headers: {
@@ -82,13 +89,14 @@ const postsOptions = {
   },
   params: {
 		resolve_links: 1,
-    starts_with: 'writing',
-    version: 'published',
+    starts_with: await pathWriting(),
+    version: isDev ? 'draft' : 'published',
     token: config.public.accessTokenSb,
   },
 }
-const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories.slice(1)
+
+const { data: postsData, pending: postsPending } = await useFetch(url, postsOptions)
+posts = postsData.value.stories?.slice(1)
 </script>
 
 <style lang="postcss" scoped>

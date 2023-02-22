@@ -3,7 +3,7 @@
     <header class="header grid gap-4 grid-cols-10 py-10">
       <div class="col-span-10 flex flex-col flex-wrap content-center">
         <h1 class="text-4xl md:text-5xl font-black mb-2">{{ project.content.title }}</h1>
-        <img class="image-project" :src="project.content.cover.filename" alt="XXX" width="895.875" height="318.719" />
+        <img class="image-project" :src="project.content.cover.filename" alt="Header Image" width="895.875" height="318.719" />
         <div class="infos-project mt-10 py-6 border-t border-b grid grid-flow-row grid-cols-2 sm:grid-cols-5 grid-rows-1 gap-3">
           <div class="company-info">
             <h6 class="font-serif font-bold text-base">Company</h6>
@@ -12,19 +12,19 @@
           <div class="team-info">
             <h6 class="font-serif font-bold text-base">Team</h6>
             <ul class="font-serif text-sm text-gray-500">
-              <component :is="blok.component" v-for="blok in project.content.team" :key="blok._uid" :blok="blok" />
+              <component :is="`Lists${blok.component}`" v-for="blok in project.content.team" :key="blok._uid" :blok="blok" />
             </ul>
           </div>
           <div class="tools-info">
             <h6 class="font-serif font-bold text-base">Tools</h6>
             <ul class="font-serif text-sm text-gray-500">
-              <component :is="blok.component" v-for="blok in project.content.tool" :key="blok._uid" :blok="blok" />
+              <component :is="`Lists${blok.component}`" v-for="blok in project.content.tool" :key="blok._uid" :blok="blok" />
             </ul>
           </div>
           <div class="roles-info">
             <h6 class="font-serif font-bold text-base">Roles</h6>
             <ul class="font-serif text-sm text-gray-500">
-              <component :is="blok.component" v-for="blok in project.content.role" :key="blok._uid" :blok="blok" />
+              <component :is="`Lists${blok.component}`" v-for="blok in project.content.role" :key="blok._uid" :blok="blok" />
             </ul>
           </div>
           <div class="year-info">

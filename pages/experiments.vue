@@ -1,19 +1,12 @@
 <template>
   <div id="experiments-page">
-    <SharedHeader title="Experiments" img="image-header-experiments.png" />
+    <SharedHeader :title="$t('experiments')" img="image-header-experiments.png" />
     <main>
       <section class="description-section">
-        <p>
-          Here on the experiments page I want to share some of my side projects that I'm always developing within the design and
-          development area, here I want to present some of my
-          <a href="https://github.com/rsales" class="underline text-blue-500" target="_blank">github</a>
-          repositories and some quick design projects that I share through the
-          <a href="https://dribbble.com/salescreations" class="underline text-blue-500" target="_blank">dribbble</a>
-          platform and who knows soon come here to present some audio visual projects.
-        </p>
+        <p v-html="$t('experimentsDescription')"></p>
       </section>
       <section class="github-section">
-        <h2 class="text-5xl font-black py-10">Repos Pinned Github</h2>
+        <h2 class="text-5xl font-black py-10">{{ $t('reposPinnedGithub') }}</h2>
         <div class="grid gap-4 grid-cols-12">
           <div
             v-for="(repo, key) in userGitHub.user.pinnedItems.nodes"
@@ -25,7 +18,7 @@
         </div>
       </section>
       <section class="dribbble-section">
-        <h2 class="text-5xl font-black py-10">Latest projects on Dribbble</h2>
+        <h2 class="text-5xl font-black py-10">{{ $t('latestProjectsOnDribbble') }}</h2>
         <div class="grid gap-4 grid-cols-12">
           <template v-for="(shot, key) in shots">
             <div
