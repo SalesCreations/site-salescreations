@@ -51,6 +51,7 @@ let isEnglishI18n = locale.value === 'en';
 // general variables
 let projects = ref({});
 let posts = ref({});
+// let postsPending = ref(false);
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 
@@ -71,8 +72,8 @@ const projectsOptions = {
     token: config.public.accessTokenSb,
   },
 }
-const projectsData = await useFetch(url, projectsOptions)
-projects = projectsData.data.value.stories?.slice(1)
+const { data: projectsData, pending: projectPending } = await useFetch(url, projectsOptions)
+projects = projectsData.value.stories?.slice(1)
 
 // =======================
 // Request Storyblok API and generate 'posts'
@@ -93,8 +94,8 @@ const postsOptions = {
   },
 }
 
-const postsData = await useFetch(url, postsOptions)
-posts = postsData.data.value.stories?.slice(1)
+const { data: postsData, pending: postsPending } = await useFetch(url, postsOptions)
+posts = postsData.value.stories?.slice(1)
 </script>
 
 <style lang="postcss" scoped>
