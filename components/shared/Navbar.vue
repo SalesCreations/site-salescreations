@@ -117,7 +117,7 @@ let brandHover = ref(false);
 </script>
 
 <style scoped>
-a.router-link-active::after:not(.i18n,.brand-link) {
+.pages a.router-link-active::after {
   content: ' ';
   display: block;
   position: absolute;
@@ -129,18 +129,18 @@ a.router-link-active::after:not(.i18n,.brand-link) {
   background: #ffd600;
   z-index: -1;
 }
-.dropdow-nav:not(.i18n,.brand-link) {
+.dropdow-nav {
   opacity: 0;
   transition: 0.3s;
   display: none;
 }
-.dropdow-nav.active:not(.i18n,.brand-link) {
+.dropdow-nav.active {
   opacity: 1;
   transition: 0.3s;
   display: block;
 }
 
-.dropdow-nav.active:not(.i18n,.brand-link) {
+.dropdow-nav.active {
   opacity: 1;
   transition: 0.3s;
   display: block;
