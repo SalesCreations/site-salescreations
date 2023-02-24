@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const isDev = process.env.NODE_ENV === 'development';
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -54,11 +56,11 @@ export default defineNuxtConfig({
     dirs: ['~/components'],
   },
   runtimeConfig: {
-    public: {
+    public:  {
       dribbbleToken: process.env.DRIBBBLE_TOKEN,
       unsplashKey: process.env.UNSPLASH_KEY,
       accessTokenSb: process.env.ACCESS_TOKEN_SB,
-      writeCodeSegment: process.env.WRITE_CODE_SEGMENT,
+      writeCodeSegment: isDev ? process.env.WRITE_CODE_SEGMENT_SANDBOX : process.env.WRITE_CODE_SEGMENT,
       'graphql-client': {
         clients: {
           github: {
