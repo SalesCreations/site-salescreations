@@ -73,10 +73,7 @@ const options = {
     token: config.public.accessTokenSb,
   },
 }
-// const { data, pending, error, refresh } = await useFetch(url, options);
-const { data } = await useLazyAsyncData('post', () => {
-  return $fetch(url, options);
-})
+const { data, pending, error, refresh } = await useFetch(url, options);
 post = data.value.story;
 
 
