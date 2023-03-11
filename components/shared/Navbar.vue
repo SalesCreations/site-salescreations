@@ -2,15 +2,8 @@
   <nav>
     <div class="container mx-auto py-2 flex flex-wrap items-center md:flex-no-wrap">
       <div class="mr-4 md:mr-8">
-        <NuxtLink :to="localePath('/')" rel="home" aria-label="link home" class="brand-link" @mouseover="brandHover = true" @mouseleave="brandHover = false">
-          <SharedLogo :class="`${brandHover ? 'hidden' : 'block'}`" width="33" height="33" alt="Brand Sales//Creations" />
-          <img
-            :class="`brand-gif ${brandHover ? 'block' : 'hidden'}`"
-            src="@/assets/images/gif-hover.gif"
-            width="36.5"
-            height="36.5"
-            alt="Brand Sales//Creations gif"
-          />
+        <NuxtLink :to="localePath('/')" rel="home" aria-label="link home" class="brand-link">
+          <SharedLogo width="33" height="33" alt="Brand Sales//Creations" />
         </NuxtLink>
       </div>
       <!-- NAVIGATION DESKTOP -->
@@ -113,7 +106,6 @@ const isWorkRegex = new RegExp('\/(work.+)+$');
 
 // general variables
 let dropdowNav = ref(false);
-let brandHover = ref(false);
 </script>
 
 <style scoped>
