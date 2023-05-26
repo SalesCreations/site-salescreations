@@ -2,7 +2,7 @@
 const isDev = process.env.NODE_ENV === 'development';
 
 export default defineNuxtConfig({
-  ssr: false,
+  // ssr: false,
   app: {
     head: {
       charset: 'utf-8',
