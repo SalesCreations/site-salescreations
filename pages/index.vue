@@ -124,7 +124,7 @@ projects = projectsData.value.stories?.slice(1)
 
 let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const postsOptions = {
-  server: isDev ? true : false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
