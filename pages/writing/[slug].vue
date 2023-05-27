@@ -64,7 +64,7 @@ let post = reactive([]);
 // =======================
 
 const options = {
-  server: true,
+  server: isDev ? true : false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
