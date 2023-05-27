@@ -60,7 +60,7 @@ const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
 // =======================
 
 const options = {
-  server: false,
+  server: isDev ? true : false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
