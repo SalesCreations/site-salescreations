@@ -63,7 +63,7 @@ let post = ref({});
 // =======================
 
 const options = {
-  server: isDev ? true : false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
