@@ -76,7 +76,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories';
 
-let posts = ref({});
+let posts = ref([]);
 
 // =======================
 // Request Storyblok API and generate 'posts'
@@ -98,4 +98,5 @@ const options = {
 }
 const { data, pending, error, refresh } = await useFetch(url, options)
 posts = data.value.stories.slice(1)
+
 </script>

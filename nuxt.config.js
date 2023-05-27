@@ -2,7 +2,6 @@
 const isDev = process.env.NODE_ENV === 'development';
 
 export default defineNuxtConfig({
-  ssr: false,
   app: {
     head: {
       charset: 'utf-8',
@@ -20,6 +19,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-graphql-client',
     'nuxt-simple-sitemap',
+    'nuxt-lodash',
     ['@nuxtjs/i18n', {
       langDir: 'assets/locales/',
       defaultLocale: 'en',

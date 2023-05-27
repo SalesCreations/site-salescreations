@@ -56,14 +56,15 @@ const route = useRoute();
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`;
 
-let post = ref({});
+// let post = ref({});
+let post = reactive({});
 
 // =======================
 // Request Storyblok API and generate 'post'
 // =======================
 
 const options = {
-  server: false,
+  server: isDev ? true : false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
