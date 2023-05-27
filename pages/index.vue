@@ -95,15 +95,17 @@ const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 
-let projects = ref({});
-let posts = ref({});
+// let projects = ref({});
+// let posts = ref({});
+let projects = reactive({});
+let posts = reactive({});
 
 // =======================
 // Request Storyblok API and generate 'projects'
 // =======================
 
 const projectsOptions = {
-  server: true,
+  server: isDev ? true : false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -124,7 +126,7 @@ projects = projectsData.value.stories?.slice(1)
 
 let pathWriting = async () => isEnglishI18n ? '[default]/writing/' : '[default]/pt-br/writing';
 const postsOptions = {
-  server: true,
+  server: isDev ? true : false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

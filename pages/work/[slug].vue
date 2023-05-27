@@ -54,7 +54,8 @@ const route = useRoute()
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
 
-let project = ref({})
+// let project = ref({});
+let project = reactive({});
 
 // =======================
 // Request Storyblok API and generate 'project'
