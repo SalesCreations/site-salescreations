@@ -50,17 +50,18 @@
 // initialization variables
 // =======================
 
-let project = ref({})
 const route = useRoute()
 const config = useRuntimeConfig();
 const url = `https://api.storyblok.com/v2/cdn/stories/${route.path}`
+
+let project = ref({})
 
 // =======================
 // Request Storyblok API and generate 'project'
 // =======================
 
 const options = {
-  server: true,
+  server: false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
