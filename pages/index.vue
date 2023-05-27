@@ -103,7 +103,7 @@ let posts = ref({});
 // =======================
 
 const projectsOptions = {
-  server: isDev ? true : false,
+  server: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

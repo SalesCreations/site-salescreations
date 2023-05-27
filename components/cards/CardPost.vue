@@ -3,7 +3,7 @@
     <div class="card__title mb-3">
       <div class="skeleton skeleton-text skeleton-title"></div>
     </div>
-    <div class="card__footer mb-5">
+    <div class="card__body mb-5">
       <div class="skeleton skeleton-text"></div>
       <div class="skeleton skeleton-text"></div>
     </div>
@@ -54,14 +54,14 @@ let isloaded = ref(false);
 
 useDelay(() => {
   isloaded.value = true;
-}, 2000);
+}, 500);
 
 // const readingTime = require('reading-time')
 // let time =  ref({ "text": "", "minutes": 0, "time": 0, "words": 0 });
 </script>
 
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .card-post h3,
 .card-post p {
   transition: 0.5s;
