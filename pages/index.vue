@@ -95,10 +95,8 @@ const isDev = process.env.NODE_ENV === 'development';
 const config = useRuntimeConfig();
 const url = 'https://api.storyblok.com/v2/cdn/stories'
 
-// let projects = ref({});
-// let posts = ref({});
-let projects = reactive({});
-let posts = reactive({});
+let projects = ref({});
+let posts = ref({});
 
 // =======================
 // Request Storyblok API and generate 'projects'

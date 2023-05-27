@@ -1,20 +1,5 @@
 <template>
-  <div v-if="post" class="card-post py-5">
-    <NuxtLink :to="`/${post?.full_slug}`" class="link-post">
-      <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-600">
-        {{ post?.content.portuguese ? '🇧🇷' : '🇬🇧' }}{{ post?.content.title }}
-      </h3>
-      <p class="post-intro text-base mb-5">
-        {{ post?.content.intro }}
-      </p>
-      <div class="post-info flex space-x-4 text-sm font-bold">
-        <strong>{{ $dayjs(post?.first_published_at).format('MMM DD, YYYY') }}</strong>
-        <!-- <strong>{{ time.text }}</strong> -->
-      </div>
-    </NuxtLink>
-  </div>
-
-  <div v-else class="card-post-skeleton py-4">
+  <div v-show="isloaded==false" class="card-post-skeleton py-4">
     <div class="card__title mb-3">
       <div class="skeleton skeleton-text skeleton-title"></div>
     </div>
@@ -25,6 +10,21 @@
     <div class="card__footer">
       <div class="skeleton skeleton-text skeleton-footer"></div>
     </div>
+  </div>
+
+  <div v-show="isloaded==true" class="card-post py-5">
+    <NuxtLink :to="`/${post.full_slug}`" class="link-post">
+      <h3 class="post-title text-4xl font-bold leading-none mb-3 text-gray-600">
+        {{ post.content.portuguese ? '🇧🇷' : '🇬🇧' }}{{ post.content.title }}
+      </h3>
+      <p class="post-intro text-base mb-5">
+        {{ post.content.intro }}
+      </p>
+      <div class="post-info flex space-x-4 text-sm font-bold">
+        <strong>{{ $dayjs(post.first_published_at).format('MMM DD, YYYY') }}</strong>
+        <!-- <strong>{{ time.text }}</strong> -->
+      </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -46,8 +46,18 @@ const props = defineProps({
 // initialize the variables
 // =======================
 
+let isloaded = ref(false);
+
+// =======================
+// Delay loading articles
+// =======================
+
+useDelay(() => {
+  isloaded.value = true;
+}, 2000);
+
 // const readingTime = require('reading-time')
-let time =  ref({ "text": "", "minutes": 0, "time": 0, "words": 0 })
+// let time =  ref({ "text": "", "minutes": 0, "time": 0, "words": 0 });
 </script>
 
 

@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-graphql-client',
     'nuxt-simple-sitemap',
+    'nuxt-lodash',
     ['@nuxtjs/i18n', {
       langDir: 'assets/locales/',
       defaultLocale: 'en',
