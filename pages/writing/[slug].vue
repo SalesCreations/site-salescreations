@@ -85,8 +85,10 @@ const resolvedRichText = computed(() => renderRichText(post.content.article, {
   resolver: (component, blok) => {
     switch (component) {
       case 'IframeSpotify':
-        return `<component :body='${JSON.stringify(blok)}' is="Shared${component}" />`
+        return `<component :blok='${JSON.stringify(blok)}' is="Shared${component}" />`
         break;
+      case 'IframeYoutube':
+        return `<component :blok='${JSON.stringify(blok)}' is="Shared${component}" />`
       default:
         return 'Resolver not defined'
     };
