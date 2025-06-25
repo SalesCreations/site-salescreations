@@ -2,6 +2,7 @@
 const isDev = process.env.NODE_ENV === 'development';
 
 export default defineNuxtConfig({
+  ssr: true,
   app: {
     head: {
       charset: 'utf-8',
@@ -45,7 +46,7 @@ export default defineNuxtConfig({
         Allow: ['/', '/work/', '/about/', '/experiments/', '/photograph/', '/writing/']
       }
     }],
-    ['@storyblok/nuxt', { 
+    ['@storyblok/nuxt', {
       accessToken: process.env.ACCESS_TOKEN_SB,
       bridge: true,
       apiOptions: { region: 'eu' },
