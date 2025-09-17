@@ -80,6 +80,8 @@ export default defineNuxtConfig({
       unsplashKey: process.env.UNSPLASH_KEY,
       accessTokenSb: process.env.ACCESS_TOKEN_SB,
       writeCodeSegment: isDev ? process.env.WRITE_CODE_SEGMENT_SANDBOX : process.env.WRITE_CODE_SEGMENT,
+      posthogKey: process.env.NUXT_PUBLIC_POSTHOG_KEY,
+      posthogHost: process.env.NUXT_PUBLIC_POSTHOG_HOST,
       'graphql-client': {
         clients: {
           github: {
